@@ -1,0 +1,123 @@
+.venue-row {
+    margin-top: 1.5em;
+    height: 30vh;
+    max-height: 20em;
+    width: 100%;
+    background: linear-gradient(90deg, var(--color-1), var(--color-1-dark));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em 0 0;
+    gap: 0.5em;
+    margin-bottom: 2em;
+}
+
+.venue-img {
+    height: 30vh;
+    width: 45%;
+    min-width: 4em;
+    object-fit: cover;
+    border-radius: 0 20% 20% 0;
+    scale: 115%;
+}
+
+.venue-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 50%;
+    text-align: left;
+    padding: 1em 0.5em 1em 1em;
+}
+
+.venue-content p {
+    margin-bottom: 0.5em;
+}
+
+.venue-title {
+    color: var(--color-3);
+    font-size: 0.9em;
+    margin-bottom: 0.3em;
+}
+
+.venue-detail {
+    font-size: 0.8em;
+    color: var(--color-2-mid);
+}
+
+.venue-btn {
+    background: linear-gradient(90deg, var(--color-3), var(--color-3-mid));
+    align-self: flex-start;
+    border: 0;
+    border-radius: 2em;
+    color: var(--color-1);
+    font-weight: 700;
+    padding: 0.3em 0.5em;
+    box-shadow: 0 0.1em 0.2em 0 var(--color-box-shadow);
+}
+
+.venue-btn:active {
+    background: linear-gradient(90deg, var(--color-3-lighter), var(--color-3-mid-lighter));
+}
+
+@media screen and (min-width: 600px) {
+    .venue-img {
+        border-radius: 0 10% 10% 0;
+        transition: scale 0.2s ease-in-out;
+    }
+
+    .venue-img:hover {
+        scale: 125%;
+    }
+
+    .venue-content {
+        width: 50%;
+        padding: 1em 0.5em 1em 2em;
+    }
+
+    .venue-title {
+        font-size: 1.2em;
+    }
+
+    .venue-detail {
+        font-size: 1em;
+    }
+
+    .venue-btn {
+        font-size: 1em;
+        font-weight: 700;
+        padding: 0.5em 0.7em;
+        cursor: pointer;
+    }
+
+    .venue-btn:hover {
+        background: linear-gradient(90deg, var(--color-3-dark-lighter), var(--color-3-dark));
+    }
+
+    .venue-btn:active {
+        background: linear-gradient(90deg, var(--color-3-lighter), var(--color-3-mid-lighter));
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .venue-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 4em 0 0;
+        gap: 0.5em;
+        height: 14em;
+    }
+
+
+    .venue-img {
+        width: 30%;
+        height: 100%;
+        border-radius: 0 5% 5% 0;
+    }
+
+    .venue-content {
+        width: 60%;
+    }
+}

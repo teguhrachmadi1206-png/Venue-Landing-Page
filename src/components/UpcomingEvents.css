@@ -1,0 +1,123 @@
+.event-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
+}
+
+.event-cards-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 2vw;
+    gap: 2vw
+}
+
+.event-card {
+    background: linear-gradient(90deg, var(--color-1), var(--color-1-dark));
+    border-radius: 1em;
+    padding: 0.7em;
+    height: 10em;
+    width: 80%;
+    max-width: 18em;
+    min-width: 12em;
+    box-shadow: 0.2em 0.2em 0.5em 0 var(--color-box-shadow);
+}
+
+#event-card-2 {
+    display: none
+}
+
+#event-card-3 {
+    display: none
+}
+
+.event-card:active {
+    background: linear-gradient(90deg, var(--color-1-lighter), var(--color-1-dark-lighter));
+}
+
+.event-card-title {
+    width: 100%;
+    color: var(--color-3);
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+}
+
+.event-card-content {
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5em;
+    object-fit: fill
+}
+
+.event-thumbnail {
+    width: 35%;
+    object-fit: cover;
+    border-radius: 0.5em;
+}
+
+.event-detail {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    color: var(--color-2-mid);
+    font-size: 0.8em;
+    justify-content: space-between;
+}
+
+.event-artist {
+    font-weight: bold;
+    margin-bottom: 0.3em;
+}
+
+.event-category {
+    align-self: end;
+    padding: 0.2em 0.4em;
+    border-radius: 1em;
+    font-weight: bold;
+    background: linear-gradient(90deg, var(--color-3), var(--color-3-mid));
+    color: var(--color-1);
+    box-shadow: 0 0.1em 0.2em 0 var(--color-box-shadow);
+}
+
+@media screen and (min-width: 600px) {
+    #event-card-2 {
+        display: block;
+    }
+
+    .event-card {
+        font-size: 1.2em;
+        padding: 0.7em;
+        height: 11em;
+        width: 50%;
+        max-width: none;
+        transition: scale 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .event-card:hover {
+        scale: 105%;
+    }
+
+    .event-card:active {
+        background: linear-gradient(90deg, var(--color-1-lighter), var(--color-1-dark-lighter));
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #event-card-3 {
+        display: block;
+    }
+
+    .event-card {
+        width: 80%;
+        height: 13em;
+    }
+
+}

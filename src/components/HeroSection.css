@@ -1,0 +1,182 @@
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 9em;
+    display: flex;
+    align-items: center;
+}
+
+.banner-img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 1em;
+    z-index: 1;
+}
+
+.hero-title {
+    color: var(--color-2);
+    font-size: 1.6em;
+    font-weight: 700;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 100%;
+    max-width: 6em;
+    text-wrap: wrap;
+    text-shadow: 0 0 0.5em var(--color-box-shadow);
+}
+
+.hero-content-btn {
+    min-height: 2.5em;
+    background: linear-gradient(90deg, var(--color-3), var(--color-3-mid));
+    border: 0;
+    border-radius: 2em;
+    color: var(--color-1);
+    font-size: 1em;
+    font-weight: 700;
+    padding: 0.5em 0.7em;
+    box-shadow: 0 0.1em 0.2em 0 var(--color-box-shadow);
+}
+
+.hero-content-btn:active {
+    background: linear-gradient(90deg, var(--color-3-lighter), var(--color-3-mid-lighter));
+}
+
+.carousel-control {
+    position: absolute;
+    width: 30vw;
+    bottom: 1.5vw;
+    left: calc(50% - 15vw);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 1;
+}
+
+.carousel-dots {
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.carousel-dot {
+    width: 0.5em;
+    height: 0.5em;
+    border: 0.1em solid var(--color-4-dark);
+    border-radius: 50%;
+    background-color: var(--color-2);
+}
+
+.carousel-dot.selected {
+    background-color: var(--color-3);
+}
+
+.carousel-btn {
+    width: 1em;
+    height: 1em;
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: var(--color-2-dark);
+}
+
+.carousel-btn:active {
+    color: var(--color-4-mid);
+}
+
+.carousel-btn.prev::before {
+    content: "<";
+}
+
+.carousel-btn.next::before {
+    content: ">";
+}
+
+@media screen and (min-width: 600px) {
+    .hero-banner {
+        height: 15em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-content-btn {
+        font-size: 1.3em;
+        cursor: pointer;
+        padding: 0.5em 1em;
+    }
+
+    .hero-content-btn:hover {
+        background: linear-gradient(90deg, var(--color-3-dark-lighter), var(--color-3-dark));
+    }
+
+    .hero-content-btn:active {
+        background: linear-gradient(90deg, var(--color-3-lighter), var(--color-3-mid-lighter));
+    }
+
+    .hero-title {
+        font-size: 3em;
+    }
+
+    .carousel-control {
+        width: 20vw;
+        left: calc(50% - 10vw);
+    }
+
+    .carousel-dot {
+        width: 0.6em;
+        height: 0.6em;
+        cursor: pointer;
+    }
+
+    .carousel-dot:hover {
+        background-color: var(--color-3);
+    }
+
+    .carousel-btn {
+        cursor: pointer;
+    }
+
+    .carousel-btn:hover {
+        color: var(--color-4-dark);
+    }
+
+    .carousel-btn:active {
+        color: var(--color-4-mid);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .hero-banner {
+        height: 25em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-title {
+        font-size: 5em;
+    }
+
+    .hero-content-btn {
+        font-size: 2em;
+    }
+
+    .carousel-control {
+        width: 16vw;
+        left: calc(50% - 8vw);
+    }
+}

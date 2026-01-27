@@ -1,0 +1,112 @@
+.class-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
+}
+
+.class-cards-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 2vw
+}
+
+.class-card {
+    display: flex;
+    background-color: var(--color-2-dark);
+    border-radius: 3em;
+    height: 10em;
+    width: 80%;
+    max-width: 20em;
+    min-width: 16em;
+    box-shadow: 0.3em 0.3em 0.5em 0px var(--color-box-shadow);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.class-card-image {
+    height: 100%;
+    width: 45%;
+    border-radius: 3em 0 0 3em;
+    border: 0;
+    object-fit: cover;
+}
+
+.class-card-content {
+    height: 100%;
+    width: 55%;
+    display: flex;
+    padding: 0.5em 1em 0.5em 0.5em;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.class-card-title {
+    width: 100%;
+    color: var(--color-1);
+    margin-bottom: 0.2em;
+    font-size: 0.9em;
+}
+
+.class-card-detail {
+    color: var(--color-1-dark);
+    height: 90%;
+}
+
+.class-desc {
+    font-size: 0.8em;
+
+}
+
+.learn-more-link {
+    color: var(--color-1-dark);
+    text-decoration: none;
+    font-size: 0.7em;
+    cursor: default;
+}
+
+.learn-more-link:visited {
+    color: var(--color-1)
+}
+
+.learn-more-link:active {
+    color: var(--color-3-mid)
+}
+
+.learn-more-link::after {
+    content: " >";
+}
+
+@media screen and (min-width: 600px) {
+    .class-card {
+        min-width: 13em;
+        width: 45%;
+        font-size: 1em;
+    }
+
+    .class-card:hover {
+        background-color: var(--color-3-lighter);
+    }
+
+    .learn-more-link:hover {
+        color: var(--color-3-dark);
+        cursor: pointer
+    }
+
+    .learn-more-link:active {
+        color: var(--color-3)
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .class-card {
+        font-size: 1.1em;
+        min-width: 15em;
+        max-width: 20em;
+        width: 30%;
+    }
+}
