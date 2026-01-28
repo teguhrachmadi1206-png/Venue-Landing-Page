@@ -1,7 +1,7 @@
-import banner1 from "../assets/banner-1.png"
-import banner2 from "../assets/banner-2.png"
-import banner3 from "../assets/banner-3.png"
-import banner4 from "../assets/banner-4.png"
+import banner1 from "../assets/banner-1.webp"
+import banner2 from "../assets/banner-2.webp"
+import banner3 from "../assets/banner-3.webp"
+import banner4 from "../assets/banner-4.webp"
 
 export const bannerImages = [
     {
