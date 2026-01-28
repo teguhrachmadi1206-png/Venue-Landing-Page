@@ -27,7 +27,7 @@ export default function Header(props) {
                     <a className="nav-link" href="#about-section" onClick={props.media !== 3 && closeExplore}>About Us</a>
                 </nav>}
                 {props.media !== 3 && <button onClick={toggleExplore} className="nav-list-btn">
-                    <img className="menu-btn-icon" src="../src/assets/menu-icon.png" />
+                    <img className="menu-btn-icon" src="/public/menu-icon.png" />
                 </button>}
             </div>
         </header>
