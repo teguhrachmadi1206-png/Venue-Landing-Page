@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Header.css'
-import logoMain from '../assets/logo-main.png'
-import menuIcon from '../assets/menu-icon.png'
+import logoMain from '../assets/logo-main.webp'
+import menuIcon from '../assets/menu-icon.webp'
 
 export default function Header(props) {
     const [shownExplore, setShownExplore] = useState(false)
