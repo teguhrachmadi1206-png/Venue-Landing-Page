@@ -1,8 +1,8 @@
-import eventPoster1 from '../assets/event-poster-1.jpg'
-import eventPoster2 from '../assets/event-poster-2.jpg'
-import eventPoster3 from '../assets/event-poster-3.jpg'
-import eventPoster4 from '../assets/event-poster-4.jpg'
-import eventPoster5 from '../assets/event-poster-5.jpg'
+import eventPoster1 from '../assets/event-poster-1.webp'
+import eventPoster2 from '../assets/event-poster-2.webp'
+import eventPoster3 from '../assets/event-poster-3.webp'
+import eventPoster4 from '../assets/event-poster-4.webp'
+import eventPoster5 from '../assets/event-poster-5.webp'
 
 export const events = [
     {
