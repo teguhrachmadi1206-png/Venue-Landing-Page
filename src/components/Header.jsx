@@ -15,7 +15,7 @@ export default function Header(props) {
     return (
         <header>
             <div className="header-left">
-                <a href="" ><img className="logo-main" src="../src/assets/logo-main.png" /></a>
+                <a href="" ><img className="logo-main" src="/main/src/assets/logo-main.png" /></a>
                 <h1 className="title-main">Cultural Art Space</h1>
             </div>
             <div className="header-right">
