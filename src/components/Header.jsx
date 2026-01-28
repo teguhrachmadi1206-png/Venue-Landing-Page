@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Header.css'
-import '/logo-main.png'
-import '/menu-icon.png'
+import '../assets/logo-main.png'
+import '.../public/menu-icon.png'
 
 export default function Header(props) {
     const [shownExplore, setShownExplore] = useState(false)
@@ -17,7 +17,7 @@ export default function Header(props) {
     return (
         <header>
             <div className="header-left">
-                <a href="" ><img className="logo-main" src="/logo-main.png" /></a>
+                <a href="" ><img className="logo-main" src="../assets/logo-main.png" /></a>
                 <h1 className="title-main">Cultural Art Space</h1>
             </div>
             <div className="header-right">
@@ -29,7 +29,7 @@ export default function Header(props) {
                     <a className="nav-link" href="#about-section" onClick={props.media !== 3 && closeExplore}>About Us</a>
                 </nav>}
                 {props.media !== 3 && <button onClick={toggleExplore} className="nav-list-btn">
-                    <img className="menu-btn-icon" src="/menu-icon.png" />
+                    <img className="menu-btn-icon" src=".../public/menu-icon.png" />
                 </button>}
             </div>
         </header>
