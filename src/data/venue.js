@@ -1,5 +1,5 @@
-import venueImg1 from '../assets/venue-1.png'
-import venueImg2 from '../assets/venue-2.jpg'
+import venueImg1 from '../assets/venue-1.webp'
+import venueImg2 from '../assets/venue-2.webp'
 
 export const venueData = [
     {
