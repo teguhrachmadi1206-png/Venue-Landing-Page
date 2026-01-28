@@ -1,8 +1,15 @@
+import classImg1 from '../assets/class-1.png'
+import classImg2 from '../assets/class-2.png'
+import classImg3 from '../assets/class-3.jpg'
+import classImg4 from '../assets/class-4.jpg'
+import classImg5 from '../assets/class-5.jpg'
+import classImg6 from '../assets/class-6.png'
+
 export const classData = [
     {
         id: 0,
         title: "Contemporary Dance Class",
-        imgSrc: "../src/assets/class-1.png",
+        imgSrc: classImg1,
         imgAlt: "People training for contemporary dance in a class",
         participants: "Teens & Young Adults",
         schedule: "Every Thursday",
@@ -12,7 +19,7 @@ export const classData = [
     {
         id: 1,
         title: "Theater Acting Class",
-        imgSrc: "../src/assets/class-2.png",
+        imgSrc: classImg2,
         imgAlt: "People training for theatre acting in a class",
         participants: "Beginners",
         schedule: "Every Wednesday",
@@ -22,7 +29,7 @@ export const classData = [
     {
         id: 2,
         title: "Music Ensemble Practice",
-        imgSrc: "../src/assets/class-3.jpg",
+        imgSrc: classImg3,
         imgAlt: "People training for music ensemble in a class",
         participants: "Youth & Adults",
         schedule: "Every Friday",
@@ -32,7 +39,7 @@ export const classData = [
     {
         id: 3,
         title: "Traditional Dance Workshop",
-        imgSrc: "../src/assets/class-4.jpg",
+        imgSrc: classImg4,
         imgAlt: "People training for traditional dance in a class",
         participants: "Teens & Adults",
         schedule: "Every Saturday",
@@ -42,7 +49,7 @@ export const classData = [
     {
         id: 4,
         title: "Traditional Music Workshop",
-        imgSrc: "../src/assets/class-5.jpg",
+        imgSrc: classImg5,
         imgAlt: "People training for traditional music in a class",
         participants: "Teens & Adults",
         schedule: "Every Monday",
@@ -52,7 +59,7 @@ export const classData = [
     {
         id: 5,
         title: "Children’s Art Class",
-        imgSrc: "../src/assets/class-6.png",
+        imgSrc: classImg6,
         imgAlt: "Children learning arts in a class",
         participants: "Children (7–12 years old)",
         schedule: "Every Saturday",
