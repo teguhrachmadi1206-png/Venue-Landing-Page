@@ -1,4 +1,4 @@
-import eventPoster1 from '..assets/event-poster-1.jpg'
+import eventPoster1 from '../assets/event-poster-1.jpg'
 import eventPoster2 from '../assets/event-poster-2.jpg'
 import eventPoster3 from '../assets/event-poster-3.jpg'
 import eventPoster4 from '../assets/event-poster-4.jpg'
