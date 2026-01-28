@@ -1,8 +1,8 @@
 import './Footer.css'
-import logoFooter from '../src/assets/logo-main.png'
-import addressIcon from '../src/assets/gps-white.png'
-import emailIcon from '../src/assets/email-white.png'
-import instagramIcon from '../src/assets/instagram-white.png'
+import logoFooter from '../assets/logo-main.png'
+import addressIcon from '../assets/gps-white.png'
+import emailIcon from '../assets/email-white.png'
+import instagramIcon from '../assets/instagram-white.png'
 
 export default function Footer() {
     return (
