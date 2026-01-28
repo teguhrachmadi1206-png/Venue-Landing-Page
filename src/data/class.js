@@ -1,9 +1,9 @@
-import classImg1 from '../assets/class-1.png'
-import classImg2 from '../assets/class-2.png'
-import classImg3 from '../assets/class-3.jpg'
-import classImg4 from '../assets/class-4.jpg'
-import classImg5 from '../assets/class-5.jpg'
-import classImg6 from '../assets/class-6.png'
+import classImg1 from '../assets/class-1.webp'
+import classImg2 from '../assets/class-2.webp'
+import classImg3 from '../assets/class-3.webp'
+import classImg4 from '../assets/class-4.webp'
+import classImg5 from '../assets/class-5.webp'
+import classImg6 from '../assets/class-6.webp'
 
 export const classData = [
     {
