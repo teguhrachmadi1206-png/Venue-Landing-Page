@@ -6,7 +6,7 @@ export default function AboutUs() {
         <section id="about-section">
             <h2 className="sub-title">About Us</h2>
             <div className="about-row">
-                <img className="about-img" src={aboutImg />
+                <img className="about-img" src={aboutImg} />
                 <div className="about-content">
                     <div className="about-detail">
                         <h3 className="about-title">A Home for Performance, Culture, and Creative Growth</h3>
