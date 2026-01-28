@@ -1,5 +1,5 @@
 import './AboutUs.css'
-import aboutImg from '../src/assets/about-img.jpg'
+import aboutImg from '../assets/about-img.jpg'
 
 export default function AboutUs() {
     return (
