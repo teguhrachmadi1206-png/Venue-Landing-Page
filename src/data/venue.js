@@ -1,8 +1,11 @@
+import venueImg1 from '../assets/venue-1.png'
+import venueImg2 from '../assets/venue-2.jpg'
+
 export const venueData = [
     {
         id: 0,
         title: "Main Auditorium",
-        imgSrc: "../src/assets/venue-1.png",
+        imgSrc: venueImg1,
         imgAlt: "Auditorium for Art Performance",
         desc: "The venue offers a professional performance hall suitable for cultural events, theater productions, concerts, seminars, and community gatherings.",
         shortDesc: "For theater performances, concerts, dance shows, etc.",
@@ -13,7 +16,7 @@ export const venueData = [
     {
         id: 1,
         title: "Rehearsal & Training Room",
-        imgSrc: "../src/assets/venue-2.jpg",
+        imgSrc: venueImg2,
         imgAlt: "Classroom for art practice or studies",
         desc: "A functional and comfortable space designed for regular training, rehearsals, and creative workshops, supporting focused learning and artistic development.",
         shortDesc: "For art workshops, rehearsals, etc.",
