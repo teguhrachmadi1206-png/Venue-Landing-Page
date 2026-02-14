@@ -1,8 +1,14 @@
+import eventPoster1 from '../assets/event-poster-1.webp'
+import eventPoster2 from '../assets/event-poster-2.webp'
+import eventPoster3 from '../assets/event-poster-3.webp'
+import eventPoster4 from '../assets/event-poster-4.webp'
+import eventPoster5 from '../assets/event-poster-5.webp'
+
 export const events = [
     {
         id: 0,
         title: "Echoes on the Stage",
-        posterSrc: "../src/assets/event-poster-1.jpg",
+        posterSrc: eventPoster1,
         posterAlt: "Echoes on the Stage Poster",
         artist: "Example Theatre",
         desc: "A contemporary theater performance exploring human emotion, silence, and dramatic expression through powerful storytelling.",
@@ -13,7 +19,7 @@ export const events = [
     {
         id: 1,
         title: "Harmony of the City",
-        posterSrc: "../src/assets/event-poster-2.jpg",
+        posterSrc: eventPoster2,
         posterAlt: "Harmony of the City Poster",
         artist: "Example Musical",
         desc: "A dynamic musical production combining vocals, live instruments, and movement to reflect the rhythm of urban life.",
@@ -24,7 +30,7 @@ export const events = [
     {
         id: 2,
         title: "Motion in Grace",
-        posterSrc: "../src/assets/event-poster-3.jpg",
+        posterSrc: eventPoster3,
         posterAlt: "Motion in Grace Poster",
         artist: "Example Dancer",
         desc: "A dance showcase inspired by traditional movement, transformed into contemporary stage interpretation.",
@@ -35,7 +41,7 @@ export const events = [
     {
         id: 3,
         title: "Spectrum of Arts",
-        posterSrc: "../src/assets/event-poster-4.jpg",
+        posterSrc: eventPoster4,
         posterAlt: "Spectrum of Arts Poster",
         artist: "Example Arts",
         desc: "A collaborative arts event featuring theater, music, dance, and visual performances on one stage.",
@@ -46,7 +52,7 @@ export const events = [
     {
         id: 4,
         title: "Roots and Resonance",
-        posterSrc: "../src/assets/event-poster-5.jpg",
+        posterSrc: eventPoster5,
         posterAlt: "Roots and Resonance Poster",
         artist: "Example Ethnic",
         desc: "A fusion performance connecting traditional Indonesian arts with contemporary stage interpretation.",

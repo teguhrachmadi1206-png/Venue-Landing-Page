@@ -1,11 +1,12 @@
 import './AboutUs.css'
+import aboutImg from '../assets/about-img.webp'
 
 export default function AboutUs() {
     return (
         <section id="about-section">
             <h2 className="sub-title">About Us</h2>
             <div className="about-row">
-                <img className="about-img" src="../src/assets/about-img.jpg" />
+                <img className="about-img" src={aboutImg} />
                 <div className="about-content">
                     <div className="about-detail">
                         <h3 className="about-title">A Home for Performance, Culture, and Creative Growth</h3>

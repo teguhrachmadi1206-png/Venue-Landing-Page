@@ -1,23 +1,27 @@
 import './Footer.css'
+import logoFooter from '../assets/logo-main.webp'
+import addressIcon from '../assets/gps-white.webp'
+import emailIcon from '../assets/email-white.webp'
+import instagramIcon from '../assets/instagram-white.webp'
 
 export default function Footer() {
     return (
         <footer>
             <div className="footer-head">
-                <img className="logo-footer" src="../src/assets/logo-main.png" />
+                <img className="logo-footer" src={logoFooter} />
                 <p className="footer-desc">A performing arts venue dedicated to cultural development, creative education, and meaningful performances.</p>
             </div>
             <div className="contact-footer">
                 <div className="contact-detail">
-                    <a className="contact-heading link"><img className="contact-logo" src="../src/assets/gps-white.png" />Address</a>
+                    <a className="contact-heading link"><img className="contact-logo" src={addressIcon} />Address</a>
                     <p>Cultural Arts District, City Center</p>
                 </div>
                 <div className="contact-detail">
-                    <a className="contact-heading link"><img className="contact-logo" src="../src/assets/email-white.png" />Email</a>
+                    <a className="contact-heading link"><img className="contact-logo" src={emailIcon} />Email</a>
                     <p>info@artsvenue.com</p>
                 </div>
                 <div className="contact-detail">
-                    <a className="contact-heading link"><img className="contact-logo" src="../src/assets/instagram-white.png" />Instagram</a>
+                    <a className="contact-heading link"><img className="contact-logo" src={instagramIcon} />Instagram</a>
                     <p>@exampleculturalspace</p>
 
                 </div>
