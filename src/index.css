@@ -2,6 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+}
+
+*:visited {
+  color: inherit;
 }
 
 :root {
@@ -21,8 +26,18 @@
   --color-4: rgba(150, 150, 150, 0.2);
   --color-4-mid: rgba(150, 150, 150, 0.5);
   --color-4-dark: rgba(150, 150, 150, 1);
+  --color-5: #333338;
+  --color-5-lighter: #66666A;
+  --color-5-dark: #111116;
+  --color-5-dark-lighter: #44444B;
   --color-box-shadow: rgba(0, 0, 0, 0.5);
-  --margin-section: 0 0 2.5em 0;
+  --margin-section: 0 0 0 0;
+  --header-height: 85px;
+  --hero-banner-mobile-height: 9em;
+  --hero-banner-tablet-height: 15em;
+  --hero-banner-desktop-height: 25em;
+  --footer-height: 12em;
+  --footer-margin-top: 2em;
 }
 
 #root {
@@ -46,7 +61,6 @@ body {
 
 section {
   width: 100%;
-  margin: var(--margin-section)
 }
 
 .section-header {
@@ -55,6 +69,7 @@ section {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1em;
+  margin-top: 2.5em;
 }
 
 .show-all-btn {
@@ -69,6 +84,7 @@ section {
   margin-right: 1em;
   box-shadow: 0 0.1em 0.2em 0 var(--color-box-shadow);
   font-size: 0.7em;
+  text-decoration: none;
   gap: 0.5em
 }
 
@@ -155,10 +171,6 @@ section {
 }
 
 @media screen and (min-width: 992px) {
-  section {
-    margin-bottom: 3.5em;
-  }
-
   .show-all-btn {
     font-size: 1em;
   }

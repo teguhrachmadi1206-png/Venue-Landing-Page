@@ -1,9 +1,11 @@
-import './RentVenue.css'
+import '../styles/RentVenue.css'
 import { venueData } from '../data/venue'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function RentVenues(props) {
     const [venueId, setVenueId] = useState(0)
+    const navigate = useNavigate()
 
     function changeVenue() {
         if (venueId === (venueData.length - 1)) {
@@ -13,11 +15,15 @@ export default function RentVenues(props) {
         }
     }
 
+    function showAll() {
+        navigate('/venues')
+    }
+
     return (
         <section id="venue-section">
             <div className="section-header">
                 <h2 className="sub-title">Venue Rental Information</h2>
-                <button className="show-all-btn">Show All</button>
+                <button className="show-all-btn" onClick={showAll}>Show All</button>
             </div>
             <div className="venue-row">
                 <img src={venueData[venueId].imgSrc} alt={venueData[venueId].imgAlt} className="venue-img" />

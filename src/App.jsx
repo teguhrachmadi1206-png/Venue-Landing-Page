@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
+import { Route, Routes, Link } from 'react-router-dom'
+import Homepage from './pages/Homepage'
+import Events from './pages/Events'
+import Venue from './pages/Venue'
+import Classes from './pages/Classes'
+import AboutUsPage from './pages/AboutUsPage'
 import Header from './components/Header'
-import HeroSection from './components/HeroSection'
-import UpcomingEvents from './components/UpcomingEvents'
-import RentVenues from './components/RentVenue'
 import Footer from './components/Footer'
-import ArtClass from './components/ArtClass'
-import AboutUs from './components/AboutUs'
 
 
 function App() {
@@ -60,15 +61,16 @@ function App() {
     }, [mediaCode])
   })
 
-
   return (
     <>
       <Header media={mediaCode} />
-      <HeroSection />
-      <UpcomingEvents media={mediaCode} />
-      <RentVenues media={mediaCode} />
-      <ArtClass media={mediaCode} />
-      <AboutUs />
+      <Routes>
+        <Route exact path="/" element={<Homepage media={mediaCode} />} />
+        <Route path="/events" element={<Events media={mediaCode} />} />
+        <Route path="/venues" element={<Venue />} />
+        <Route path="/classes" element={<Classes />} />
+        <Route path="/about" element={<AboutUsPage />} />
+      </Routes>
       <Footer />
     </>
   )

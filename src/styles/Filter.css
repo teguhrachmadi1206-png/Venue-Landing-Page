@@ -1,0 +1,239 @@
+.filter-search-container {
+    width: 100%;
+    min-height: var(--min-search-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+    margin: auto;
+    position: sticky;
+    top: 85px;
+    background: linear-gradient(90deg, var(--color-2-dark), var(--color-2-mid), var(--color-2));
+    z-index: 998;
+}
+
+.filter-box {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    background-color: var(--color-4);
+    border-radius: 1em;
+    padding: 0.5em;
+    gap: 0.5em;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.2em;
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.filter-sub-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1em;
+}
+
+.filter-label {
+    color: var(--color-1);
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.select-container {
+    width: 100%;
+}
+
+.filter-header-btn {
+    border: 0;
+    background: none;
+    align-self: flex-end;
+    color: var(--color-3);
+    border-radius: 1em;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    background-color: var(--color-1);
+    width: 8em;
+}
+
+.filter-header-btn.clear {
+    color: var(--color-1);
+    background-color: var(--color-3);
+}
+
+.filter-header-btn.clear:active {
+    color: var(--color-3-dark);
+    background-color: var(--color-4);
+}
+
+.tabs-container {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.tabs-btn {
+    width: 50%;
+    height: 2.5em;
+    border: 0;
+    border-radius: 1em;
+    background-color: var(--color-1);
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--color-2);
+    font-family: "Montserrat", sans-serif;
+}
+
+.tabs-btn:active {
+    background-color: var(--color-1-dark);
+}
+
+.tab-selected {
+    background: linear-gradient(90deg, var(--color-3), var(--color-3-mid));
+    color: var(--color-1);
+}
+
+.search-container {
+    width: 100%;
+}
+
+.search-bar {
+    width: 60%;
+    height: 2.5em;
+    border-radius: 1em;
+    border: 1px solid var(--color-1-dark);
+    padding-left: 0.5em;
+    background: var(--color-2);
+    font-family: "Montserrat", sans-serif;
+}
+
+.search-btn {
+    width: 20%;
+    height: 2.5em;
+    border-radius: 1em;
+    border: none;
+    background-color: var(--color-1);
+    color: var(--color-3);
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+
+.search-btn:active {
+    background-color: var(--color-4-mid);
+    color: var(--color-1)
+}
+
+.search-btn.clear {
+    background-color: var(--color-3);
+    color: var(--color-1-dark);
+}
+
+.search-btn.clear:active {
+    background-color: var(--color-4-mid);
+    color: var(--color-2-dark)
+}
+
+.filter-select {
+    width: 50%;
+    gap: 0.3em;
+    padding: 0.5em;
+    border-radius: 1em;
+}
+
+.category-filter-btn {
+    padding: 0.5em 1em;
+    border: 0;
+    border-radius: 1em;
+    color: var(--color-2);
+    font-weight: bold;
+    background: var(--color-1);
+}
+
+.category-filter-btn.selected {
+    background: linear-gradient(90deg, var(--color-3), var(--color-3-mid));
+    color: var(--color-1);
+}
+
+@media screen and (min-width: 600px) {
+    .tabs-btn {
+        cursor: pointer;
+    }
+
+    .filter-header-btn {
+        cursor: pointer;
+    }
+
+    .search-btn {
+        cursor: pointer;
+    }
+
+    .category-filter-btn {
+        cursor: pointer;
+    }
+
+    .event-page-card-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: 0 auto;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .tabs-container {
+        max-width: 24em;
+    }
+
+    .filter-box {
+        width: 85%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .filter-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .filter-sub-container {
+        width: auto;
+    }
+
+    .select-container {
+        width: 100%;
+    }
+
+    .filter-select {
+        min-width: 11em;
+        width: 50%;
+    }
+
+    .search-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .search-bar {
+        min-width: 15em;
+        width: 50%;
+    }
+
+    .search-btn {
+        min-width: 5em;
+        width: 25%;
+    }
+}
