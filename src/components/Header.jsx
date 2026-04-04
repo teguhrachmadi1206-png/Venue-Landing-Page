@@ -1,37 +1,52 @@
-import { useState } from 'react'
-import './Header.css'
+import { useState, useRef } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import '../styles/Header.css'
 import logoMain from '../assets/logo-main.webp'
-import menuIcon from '../assets/menu-icon.webp'
 
-export default function Header(props) {
-    const [shownExplore, setShownExplore] = useState(false)
+export default function Header({ media }) {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const navigate = useNavigate()
+    const headerRef = useRef(null)
 
     function toggleExplore() {
-        setShownExplore(prev => !prev)
+        setIsMobileMenuOpen(prev => !prev)
     }
 
     function closeExplore() {
-        setShownExplore(false)
+        setIsMobileMenuOpen(false)
+    }
+
+    function navTo(page) {
+        if (media !== 3) {
+            closeExplore()
+        }
+        navigate(page)
+        headerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
     }
 
     return (
-        <header>
-            <div className="header-left">
-                <a href="" ><img className="logo-main" src={logoMain} /></a>
-                <h1 className="title-main">Cultural Art Space</h1>
-            </div>
-            <div className="header-right">
-                {(shownExplore || props.media === 3) && <nav className="navbar-main">
-                    <a className="nav-link" href="#" onClick={props.media !== 3 && closeExplore}>Home</a>
-                    <a className="nav-link" href="#events-section" onClick={props.media !== 3 && closeExplore}>Events</a>
-                    <a className="nav-link" href="#venue-section" onClick={props.media !== 3 && closeExplore}>Rent Venues</a>
-                    <a className="nav-link" href="#class-section" onClick={props.media !== 3 && closeExplore}>Class / Workshop</a>
-                    <a className="nav-link" href="#about-section" onClick={props.media !== 3 && closeExplore}>About Us</a>
-                </nav>}
-                {props.media !== 3 && <button onClick={toggleExplore} className="nav-list-btn">
-                    <img className="menu-btn-icon" src={menuIcon} />
-                </button>}
-            </div>
-        </header>
+        <>
+            <span ref={headerRef}></span>
+            <header className="header">
+                <div className="header-brand">
+                    <img className="logo-main" src={logoMain} onClick={() => navTo('/')} />
+                    <h1 className="title-main">Cultural Art Space</h1>
+                </div>
+                <div className="header-navbar">
+                    {(isMobileMenuOpen || media === 3) && <nav className="navbar-main">
+                        <a className="nav-link" onClick={() => navTo('/')}>Home</a>
+                        <a className="nav-link" onClick={() => navTo('/events')}>Events</a>
+                        <a className="nav-link" onClick={() => navTo('/venues')}>Rent Venues</a>
+                        <a className="nav-link" onClick={() => navTo('/classes')}>Class / Workshop</a>
+                        <a className="nav-link" onClick={() => navTo('/about')}>About Us</a>
+                    </nav>}
+                    {media !== 3 && <button onClick={toggleExplore} className="nav-list-btn">
+                        <div className="menu-btn-line"></div>
+                        <div className="menu-btn-line"></div>
+                        <div className="menu-btn-line"></div>
+                    </button>}
+                </div>
+            </header>
+        </>
     )
 }

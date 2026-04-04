@@ -1,0 +1,94 @@
+.pagination {
+    width: 80%;
+    height: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+.page-buttons-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin: 0 auto;
+}
+
+.pagination-options {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 0.3em;
+    font-size: 0.7em;
+    font-weight: bold;
+    color: var(--color-1)
+}
+
+.pagination-btn {
+    background-color: none;
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    height: 1.5em;
+    width: 1.5em;
+    vertical-align: center;
+}
+
+.pagination-btn.prev::before {
+    content: "<";
+}
+
+.pagination-btn.next::after {
+    content: ">";
+}
+
+.pagination-btn:hover {
+    color: var(--color-1-dark);
+    font-weight: bold;
+    background-color: var(--color-4);
+}
+
+.pagination-btn:active {
+    background-color: var(--color-4-dark);
+}
+
+.page-buttons {
+    display: flex;
+    gap: 0.2em;
+}
+
+.page-btn {
+    height: 1.5em;
+    width: 1.5em;
+    border: 1px solid var(--color-4-dark);
+    border-radius: 20%;
+    color: var(--color-1);
+}
+
+.page-btn.selected {
+    background-color: var(--color-1);
+    color: var(--color-3-mid);
+    border: 1px solid var(--color-3-dark);
+    font-weight: bold;
+}
+
+.page-btn:hover {
+    background-color: var(--color-3);
+    font-weight: bold;
+}
+
+.item-per-page-select {
+    width: 100%;
+    max-width: 7em;
+    height: 1.5em;
+}

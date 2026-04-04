@@ -3,16 +3,16 @@ header {
     align-items: center;
     justify-content: space-between;
     background: linear-gradient(90deg, var(--color-1), var(--color-1-dark));
-    height: 85px;
+    height: var(--header-height);
     padding: 1.7em 0.7em 0.7em 0.7em;
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 999;
     color: var(--color-3);
 }
 
-.header-left {
+.header-brand {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -66,18 +66,23 @@ header {
     appearance: none;
     background: none;
     border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20%;
+    border-radius: 1em;
 }
 
 .nav-list-btn:active {
     background-color: var(--color-4);
 }
 
-.menu-btn-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
+.menu-btn-line {
     width: 100%;
-    height: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--color-3), var(--color-3-mid));
 }
 
 @media screen and (min-width: 600px) {
@@ -126,7 +131,7 @@ header {
         font-size: 2.5em;
     }
 
-    .header-right {
+    .header-navbar {
         position: absolute;
         right: 0.7em;
         width: 50%;
