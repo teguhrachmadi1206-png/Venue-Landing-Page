@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Route, Routes, Link } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage'
 import Events from './pages/Events'
 import Venue from './pages/Venue'
@@ -63,16 +63,18 @@ function App() {
 
   return (
     <>
-      <Header media={mediaCode} />
-      <Routes>
-        <Route exact path="/" element={<Homepage media={mediaCode} />} />
-        <Route path="/events" element={<Events media={mediaCode} />} />
-        <Route path="/venues" element={<Venue />} />
-        <Route path="/classes" element={<Classes />} />
-        <Route path="/about" element={<AboutUsPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
+      <Router>
+        <Header media={mediaCode} />
+        <Routes>
+          <Route exact path="/" element={<Homepage media={mediaCode} />} />
+          <Route path="/events" element={<Events media={mediaCode} />} />
+          <Route path="/venues" element={<Venue />} />
+          <Route path="/classes" element={<Classes />} />
+          <Route path="/about" element={<AboutUsPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </Router>
     </>
   )
 }
