@@ -6,6 +6,7 @@ header {
     height: var(--header-height);
     padding: 1.7em 0.7em 0.7em 0.7em;
     position: sticky;
+    width: 100%;
     top: 0;
     left: 0;
     z-index: 999;

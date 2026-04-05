@@ -38,6 +38,7 @@
   --hero-banner-desktop-height: 25em;
   --footer-height: 12em;
   --footer-margin-top: 2em;
+  --min-search-height: 7em;
 }
 
 #root {

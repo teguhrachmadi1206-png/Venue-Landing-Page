@@ -2,7 +2,7 @@ footer {
     background: linear-gradient(90deg, var(--color-1), var(--color-1-dark));
     margin-top: var(--footer-margin-top);
     color: var(--color-2-mid);
-    min-height: var(--footer-height)
+    min-height: var(--footer-height);
 }
 
 .footer-head {

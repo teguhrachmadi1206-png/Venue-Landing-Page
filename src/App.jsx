@@ -7,7 +7,7 @@ import Classes from './pages/Classes'
 import AboutUsPage from './pages/AboutUsPage'
 import Header from './components/Header'
 import Footer from './components/Footer'
-
+import NotFound from './components/NotFound'
 
 function App() {
   // Used for setting maximum card displayed in events section, desktop: 3, middle: 2, mobile: 1
@@ -70,6 +70,7 @@ function App() {
         <Route path="/venues" element={<Venue />} />
         <Route path="/classes" element={<Classes />} />
         <Route path="/about" element={<AboutUsPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>

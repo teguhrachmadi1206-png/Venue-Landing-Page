@@ -1,12 +1,12 @@
-import { useState, useRef } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import '../styles/Header.css'
 import logoMain from '../assets/logo-main.webp'
 
 export default function Header({ media }) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const navigate = useNavigate()
-    const headerRef = useRef(null)
+    const { pathname } = useLocation()
 
     function toggleExplore() {
         setIsMobileMenuOpen(prev => !prev)
@@ -21,12 +21,15 @@ export default function Header({ media }) {
             closeExplore()
         }
         navigate(page)
-        headerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname])
+
 
     return (
         <>
-            <span ref={headerRef}></span>
             <header className="header">
                 <div className="header-brand">
                     <img className="logo-main" src={logoMain} onClick={() => navTo('/')} />

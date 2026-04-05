@@ -4,11 +4,15 @@
 
 .main-event-page {
     min-height: calc(100vh - var(--header-height) - var(--hero-banner-mobile-height) - var(--min-search-height) - var(--footer-height) - var(--footer-margin-top));
-    padding-top: 1em;
+}
+
+.event-section-header {
+    margin-bottom: 0.5em;
 }
 
 .event-page-card-container {
     min-height: calc(100vh - var(--header-height) - var(--hero-banner-mobile-height) - var(--min-search-height) - var(--footer-height) - var(--footer-margin-top) - 1em);
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,11 +29,24 @@
     .message {
         align-self: center;
     }
+
+    .main-event-page {
+        min-height: calc(100vh - var(--header-height) - var(--hero-banner-tablet-height) - var(--min-search-height) - var(--footer-height) - var(--footer-margin-top) - 5em);
+    }
+
+    .event-page-card-container {
+        min-height: 50%;
+        height: fit-content;
+    }
 }
 
 @media screen and (min-width: 992px) {
     .banner-pict {
         height: var(--hero-banner-desktop-height);
+    }
+
+    .main-event-page {
+        min-height: calc(100vh - var(--header-height) - var(--hero-banner-desktop-height) - var(--min-search-height) - var(--footer-height) - var(--footer-margin-top) - 5em);
     }
 
     .event-card {

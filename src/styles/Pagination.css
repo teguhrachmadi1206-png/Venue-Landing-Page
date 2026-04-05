@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
+    margin: 1em auto;
     position: relative;
 
 }
@@ -52,12 +52,6 @@
     content: ">";
 }
 
-.pagination-btn:hover {
-    color: var(--color-1-dark);
-    font-weight: bold;
-    background-color: var(--color-4);
-}
-
 .pagination-btn:active {
     background-color: var(--color-4-dark);
 }
@@ -82,13 +76,23 @@
     font-weight: bold;
 }
 
-.page-btn:hover {
-    background-color: var(--color-3);
-    font-weight: bold;
-}
-
 .item-per-page-select {
     width: 100%;
     max-width: 7em;
     height: 1.5em;
+}
+
+@media screen and (min-width: 600px) {
+    .pagination-btn:hover {
+        color: var(--color-1-dark);
+        font-weight: bold;
+        background-color: var(--color-4);
+        cursor: pointer;
+    }
+
+    .page-btn:hover {
+        background-color: var(--color-3);
+        font-weight: bold;
+        cursor: pointer;
+    }
 }
