@@ -53,7 +53,7 @@ This project was built with an emphasis on:
 
 ## Live Demo
 
-https://your-demo-link.netlify.app/
+https://teguhrachmadi1206-png.github.io/Venue-Landing-Page/
 
 ---
 
