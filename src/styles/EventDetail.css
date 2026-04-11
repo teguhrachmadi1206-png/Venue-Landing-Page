@@ -263,4 +263,8 @@
         border-radius: 1em;
         box-shadow: 3px 3px 5px var(--color-box-shadow);
     }
+
+    .event-details {
+        width: 75%;
+    }
 }
