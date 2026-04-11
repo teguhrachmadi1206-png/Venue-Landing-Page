@@ -18,12 +18,12 @@ export default function Filter({ items, categories, listStartRef, setCurrentPage
         : items.filter(item => (item.category === categories[categoryIdSelected].name))
 
     const upcomingItemCards = itemsByCategory
-        .filter(item => (new Date(item.dateTime) > new Date))
-        .sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime))
+        .filter(item => (new Date(item.endDateTime) > new Date))
+        .sort((a, b) => new Date(a.endDateTime) - new Date(b.endDateTime))
 
     const pastItemCards = itemsByCategory
-        .filter(item => (new Date(item.dateTime) < new Date))
-        .sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime))
+        .filter(item => (new Date(item.endDateTime) < new Date))
+        .sort((a, b) => new Date(b.endDateTime) - new Date(a.endDateTime))
 
     const selectedItemCards = tabSelected === "upcoming"
         ? upcomingItemCards

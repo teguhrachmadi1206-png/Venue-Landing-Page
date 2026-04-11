@@ -1,3 +1,4 @@
+import { StrictMode } from 'react'
 import HeroSection from '../components/HeroSection'
 import UpcomingEvents from '../components/UpcomingEvents'
 import RentVenues from '../components/RentVenue'
@@ -8,7 +9,9 @@ function Homepage({ media }) {
     return (
         <>
             <HeroSection page="home" style="border" />
-            <UpcomingEvents media={media} />
+            <StrictMode>
+                <UpcomingEvents media={media} />
+            </StrictMode>
             <RentVenues media={media} />
             <ArtClass media={media} />
             <AboutUs />

@@ -52,10 +52,6 @@
     content: ">";
 }
 
-.pagination-btn:active {
-    background-color: var(--color-4-dark);
-}
-
 .page-buttons {
     display: flex;
     gap: 0.2em;
@@ -94,5 +90,13 @@
         background-color: var(--color-3);
         font-weight: bold;
         cursor: pointer;
+    }
+
+    .page-btn:active {
+        background-color: var(--color-3-dark);
+    }
+
+    .pagination-btn:active {
+        background-color: var(--color-4-dark);
     }
 }

@@ -30,7 +30,12 @@
   --color-5-lighter: #66666A;
   --color-5-dark: #111116;
   --color-5-dark-lighter: #44444B;
+  --color-cta-1: #C9A227;
+  --color-cta-2: #F4E1A1;
+  --color-cta-3: #D4AF37;
+  --color-cta-text: #0B1E3C;
   --color-box-shadow: rgba(0, 0, 0, 0.5);
+  --text-shadow-gold: 0px 0px 3px var(--color-3);
   --margin-section: 0 0 0 0;
   --header-height: 85px;
   --hero-banner-mobile-height: 9em;
