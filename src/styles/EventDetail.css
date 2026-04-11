@@ -48,6 +48,7 @@
 .event-poster {
     height: 40vh;
     object-fit: cover;
+    object-position: center top;
     border: 0.2em solid var(--color-3-dark);
     border-radius: 1em;
     box-shadow: 3px 3px 5px var(--color-box-shadow);
