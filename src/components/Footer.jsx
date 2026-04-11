@@ -1,5 +1,5 @@
 import '../styles/Footer.css'
-import logoFooter from '../assets/logo-main.webp'
+import logoFooter from '../assets/logo-no-bg.webp'
 import addressIcon from '../assets/gps-white.webp'
 import emailIcon from '../assets/email-white.webp'
 import instagramIcon from '../assets/instagram-white.webp'

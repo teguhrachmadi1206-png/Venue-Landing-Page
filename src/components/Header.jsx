@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import '../styles/Header.css'
-import logoMain from '../assets/logo-main.webp'
+import logoMain from '../assets/logo-no-bg.webp'
 
 export default function Header({ media }) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
