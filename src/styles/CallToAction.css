@@ -40,7 +40,7 @@
     opacity: 1;
 }
 
-.cta-btn:active {
+.cta-btn:enabled:active {
     color: var(--color-4-dark)
 }
 
