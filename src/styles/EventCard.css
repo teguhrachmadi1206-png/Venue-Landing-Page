@@ -77,12 +77,13 @@
 
 .event-detail.events-page {
     font-size: 1em;
+    height: stretch;
 }
 
-.event-detail-text.events-page {
+.event-detail-text {
     display: flex;
     flex-direction: column;
-    gap: 0.2em;
+    gap: 0.3em;
 }
 
 .event-artist {
