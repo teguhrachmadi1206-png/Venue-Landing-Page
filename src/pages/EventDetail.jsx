@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { events } from "../data/events"
+import { formatDate } from "../function/FormatDate"
 import "../styles/EventDetail.css"
 import CallToAction from "../components/CallToAction"
+import EventBanner from "../components/EventBanner"
 
 export default function EventDetail({ media }) {
     const { eventId } = useParams()
@@ -16,45 +18,8 @@ export default function EventDetail({ media }) {
         setEvent(shownEvent)
     }, [eventId])
 
-    function formatDate(dateStr) {
-        const date = new Date(dateStr)
-        return date.toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" })
-    }
-
-    function EventBanner() {
-        return (
-            <div className="event-banner">
-                <img className="event-poster" src={event.posterSrc} alt={event.posterAlt} />
-                <div className="event-info">
-                    <div className={`event-info-title ${isPastEvent && "past"}`}>
-                        <h2 className="event-title">{event.title}</h2>
-                        <h3 className="event-artist">{event.artist}</h3>
-                    </div>
-                    <div className="event-info-content">
-                        <div className="event-info-row">
-                            <h4 className="event-info-row-title">Duration</h4>
-                            <span className="separator">:</span>
-                            <p className="event-row-content">{event.duration} min.</p>
-                        </div>
-                        <div className="event-info-row">
-                            <h4 className="event-info-row-title">Ticket Price</h4>
-                            <span className="separator">:</span>
-                            <p className="event-row-content">${event.price}.00</p>
-                        </div>
-                        <div className="event-info-row">
-                            <h4 className="event-info-row-title">Category</h4>
-                            <span className="separator">:</span>
-                            <p className="event-row-content">{event.category}</p>
-                        </div>
-                        {media !== 1 && <div className="event-info-row">
-                            <h4 className="event-info-row-title">Desc</h4>
-                            <span className="separator">:</span>
-                            <p className="event-row-content">{event.desc}</p>
-                        </div>}
-                    </div>
-                </div>
-            </div>
-        )
+    function buyTicket() {
+        navigate(`/events/ticket/${event.id}`)
     }
 
     function EventDetails() {
@@ -94,7 +59,7 @@ export default function EventDetail({ media }) {
                                 <div key={show.id} className="detail-item-content box">
                                     <h4 className="event-item-content-title">{formatDate(show.date)}</h4>
                                     <div className="session-container">
-                                        {show.times?.map((element, index) => <span className="session" key={index}>{element}</span>)}
+                                        {show.sessions?.map(session => <span className="session" key={session.sessionId}>{session.time}</span>)}
                                     </div>
                                 </div>
                             )
@@ -108,10 +73,14 @@ export default function EventDetail({ media }) {
     return (
         <>
             <div className={`event-detail-section ${isPastEvent && "past"}`}>
-                <EventBanner />
+                <EventBanner
+                    media={media}
+                    event={event}
+                    page="detail" />
                 <CallToAction
                     text={isPastEvent ? "Ticket Unavailable" : "Buy Ticket Now"}
                     isDisabled={isPastEvent}
+                    handler={buyTicket}
                 />
                 <EventDetails />
             </div>

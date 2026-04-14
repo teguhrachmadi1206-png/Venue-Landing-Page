@@ -25,7 +25,7 @@ export const events = [
         dateTime: "2026-08-17T19:30:00",
         endDateTime: "2026-08-17T19:30:00",
         showtimes: [
-            { id: 1, date: "2026-08-17", times: ["19:30"] }
+            { id: 1, date: "2026-08-17", sessions: [{ sessionId: 1, time: "19:30", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Raka Pradipta", role: "Lead Actor" },
@@ -47,8 +47,8 @@ export const events = [
         dateTime: "2026-09-05T14:00:00",
         endDateTime: "2026-09-06T20:00:00",
         showtimes: [
-            { id: 1, date: "2026-09-05", times: ["14:00", "19:00"] },
-            { id: 2, date: "2026-09-06", times: ["15:00", "20:00"] }
+            { id: 1, date: "2026-09-05", sessions: [{ sessionId: 1, time: "14:00", seatStatus: {} }, { sessionId: 2, time: "19:00", seatStatus: {} }] },
+            { id: 2, date: "2026-09-06", sessions: [{ sessionId: 1, time: "15:00", seatStatus: {} }, { sessionId: 2, time: "20:00", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Adrian Wijaya", role: "Conductor" },
@@ -70,8 +70,8 @@ export const events = [
         dateTime: "2026-10-02T18:30:00",
         endDateTime: "2026-10-03T20:00:00",
         showtimes: [
-            { id: 1, date: "2026-10-02", times: ["18:30"] },
-            { id: 2, date: "2026-10-04", times: ["14:00", "20:00"] }
+            { id: 1, date: "2026-10-02", sessions: [{ sessionId: 1, time: "18:30", seatStatus: {} }] },
+            { id: 2, date: "2026-10-04", sessions: [{ sessionId: 1, time: "14:00", seatStatus: {} }, { sessionId: 2, time: "20:00", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Intan Maharani", role: "Principal Dancer" },
@@ -93,8 +93,24 @@ export const events = [
         dateTime: "2026-11-12T13:00:00",
         endDateTime: "2026-11-12T20:00:00",
         showtimes: [
-            { id: 1, date: "2026-10-31", times: ["13:00", "16:00", "20:00"] },
-            { id: 2, date: "2026-11-01", times: ["13:00", "16:00", "20:00"] }
+            {
+                id: 1, date: "2026-10-31", sessions: [{ sessionId: 1, time: "13:00", seatStatus: {} }, {
+                    sessionId: 2, time: "16:00", seatStatus: {}
+                    , seatStatus: {}
+                }, {
+                    sessionId: 3, time: "20:00", seatStatus: {}
+                    , seatStatus: {}
+                }]
+            },
+            {
+                id: 2, date: "2026-11-01", sessions: [{ sessionId: 1, time: "13:00", seatStatus: {} }, {
+                    sessionId: 2, time: "16:00", seatStatus: {}
+                    , seatStatus: {}
+                }, {
+                    sessionId: 3, time: "20:00", seatStatus: {}
+                    , seatStatus: {}
+                }]
+            }
         ],
         leadArtists: [
             { id: 1, name: "Elena Suryadi", role: "Creative Director" },
@@ -117,9 +133,9 @@ export const events = [
         dateTime: "2026-12-06T15:00:00",
         endDateTime: "2026-12-07T19:00:00",
         showtimes: [
-            { id: 1, date: "2026-12-31", times: ["15:00", "19:00"] },
-            { id: 2, date: "2027-01-01", times: ["19:00"] },
-            { id: 3, date: "2027-01-02", times: ["19:00"] }
+            { id: 1, date: "2026-12-31", sessions: [{ sessionId: 1, time: "15:00", seatStatus: {} }, { sessionId: 2, time: "19:00", seatStatus: {} }] },
+            { id: 2, date: "2027-01-01", sessions: [{ sessionId: 1, time: "19:00", seatStatus: {} }] },
+            { id: 3, date: "2027-01-02", sessions: [{ sessionId: 1, time: "19:00", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Surya Adinata", role: "Music Director" },
@@ -142,8 +158,8 @@ export const events = [
         dateTime: "2024-11-15T19:30:00",
         endDateTime: "2024-11-16T19:30:00",
         showtimes: [
-            { id: 1, date: "2024-11-15", times: ["19:30"] },
-            { id: 2, date: "2024-11-16", times: ["16:00", "19:30"] }
+            { id: 1, date: "2024-11-15", sessions: [{ sessionId: 1, time: "19:30", seatStatus: {} }] },
+            { id: 2, date: "2024-11-16", sessions: [{ sessionId: 1, time: "16:00", seatStatus: {} }, { sessionId: 2, time: "19:30", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Arga Saputra", role: "Lead Actor" },
@@ -165,7 +181,7 @@ export const events = [
         dateTime: "2025-10-10T19:00:00",
         endDateTime: "2025-10-10T19:00:00",
         showtimes: [
-            { id: 1, date: "2025-10-10", times: ["19:00"] }
+            { id: 1, date: "2025-10-10", sessions: [{ sessionId: 1, time: "19:00", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Rendra Kusuma", role: "Conductor" },
@@ -187,7 +203,7 @@ export const events = [
         dateTime: "2025-08-03T15:00:00",
         endDateTime: "2025-08-03T20:00:00",
         showtimes: [
-            { id: 1, date: "2025-08-03", times: ["15:00", "18:30", "20:00"] }
+            { id: 1, date: "2025-08-03", sessions: [{ sessionId: 1, time: "15:00", seatStatus: {} }, { sessionId: 2, time: "18:30", seatStatus: {} }, { sessionId: 3, time: "20:00", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Nabila Rahma", role: "Principal Dancer" },
@@ -209,8 +225,8 @@ export const events = [
         dateTime: "2025-09-21T19:00:00",
         endDateTime: "2025-09-22T20:00:00",
         showtimes: [
-            { id: 1, date: "2025-09-21", times: ["19:00"] },
-            { id: 2, date: "2025-09-22", times: ["16:00", "20:00"] }
+            { id: 1, date: "2025-09-21", sessions: [{ sessionId: 1, time: "19:00", seatStatus: {} }] },
+            { id: 2, date: "2025-09-22", sessions: [{ sessionId: 1, time: "16:00", seatStatus: {} }, { sessionId: 2, time: "20:00", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Rizka Anindita", role: "Creative Director" },
@@ -232,7 +248,7 @@ export const events = [
         dateTime: "2025-07-12T19:30:00",
         endDateTime: "2025-07-12T19:30:00",
         showtimes: [
-            { id: 1, date: "2025-07-12", times: ["19:30"] }
+            { id: 1, date: "2025-07-12", sessions: [{ sessionId: 1, time: "19:30", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Asep Nugraha", role: "Kecapi Player" },
@@ -254,8 +270,8 @@ export const events = [
         dateTime: "2025-06-20T14:00:00",
         endDateTime: "2025-06-21T19:00:00",
         showtimes: [
-            { id: 1, date: "2025-06-20", times: ["14:00", "18:00"] },
-            { id: 2, date: "2025-06-21", times: ["15:00", "19:00"] }
+            { id: 1, date: "2025-06-20", sessions: [{ sessionId: 1, time: "14:00", seatStatus: {} }, { sessionId: 2, time: "18:00", seatStatus: {} }] },
+            { id: 2, date: "2025-06-21", sessions: [{ sessionId: 1, time: "15:00", seatStatus: {} }, { sessionId: 2, time: "19:00", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Farrel Aditya", role: "Lead Actor" },
@@ -277,7 +293,7 @@ export const events = [
         dateTime: "2025-05-10T16:00:00",
         endDateTime: "2025-05-10T20:00:00",
         showtimes: [
-            { id: 1, date: "2025-05-10", times: ["16:00", "19:00", "20:00"] }
+            { id: 1, date: "2025-05-10", sessions: [{ sessionId: 1, time: "16:00", seatStatus: {} }, { sessionId: 2, time: "19:00", seatStatus: {} }, { sessionId: 3, time: "20:00", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Budi Santoso", role: "Percussion Leader" },
@@ -299,7 +315,7 @@ export const events = [
         dateTime: "2025-04-18T18:30:00",
         endDateTime: "2025-04-18T20:00:00",
         showtimes: [
-            { id: 1, date: "2025-04-18", times: ["18:30", "20:00"] }
+            { id: 1, date: "2025-04-18", sessions: [{ sessionId: 1, time: "18:30", seatStatus: {} }, { sessionId: 2, time: "20:00", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Kevin Wijaya", role: "Lead Dancer" },
@@ -321,7 +337,7 @@ export const events = [
         dateTime: "2025-03-22T13:00:00",
         endDateTime: "2025-03-22T19:00:00",
         showtimes: [
-            { id: 1, date: "2025-03-22", times: ["13:00", "17:00", "19:00"] }
+            { id: 1, date: "2025-03-22", sessions: [{ sessionId: 1, time: "13:00", seatStatus: {} }, { sessionId: 2, time: "17:00", seatStatus: {} }, { sessionId: 3, time: "19:00", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Nina Kartika", role: "Creative Producer" },
@@ -343,8 +359,8 @@ export const events = [
         dateTime: "2025-02-14T19:00:00",
         endDateTime: "2025-02-15T19:00:00",
         showtimes: [
-            { id: 1, date: "2025-02-14", times: ["19:00"] },
-            { id: 2, date: "2025-02-15", times: ["15:00", "19:00"] }
+            { id: 1, date: "2025-02-14", sessions: [{ sessionId: 1, time: "19:00", seatStatus: {} }] },
+            { id: 2, date: "2025-02-15", sessions: [{ sessionId: 1, time: "15:00", seatStatus: {} }, { sessionId: 2, time: "19:00", seatStatus: {} }] }
         ],
         leadArtists: [
             { id: 1, name: "Siti Rahmawati", role: "Lead Vocalist" },
