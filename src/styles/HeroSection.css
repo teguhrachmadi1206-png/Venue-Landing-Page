@@ -53,7 +53,7 @@
 .hero-title {
     font-size: 1.6em;
     font-weight: 700;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: var(--title-font);
     width: 100%;
     max-width: 6em;
     text-wrap: wrap;

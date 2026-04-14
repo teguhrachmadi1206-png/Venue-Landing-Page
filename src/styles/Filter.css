@@ -94,7 +94,7 @@
     font-size: 1em;
     font-weight: bold;
     color: var(--color-2);
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--main-font);
 }
 
 .tabs-btn:active {
@@ -117,7 +117,7 @@
     border: 1px solid var(--color-1-dark);
     padding-left: 0.5em;
     background: var(--color-2);
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--main-font);
 }
 
 .search-btn {
@@ -128,7 +128,7 @@
     background-color: var(--color-1);
     color: var(--color-3);
     font-weight: bold;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--main-font);
 }
 
 .search-btn:active {

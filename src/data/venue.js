@@ -25,3 +25,8 @@ export const venueData = [
         facilities: ["Open practice area", "Basic sound system", "Mirrors and wooden floor (dance-friendly)", "Flexible seating arrangement"]
     }
 ]
+
+export const seatLayout = {
+    rows: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"],
+    seatsPerRow: 25
+}

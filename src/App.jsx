@@ -8,6 +8,7 @@ import Classes from './pages/Classes'
 import AboutUsPage from './pages/AboutUsPage'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import TicketReservation from './pages/TicketReservation';
 import NotFound from './components/NotFound'
 
 
@@ -70,6 +71,7 @@ function App() {
         <Route exact path="/" element={<Homepage media={mediaCode} />} />
         <Route path="/events" element={<Events media={mediaCode} />} />
         <Route path="/events/event/:eventId" element={<EventDetail media={mediaCode} />} />
+        <Route path="/events/ticket/:eventId" element={<TicketReservation media={mediaCode} />} />
         <Route path="/venues" element={<Venue />} />
         <Route path="/classes" element={<Classes />} />
         <Route path="/about" element={<AboutUsPage />} />
