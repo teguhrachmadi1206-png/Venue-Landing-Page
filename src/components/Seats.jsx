@@ -36,10 +36,6 @@ export default function Seats({ media, layout, status, sendData }) {
         }
     }
 
-    function test() {
-        console.log(currentUserSelection)
-    }
-
     function SeatItem({ seat }) {
         return (
             <button
@@ -56,7 +52,6 @@ export default function Seats({ media, layout, status, sendData }) {
 
     return (
         <>
-            <button onClick={test}>test</button>
             <div className="seat-options">
                 {media !== 1 && <Legends />}
                 <div className="seats-btn-container">
