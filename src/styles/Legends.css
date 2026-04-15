@@ -1,0 +1,45 @@
+.legends {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em;
+    justify-content: space-between;
+}
+
+.legend-item {
+    width: 8em;
+    height: 20px;
+    display: flex;
+    gap: 0.3em;
+    align-items: center;
+}
+
+.legend-box {
+    height: 20px;
+    width: 20px;
+    border: 1px solid var(--color-1);
+    border-radius: 2px;
+}
+
+.legend-box.available {
+    background-color: var(--color-seat-1);
+}
+
+.legend-box.hold {
+    background-color: var(--color-seat-2);
+}
+
+.legend-box.taken {
+    background-color: var(--color-seat-3);
+}
+
+.legend-box.unavailable {
+    background-color: var(--color-seat-4);
+}
+
+@media screen and (min-width: 600px) {
+    .legends {
+        width: 60%;
+    }
+}
