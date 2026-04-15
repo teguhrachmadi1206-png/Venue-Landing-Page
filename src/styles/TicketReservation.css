@@ -33,7 +33,8 @@
     flex-wrap: wrap;
     width: 100%;
     gap: 0.5em;
-    margin: 0.5em 1em;
+    margin: 0.5em auto;
+    padding: 0 1em;
 }
 
 .selector-btn {
@@ -51,33 +52,15 @@
     color: var(--color-1)
 }
 
-.seat-selector {
-    width: 100%;
-    height: 20em;
-    overflow: scroll;
-    margin: 0.5em auto;
-    background-color: var(--color-1);
-    padding: 1em;
-    border-radius: 1em;
-}
-
-.seats-container {
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    margin: 0 auto;
-}
-
 .seat-options {
     width: 100%;
     margin: 0.5em auto 0 auto;
     display: flex;
     align-items: center;
+    padding: 0 1em;
 }
 
 .seats-btn-container {
-    margin-top: 0.5em;
     border-radius: 0.5em;
     display: flex;
     width: 100%;
@@ -108,93 +91,6 @@
 .seats-options-btn:active {
     color: var(--color-2);
     background: linear-gradient(90deg, var(--color-1-lighter), var(--color-1));
-}
-
-.stage-container {
-    width: stretch;
-}
-
-.stage {
-    width: 600px;
-    height: 80px;
-    border: 3px solid var(--color-3-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 3em auto;
-    background-color: var(--color-3);
-    border-radius: 5px 5px 20px 20px;
-    font-weight: bold;
-    color: var(--color-3-dark)
-}
-
-.seat-row {
-    display: flex;
-    flex-direction: row;
-    gap: 0.3em;
-}
-
-.seat {
-    min-width: 30px;
-    height: 35px;
-    font-size: 0.7em;
-    border: 1px solid var(--color-5);
-    border-radius: 8px 8px 4px 4px;
-    background: var(--color-2-mid);
-    padding: 0 3px;
-}
-
-.seat.selected {
-    background-color: var(--color-3);
-}
-
-.seat.locked {
-    background-color: var(--color-1-lighter);
-    color: var(--color-2);
-}
-
-.seat.space {
-    margin-right: 2em;
-}
-
-.legends {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3em;
-    justify-content: space-between;
-}
-
-.legend-item {
-    width: 8em;
-    height: 20px;
-    display: flex;
-    gap: 0.3em;
-    align-items: center;
-}
-
-.legend-box {
-    height: 20px;
-    width: 20px;
-    border: 1px solid var(--color-1);
-    border-radius: 2px;
-}
-
-.legend-box.available {
-    background-color: var(--color-2-mid);
-}
-
-.legend-box.hold {
-    background-color: var(--color-1-lighter);
-}
-
-.legend-box.taken {
-    background-color: var(--color-3-dark);
-}
-
-.legend-box.unavailable {
-    background-color: var(--color-5-lighter);
 }
 
 .checkout {
@@ -361,17 +257,8 @@ button {
         max-width: 50rem;
     }
 
-    .legends {
-        width: 60%;
-    }
-
     .seats-btn-container {
         max-width: 50rem;
-        margin: 0.5em auto;
-    }
-
-    .seat-selector {
-        height: 30em;
     }
 
     .checkout-info {

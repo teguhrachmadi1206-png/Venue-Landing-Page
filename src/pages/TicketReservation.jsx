@@ -4,139 +4,66 @@ import { events } from "../data/events"
 import { formatDate } from "../function/FormatDate"
 import { seatLayout } from "../data/venue"
 import EventBanner from "../components/EventBanner"
+import Seats from "../components/Seats"
+import Legends from "../components/Legends"
 import "../styles/TicketReservation.css"
 
 export default function TicketReservation({ media }) {
     const { eventId } = useParams()
     const [event, setEvent] = useState([])
-    const [dateIdSelected, setDateIdSelected] = useState("")
-    const [sessionIdSelected, setSessionIdSelected] = useState("")
+    const [dateIdSelected, setDateIdSelected] = useState(null)
+    const [sessionIdSelected, setSessionIdSelected] = useState(null)
     const [confirmCheckout, setConfirmCheckout] = useState(false)
     const [confirmedSeat, setConfirmedSeat] = useState([])
+    const [seatStatus, setSeatStatus] = useState({})
     const checkoutRef = useRef(null)
 
     useEffect(() => {
         const shownEvent = events.find((item) => item.id == eventId)
         setEvent(shownEvent)
+        setDateIdSelected(null)
+        setSessionIdSelected(null)
+        setConfirmCheckout(false)
+        setSeatStatus({})
     }, [eventId])
 
-    useEffect(() => {
-        setSessionIdSelected("")
-    }, [dateIdSelected])
-
-    useEffect(() => {
-        setConfirmCheckout(false)
-        setConfirmedSeat([])
-    }, [eventId, dateIdSelected, sessionIdSelected])
-
-
-    function Seats() {
-        const [seatsSelected, setSeatsSelected] = useState([])
-        const [seatStatus, setSeatStatus] = useState([])
-
-        const layout = []
-        for (let i = 0; i < seatLayout.rows.length; i++) {
-            const row = []
-            for (let j = 1; j <= seatLayout.seatsPerRow; j++) {
-                row.push(`${seatLayout.rows[i]}${j}`)
-            }
-            layout.push(row)
+    function handleConfirm(seatData) {
+        setConfirmedSeat(seatData)
+        setConfirmCheckout(true)
+        for (let i = 0; i < seatData.length; i++) {
+            setSeatStatus(prev => ({ ...prev, [seatData[i]]: "hold" }))
         }
-
-        useEffect(() => {
-            setSeatsSelected([])
-        }, [eventId, dateIdSelected, sessionIdSelected])
-
-
-        function selectSeats(seat) {
-            if (seatsSelected.includes(seat)) {
-                setSeatsSelected(prev => prev.filter(item => item !== seat))
-            } else {
-                setSeatsSelected([...seatsSelected, seat])
-            }
-        }
-
-        function clearSelection() {
-            setSeatsSelected([])
-            setConfirmCheckout(false)
-        }
-
-        function confirmSelection() {
-            if (seatsSelected.length > 0) {
-                setConfirmCheckout(true)
-                setConfirmedSeat(seatsSelected.sort((a, b) => a.localeCompare(b)))
-                checkoutRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
-            }
-        }
-
-        return (
-            <>
-                <div className="seat-options">
-                    {media !== 1 && <Legends />}
-                    <div className="seats-btn-container">
-                        <button className="seats-options-btn clear" onClick={clearSelection}>Clear Selection</button>
-                        <button className="seats-options-btn confirm" onClick={confirmSelection}>Confirm Selection</button>
-                    </div>
-                </div>
-                <div className="seat-selector">
-                    <div className="seats-container">
-                        <div className="stage-container">
-                            <div className="stage">
-                                <span>Stage Area</span>
-                            </div>
-                        </div>
-                        {layout.map((row, index) => {
-                            return (
-                                <div key={index} className="seat-row">
-                                    {row.map(seat => <button
-                                        key={seat}
-                                        className={`seat ${/^.(6|19)$/.test(seat) && "space"} ${seatsSelected.includes(seat) && "selected"} ${confirmedSeat.includes(seat) && "locked"}`}
-                                        onClick={() => selectSeats(seat)}
-                                    >{seat}</button>)}
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
-            </>
-        )
-    }
-
-    function Legends() {
-        return (
-            <div className="legends">
-                <div className="legend-item">
-                    <div className="legend-box available"></div>
-                    <span>Available</span>
-                </div>
-                <div className="legend-item">
-                    <div className="legend-box hold"></div>
-                    <span>On Hold</span>
-                </div>
-                <div className="legend-item">
-                    <div className="legend-box taken"></div>
-                    <span>Taken</span>
-                </div>
-                <div className="legend-item">
-                    <div className="legend-box unavailable"></div>
-                    <span>Not For Sale</span>
-                </div>
-            </div>
-        )
+        checkoutRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
     }
 
     function Selector() {
         const sessions = event.showtimes?.filter(show => show.id === dateIdSelected)[0]?.sessions
 
+        function selectDate(id) {
+            setDateIdSelected(id)
+            setSessionIdSelected(null)
+        }
+
+        function selectSession(id) {
+            setSessionIdSelected(id)
+            setSeatStatus(() => {
+                const sessionsNow = event.showtimes?.filter(show => show.id === dateIdSelected)[0].sessions
+                const session = sessionsNow.filter(session => session.sessionId === id)[0]
+                return session.seatStatus
+            })
+        }
+
         return (
             <div className="selector-section">
+                {/* <Selector title="Select Date" items={event.showtimes} selected={dateIdSelected} click={selectDate} /> */}
+
                 <div className="sub-selector">
                     <h3 className="selector-title">Select Date</h3>
                     <div className="selector-btn-container">
                         {event.showtimes?.map(show => <button
                             key={show.id}
                             className={`selector-btn ${show.id === dateIdSelected && "selected"}`}
-                            onClick={() => setDateIdSelected(show.id)}
+                            onClick={() => selectDate(show.id)}
                         >{formatDate(show.date)}</button>)}
                     </div>
                 </div>
@@ -146,13 +73,17 @@ export default function TicketReservation({ media }) {
                         {sessions?.map(session => <button
                             key={session.sessionId}
                             className={`selector-btn ${session.sessionId === sessionIdSelected && "selected"}`}
-                            onClick={() => setSessionIdSelected(session.sessionId)}
+                            onClick={() => selectSession(session.sessionId)}
                         >{session.time}</button>)}
                     </div>
                 </div>}
                 {sessionIdSelected && <div className="sub-selector seat-sub">
                     <h3 className="selector-title">Select Seats</h3>
-                    <Seats />
+                    <Seats
+                        media={media}
+                        layout={seatLayout}
+                        status={seatStatus}
+                        sendData={handleConfirm} />
                     {media === 1 && <Legends />}
                 </div>}
             </div >
@@ -165,8 +96,27 @@ export default function TicketReservation({ media }) {
         const session = date?.sessions.filter(session => session.sessionId === sessionIdSelected)[0].time
 
         function cancel() {
-            setConfirmCheckout(false)
+            for (let i = 0; i < confirmedSeat.length; i++) {
+                setSeatStatus(prev => {
+                    const newStatus = { ...prev }
+                    delete newStatus[confirmedSeat[i]]
+                    return newStatus
+                })
+            }
             setConfirmedSeat([])
+            setConfirmCheckout(false)
+        }
+
+        function purchase() {
+            setSeatStatus(prev => {
+                const newStatus = { ...prev }
+                for (let i = 0; i < confirmedSeat.length; i++) {
+                    newStatus[confirmedSeat[i]] = "taken"
+                }
+                return newStatus
+            })
+            setConfirmedSeat([])
+            setConfirmCheckout(false)
         }
 
         return (
@@ -192,16 +142,12 @@ export default function TicketReservation({ media }) {
                         </div>
                     </div>
                     <div className="checkout-btn-container">
-                        <button className="pay-btn">Pay Now</button>
+                        <button className="pay-btn" onClick={purchase}>Pay Now</button>
                         <button className="cancel-btn" onClick={cancel}>Cancel Purchase</button>
                     </div>
                 </div>
             </div>
         )
-    }
-
-    function test() {
-        console.log(date)
     }
 
     return (
@@ -211,8 +157,8 @@ export default function TicketReservation({ media }) {
                 media={media}
                 event={event}
                 page="ticket" />
-            {!confirmCheckout && <Selector />}
-            {confirmCheckout && <CheckOut />}
+            {new Date(event.dateTime) > new Date() && !confirmCheckout && <Selector />}
+            {new Date(event.dateTime) > new Date() && confirmCheckout && <CheckOut />}
         </div>
     )
 }
