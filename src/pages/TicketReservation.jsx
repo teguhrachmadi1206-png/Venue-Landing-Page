@@ -150,6 +150,14 @@ export default function TicketReservation({ media }) {
         )
     }
 
+    function NotAvailable() {
+        return (
+            <div className="event-unavailable">
+                <p>This event is already expired.</p>
+            </div>
+        )
+    }
+
     return (
         <div className="ticket-reservation-main">
             <span ref={checkoutRef}></span>
@@ -159,6 +167,7 @@ export default function TicketReservation({ media }) {
                 page="ticket" />
             {new Date(event.dateTime) > new Date() && !confirmCheckout && <Selector />}
             {new Date(event.dateTime) > new Date() && confirmCheckout && <CheckOut />}
+            {new Date(event.dateTime) < new Date() && <NotAvailable />}
         </div>
     )
 }

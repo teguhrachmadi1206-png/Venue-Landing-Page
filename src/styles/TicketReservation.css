@@ -231,6 +231,14 @@ button {
     cursor: pointer;
 }
 
+.event-unavailable {
+    width: 100%;
+    text-align: center;
+    padding: 2em 0;
+    color: var(--color-5);
+    font-weight: bold;
+}
+
 @media screen and (min-width: 600px) {
     .sub-selector {
         max-width: 50rem;
