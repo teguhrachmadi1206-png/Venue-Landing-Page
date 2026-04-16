@@ -1,11 +1,26 @@
 import "../styles/EventBanner.css"
+import { useState } from "react"
+import { FocusTrap } from "focus-trap-react"
 
 export default function EventBanner({ media, event, page }) {
     const isPastEvent = new Date(event.endDateTime) < new Date ? true : false
+    const [showPosterModal, setShowPosterModal] = useState(false)
+
+    function showPoster() {
+        setShowPosterModal(true)
+    }
 
     return (
         <div className={`event-banner ${page}`}>
-            <img className={`event-poster ${page}`} src={event.posterSrc} alt={event.posterAlt} />
+            {showPosterModal && <FocusTrap>
+                <div className="poster-modal">
+                    <div className="poster-modal-overlay" onClick={() => setShowPosterModal(false)}>
+                        <img className="big-poster" src={event.posterSrc} alt={event.posterAlt} />
+                        <button className="modal-close-btn">X</button>
+                    </div>
+                </div>
+            </FocusTrap>}
+            <img className={`event-poster ${page}`} src={event.posterSrc} alt={event.posterAlt} onClick={page === "detail" && showPoster} />
             <div className={`event-info ${page}`}>
                 <div className={`event-info-title ${isPastEvent && "past"} ${page}`}>
                     <h2 className="event-title">{event.title}</h2>
