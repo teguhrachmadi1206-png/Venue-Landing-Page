@@ -6,6 +6,7 @@ import { seatLayout } from "../data/venue"
 import EventBanner from "../components/EventBanner"
 import Seats from "../components/Seats"
 import Legends from "../components/Legends"
+import CustomModal from "../components/CustomModal"
 import "../styles/TicketReservation.css"
 
 export default function TicketReservation({ media }) {
@@ -16,6 +17,7 @@ export default function TicketReservation({ media }) {
     const [confirmCheckout, setConfirmCheckout] = useState(false)
     const [confirmedSeat, setConfirmedSeat] = useState([])
     const [seatStatus, setSeatStatus] = useState({})
+    const [modalContent, setModalContent] = useState({ show: false })
     const checkoutRef = useRef(null)
 
     useEffect(() => {
@@ -47,16 +49,14 @@ export default function TicketReservation({ media }) {
         function selectSession(id) {
             setSessionIdSelected(id)
             setSeatStatus(() => {
-                const sessionsNow = event.showtimes?.filter(show => show.id === dateIdSelected)[0].sessions
-                const session = sessionsNow.filter(session => session.sessionId === id)[0]
+                const selectedSessions = event.showtimes?.filter(show => show.id === dateIdSelected)[0].sessions
+                const session = selectedSessions.filter(session => session.sessionId === id)[0]
                 return session.seatStatus
             })
         }
 
         return (
             <div className="selector-section">
-                {/* <Selector title="Select Date" items={event.showtimes} selected={dateIdSelected} click={selectDate} /> */}
-
                 <div className="sub-selector">
                     <h3 className="selector-title">Select Date</h3>
                     <div className="selector-btn-container">
@@ -108,13 +108,32 @@ export default function TicketReservation({ media }) {
         }
 
         function purchase() {
-            setSeatStatus(prev => {
-                const newStatus = { ...prev }
-                for (let i = 0; i < confirmedSeat.length; i++) {
-                    newStatus[confirmedSeat[i]] = "taken"
-                }
-                return newStatus
+            function confirmPurchase() {
+                setSeatStatus(prev => {
+                    const newStatus = { ...prev }
+                    for (let i = 0; i < confirmedSeat.length; i++) {
+                        newStatus[confirmedSeat[i]] = "taken"
+                    }
+                    return newStatus
+                })
+                setModalContent({ show: true, message: "Payment Success!", yesBtn: <button className="modal-btn" onClick={() => setModalContent({ show: false })}>Close</button> })
+            }
+
+            function cancelPurchase() {
+                setModalContent({ show: true, message: "Payment canceled", yesBtn: <button className="modal-btn" onClick={() => setModalContent({ show: false })}>Close</button> })
+                cancel()
+            }
+
+            setModalContent(() => {
+                const newContent = {}
+                newContent.show = true
+                newContent.title = "Purchase Confirmation"
+                newContent.message = `Pay ${confirmedSeat.length} "${event.title}" ticket${confirmedSeat.length > 1 ? "s" : ""} for $${confirmedSeat.length * event.price}.00?`
+                newContent.yesBtn = <button className="modal-btn yes-btn" onClick={confirmPurchase}>Yes</button>
+                newContent.noBtn = <button className="modal-btn no-btn" onClick={cancelPurchase}>No</button>
+                return newContent
             })
+
             setConfirmedSeat([])
             setConfirmCheckout(false)
         }
@@ -160,6 +179,7 @@ export default function TicketReservation({ media }) {
 
     return (
         <div className="ticket-reservation-main">
+            {modalContent.show && <CustomModal content={modalContent} />}
             <span ref={checkoutRef}></span>
             <EventBanner
                 media={media}

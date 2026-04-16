@@ -262,10 +262,14 @@ button {
     }
 
     .seat-options {
+        display: flex;
+        width: 100%;
         max-width: 50rem;
+        justify-content: space-between;
     }
 
     .seats-btn-container {
+        width: 30%;
         max-width: 50rem;
     }
 
