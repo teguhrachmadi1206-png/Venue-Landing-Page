@@ -27,6 +27,7 @@ export default function TicketReservation({ media }) {
         setSessionIdSelected(null)
         setConfirmCheckout(false)
         setSeatStatus({})
+        setModalContent({ show: false })
     }, [eventId])
 
     function handleConfirm(seatData) {
