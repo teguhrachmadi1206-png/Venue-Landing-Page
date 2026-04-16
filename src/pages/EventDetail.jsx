@@ -59,7 +59,7 @@ export default function EventDetail({ media }) {
                                 <div key={show.id} className="detail-item-content box">
                                     <h4 className="event-item-content-title">{formatDate(show.date)}</h4>
                                     <div className="session-container">
-                                        {show.sessions?.map(session => <span className="session" key={session.sessionId}>{session.time}</span>)}
+                                        {show.sessions?.map(session => <span className={`session ${isPastEvent && "past"}`} key={session.sessionId}>{session.time}</span>)}
                                     </div>
                                 </div>
                             )
