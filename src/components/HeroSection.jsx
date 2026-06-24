@@ -1,10 +1,16 @@
 import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import '../styles/HeroSection.css'
-import { bannerBackground, homeBannerImages, bannerData, eventsBannerImages } from '../data/hero'
+import { bannerBackground, homeBannerImages, bannerData, eventsBannerImages, venueBannerImages } from '../data/hero'
 
 export default function HeroSection({ page, style }) {
-    const bannerImages = (page === "home" ? homeBannerImages : page === "events" && eventsBannerImages)
+    const images = {
+        home: homeBannerImages,
+        events: eventsBannerImages,
+        venue: venueBannerImages,
+    }
+
+    const bannerImages = images[page]
     const [bannerImgId, setBannerImgId] = useState(0)
     const CarouselDots = bannerImages.map(image => (
         <div key={image.id} className={bannerImgId === image.id ? "carousel-dot selected" : "carousel-dot"} onClick={(event) => chooseBanner(image.id, event)}></div >
@@ -45,9 +51,9 @@ export default function HeroSection({ page, style }) {
                         <span className="hero-title">{bannerData[page].title}</span>
                         {bannerData[page].desc && <p className="hero-content-desc">{bannerData[page].desc}</p>}
                     </div>
-                    {page === "home" && <button className="hero-content-btn" onClick={explore}>{bannerData[page].button}</button>}
+                    {bannerData[page].button && <button className="hero-content-btn" onClick={explore}>{bannerData[page].button}</button>}
                 </div>
-                {page === "home" && <div className="carousel-control">
+                {bannerImages.length > 1 && <div className="carousel-control">
                     <button className="carousel-btn prev" onClick={prevBanner}></button>
                     <div className="carousel-dots">
                         {CarouselDots}

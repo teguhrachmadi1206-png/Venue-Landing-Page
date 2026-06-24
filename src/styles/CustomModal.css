@@ -50,11 +50,11 @@
 }
 
 .modal-btn.yes-btn {
-    background-color: var(--color-seat-5);
+    background-color: var(--color-3);
 }
 
 .modal-btn.no-btn {
-    background-color: var(--color-seat-3);
+    background-color: var(--color-3-dark);
 }
 
 .modal-btn:hover {

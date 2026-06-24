@@ -37,7 +37,12 @@ export default function Events({ media }) {
                     </div>
                     <div className="event-page-card-container">
                         {displayEventCards.length > 0
-                            ? displayEventCards.map(event => <EventCardComp key={event.id} event={event} pages="events-page" variant={new Date(event.endDateTime) < new Date ? "past" : "upcoming"} />)
+                            ? displayEventCards.map(event => <EventCardComp
+                                key={event.id}
+                                event={event}
+                                pages="events-page"
+                                variant={new Date(event.endDateTime) < new Date ? "past" : "upcoming"}
+                            />)
                             : <p className="message">No events matched</p>}
                     </div >
                 </section>
