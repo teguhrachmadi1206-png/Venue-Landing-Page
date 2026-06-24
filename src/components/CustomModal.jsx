@@ -12,8 +12,8 @@ export default function CustomModal({ content }) {
                         <h2 className="modal-title">{content.title}</h2>
                         <p className="modal-text">{content.message}</p>
                         <div className="modal-actions">
-                            {content.yesBtn}
                             {content.noBtn}
+                            {content.yesBtn}
                         </div>
                     </div>
                 </div>

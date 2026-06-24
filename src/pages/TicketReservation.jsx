@@ -130,8 +130,8 @@ export default function TicketReservation({ media }) {
                 newContent.show = true
                 newContent.title = "Purchase Confirmation"
                 newContent.message = `Pay ${confirmedSeat.length} "${event.title}" ticket${confirmedSeat.length > 1 ? "s" : ""} for $${confirmedSeat.length * event.price}.00?`
-                newContent.yesBtn = <button className="modal-btn yes-btn" onClick={confirmPurchase}>Yes</button>
                 newContent.noBtn = <button className="modal-btn no-btn" onClick={cancelPurchase}>No</button>
+                newContent.yesBtn = <button className="modal-btn yes-btn" onClick={confirmPurchase}>Yes</button>
                 return newContent
             })
 
@@ -162,8 +162,8 @@ export default function TicketReservation({ media }) {
                         </div>
                     </div>
                     <div className="checkout-btn-container">
-                        <button className="pay-btn" onClick={purchase}>Pay Now</button>
                         <button className="cancel-btn" onClick={cancel}>Cancel Purchase</button>
+                        <button className="pay-btn" onClick={purchase}>Pay Now</button>
                     </div>
                 </div>
             </div>
