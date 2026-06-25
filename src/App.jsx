@@ -10,6 +10,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import TicketReservation from './pages/TicketReservation';
 import NotFound from './components/NotFound'
+import VenueDetails from './pages/VenueDetails';
 
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
         <Route path="/events/event/:eventId" element={<EventDetail media={mediaCode} />} />
         <Route path="/events/ticket/:eventId" element={<TicketReservation media={mediaCode} />} />
         <Route path="/venues" element={<Venue media={mediaCode} />} />
+        <Route path="/venues/venue/:venueId" element={<VenueDetails media={mediaCode} />} />
         <Route path="/classes" element={<Classes />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="*" element={<NotFound />} />

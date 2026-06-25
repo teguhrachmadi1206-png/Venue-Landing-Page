@@ -1,0 +1,101 @@
+.schedule-table {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+}
+
+.schedule-table h4 {
+    margin: 0.5em 0;
+}
+
+.schedule-day-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0.1em;
+    font-size: 0.7em;
+}
+
+.schedule-day {
+    width: 100%;
+    background: linear-gradient(180deg, var(--color-1-lighter), var(--color-1-dark));
+    text-align: center;
+    font-weight: bold;
+    color: var(--color-3);
+    padding: 0.5em 0.2em;
+    border-radius: 1em 1em 0.1em 0.1em;
+}
+
+.schedule-date-table {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.1em;
+    margin-top: 0.2em;
+}
+
+.schedule-date {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    background-color: var(--color-3-lighter);
+    border-radius: 0.2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-date.empty {
+    background-color: var(--color-4);
+}
+
+.schedule-date-number {
+    font-weight: bold;
+    padding: 0.3em;
+}
+
+@media screen and (min-width: 600px) {
+    .schedule-table {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        align-items: center;
+    }
+
+    .schedule-table h4 {
+        margin: 1em 0;
+    }
+
+    .schedule-day-header {
+        gap: 0.2em;
+    }
+
+    .schedule-date-table {
+        gap: 0.2em;
+    }
+
+    .schedule-date {
+        border-radius: 0.3em;
+    }
+
+    .schedule-day-header {
+        font-size: 1em;
+    }
+
+    .schedule-date-number {
+        padding: 0.5em;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .schedule-table {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        align-items: center;
+    }
+
+    .schedule-date-number {
+        padding: 0.7em;
+    }
+}

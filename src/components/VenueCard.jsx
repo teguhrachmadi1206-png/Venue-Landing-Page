@@ -1,27 +1,33 @@
 import { useNavigate } from 'react-router-dom'
 
-export default function VenueCard({ data, media }) {
+export default function VenueCard({ id, venue, media }) {
+    const navigate = useNavigate()
+
+    function goToDetail() {
+        navigate(`/venues/venue/${venue.id}`)
+    }
+
     return (
         <div className='venue-card'>
             <div className='venue-card-content'>
                 <div>
-                    <h3>{data.title}</h3>
-                    <span>{data.type}</span>
+                    <h3>{venue.title}</h3>
+                    <span>{venue.type}</span>
                 </div>
-                <img src={data.imgSrc} alt={data.imgAlt} />
+                <img src={venue.imgSrc} alt={venue.imgAlt} />
                 <div>
                     <h4>Use:</h4>
-                    <p>{media === 1 ? data.shortDesc : data.desc}</p>
+                    <p>{media === 1 ? venue.shortDesc : venue.desc}</p>
                 </div>
                 <div>
                     <h4>Capacity:</h4>
-                    <p>{data.capacity}</p>
+                    <p>{venue.capacity}</p>
                 </div>
                 {media > 1 &&
                     <div>
                         <h4>Facilities:</h4>
                         <ul>
-                            {data.facilities.map((facility, index) => {
+                            {venue.facilities.map((facility, index) => {
                                 return (
                                     <li key={index}>{facility}</li>
                                 )
@@ -29,7 +35,7 @@ export default function VenueCard({ data, media }) {
                         </ul>
                     </div>}
             </div>
-            <button>Book Now</button>
+            <button id={id} onClick={goToDetail}>Book Now</button>
         </div>
     )
 }

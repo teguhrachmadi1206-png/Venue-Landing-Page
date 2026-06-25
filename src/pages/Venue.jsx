@@ -1,4 +1,3 @@
-import UnderConstruction from "../components/UnderConstrucion"
 import HeroSection from "../components/HeroSection"
 import VenueCard from "../components/VenueCard"
 import { venueData } from "../data/venue"
@@ -16,7 +15,7 @@ export default function Venue({ media }) {
                 <div className="venue-card-container">
                     {venueData.map(venue => {
                         return (
-                            <VenueCard key={venue.title} data={venue} media={media} />
+                            <VenueCard key={venue.title} venue={venue} media={media} />
                         )
                     })}
                 </div>

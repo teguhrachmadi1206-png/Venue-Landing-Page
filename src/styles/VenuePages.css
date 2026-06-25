@@ -58,21 +58,21 @@ h4 {
 .venue-card button {
     color: var(--color-1-dark);
     font-weight: bold;
-    padding: 0.5em 0;
+    padding: 0.7em 0;
     border: none;
     border-radius: 0.5em;
-    background: var(--color-3);
+    background: linear-gradient(90deg, var(--color-3), var(--color-3-mid));
 }
 
 .venue-card button:hover {
     cursor: pointer;
-    background-color: var(--color-3-mid);
+    background: linear-gradient(90deg, var(--color-1-lighter), var(--color-1));
     color: var(--color-2-dark);
 }
 
 .venue-card button:active {
-    background-color: var(--color-1-lighter);
-    color: var(--color-3-lighter);
+    background: linear-gradient(90deg, var(--color-4), var(--color-4-dark));
+    color: var(--color-1-dark);
 }
 
 @media screen and (min-width: 600px) {
