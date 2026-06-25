@@ -9,11 +9,11 @@ export default function VenueCard({ id, venue, media }) {
 
     return (
         <div className='venue-card'>
+            <div className='venue-card-title'>
+                <h3>{venue.title}</h3>
+                <span>{venue.type}</span>
+            </div>
             <div className='venue-card-content'>
-                <div>
-                    <h3>{venue.title}</h3>
-                    <span>{venue.type}</span>
-                </div>
                 <img src={venue.imgSrc} alt={venue.imgAlt} />
                 <div>
                     <h4>Use:</h4>
@@ -23,7 +23,7 @@ export default function VenueCard({ id, venue, media }) {
                     <h4>Capacity:</h4>
                     <p>{venue.capacity}</p>
                 </div>
-                {media > 1 &&
+                {/* {media > 1 &&
                     <div>
                         <h4>Facilities:</h4>
                         <ul>
@@ -33,7 +33,7 @@ export default function VenueCard({ id, venue, media }) {
                                 )
                             })}
                         </ul>
-                    </div>}
+                    </div>} */}
             </div>
             <button id={id} onClick={goToDetail}>Book Now</button>
         </div>

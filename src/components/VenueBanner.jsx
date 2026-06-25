@@ -10,6 +10,10 @@ export default function VenueBanner({ venue }) {
                 </div>
                 <div className="venue-banner-content">
                     <div className="venue-banner-row">
+                        <h4 className="venue-banner-row-title">Capacity:</h4>
+                        <p className="venue-row-content">{venue.capacity}</p>
+                    </div>
+                    <div className="venue-banner-row">
                         <h4 className="venue-banner-row-title">Facilities:</h4>
                         <ul className="venue-row-content">
                             {venue.facilities?.map((facility, index) => {
