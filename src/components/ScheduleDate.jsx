@@ -1,20 +1,33 @@
+import { useState } from "react"
 
-export default function ScheduleDate({ date, status, empty }) {
-    const notRendered = empty
-    const unavailable = status === "maintenance" || status === "holiday"
-    const booked = status === "confirmed"
-    const pending = status === "pending"
+export default function ScheduleDate({ media, date, status, empty, fullDate }) {
+    const [selectedDates, setSelectedDates] = useState([])
+
+    const notRendered = empty ? "empty" : ""
+    const unavailable = status === "maintenance" || status === "holiday" ? "unavailable" : ""
+    const booked = status === "confirmed" ? "booked" : ""
+    const pending = status === "pending" ? "pending" : ""
 
     function test() {
-        console.log(date)
+        console.log(fullDate)
     }
+
+    function selectDate(id) {
+
+    }
+
     return (
-        <div className={`schedule-date ${empty ? 'empty' : ""} ${booked ? "booked" : ""}`}
-            onClick={test}>
+        <div className={`schedule-date ${notRendered} ${booked} ${pending} ${unavailable}`}
+            onClick={() => selectDate()}>
             {!empty && <>
                 <span className='schedule-date-number'>{date}</span>
-                <span className='schedule-date-status'></span>
+                {media !== 1 && < span className='schedule-date-status'>
+                    {booked ? "Event Confirmed" : ""}
+                    {pending ? "Event awaiting confirmation" : ""}
+                    {status === "maintenance" ? "Scheduled for maintenance" : ""}
+                    {status === "holiday" ? "Closure on Holiday" : ""}
+                </span>}
             </>}
-        </div>
+        </div >
     )
 }

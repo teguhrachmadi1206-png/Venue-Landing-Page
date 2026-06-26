@@ -15,8 +15,8 @@ export const bookings = [
     venueId: "auditorium",
     eventName: "West Java Dance Showcase",
     organizationName: "Bandung Arts Community",
-    startDate: "2026-06-20",
-    endDate: "2026-06-20",
+    startDate: "2026-06-28",
+    endDate: "2026-07-02",
     status: "confirmed",
   },
   {
@@ -160,7 +160,7 @@ export const closures = [
   {
     id: 1,
     venueId: "auditorium",
-    type: "maintenance",
+    status: "maintenance",
     title: "Annual Sound System Inspection",
     startDate: "2026-06-15",
     endDate: "2026-06-16",
@@ -169,7 +169,7 @@ export const closures = [
   {
     id: 2,
     venueId: "rehearsal-room",
-    type: "maintenance",
+    status: "maintenance",
     title: "Floor Maintenance",
     startDate: "2026-07-27",
     endDate: "2026-07-28",
@@ -178,7 +178,7 @@ export const closures = [
   {
     id: 3,
     venueId: "auditorium",
-    type: "holiday",
+    status: "holiday",
     title: "Independence Day Closure",
     startDate: "2026-08-17",
     endDate: "2026-08-17",
@@ -187,7 +187,7 @@ export const closures = [
   {
     id: 4,
     venueId: "auditorium",
-    type: "maintenance",
+    status: "maintenance",
     title: "Stage Lighting Upgrade",
     startDate: "2026-09-14",
     endDate: "2026-09-16",
@@ -196,7 +196,7 @@ export const closures = [
   {
     id: 5,
     venueId: "rehearsal-room",
-    type: "maintenance",
+    status: "maintenance",
     title: "Air Conditioning Service",
     startDate: "2026-10-05",
     endDate: "2026-10-05",
@@ -205,7 +205,7 @@ export const closures = [
   {
     id: 6,
     venueId: "auditorium",
-    type: "holiday",
+    status: "holiday",
     title: "Public Holiday",
     startDate: "2026-12-25",
     endDate: "2026-12-25",
@@ -214,9 +214,26 @@ export const closures = [
   {
     id: 7,
     venueId: "auditorium",
-    type: "maintenance",
+    status: "maintenance",
     title: "New Year Maintenance Shutdown",
     startDate: "2027-01-01",
     endDate: "2027-01-03",
   },
+];
+
+export const weekString = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+export const monthString = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];

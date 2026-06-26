@@ -85,7 +85,7 @@ export default function TicketReservation({ media }) {
                         layout={seatLayout}
                         status={seatStatus}
                         sendData={handleConfirm} />
-                    {media === 1 && <Legends />}
+                    {media === 1 && <Legends available="Available" onHold="On Hold" taken="Taken" unavailable="Not For Sale" />}
                 </div>}
             </div >
 

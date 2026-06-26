@@ -1,23 +1,23 @@
 import "../styles/Legends.css"
 
-export default function Legends() {
+export default function Legends({ available, onHold, taken, unavailable }) {
     return (
         <div className="legends">
             <div className="legend-item">
                 <div className="legend-box available"></div>
-                <span>Available</span>
+                <span>{available}</span>
             </div>
             <div className="legend-item">
                 <div className="legend-box hold"></div>
-                <span>On Hold</span>
+                <span>{onHold}</span>
             </div>
             <div className="legend-item">
                 <div className="legend-box taken"></div>
-                <span>Taken</span>
+                <span>{taken}</span>
             </div>
             <div className="legend-item">
                 <div className="legend-box unavailable"></div>
-                <span>Not For Sale</span>
+                <span>{unavailable}</span>
             </div>
         </div>
     )

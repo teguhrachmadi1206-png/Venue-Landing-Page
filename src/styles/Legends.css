@@ -8,11 +8,16 @@
 }
 
 .legend-item {
-    width: 8em;
-    height: 20px;
+    width: 130px;
+    height: stretch;
     display: flex;
     gap: 0.3em;
     align-items: center;
+}
+
+.legend-item span {
+    width: 100px;
+    font-size: 0.7em;
 }
 
 .legend-box {

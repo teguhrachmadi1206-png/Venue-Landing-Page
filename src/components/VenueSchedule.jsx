@@ -1,53 +1,42 @@
 import "../styles/VenueSchedule.css"
 import ScheduleDate from "./ScheduleDate"
-import { bookings, closures, currentScheduleAllowed } from "../data/schedule"
+import { bookings, closures, currentScheduleAllowed, weekString, monthString } from "../data/schedule"
 import { useEffect, useRef, useState } from "react"
 import ShortMessage from "./ShortMessage"
+import Legends from "./Legends"
 
-export default function VenueSchedule({ venue }) {
-    const currentDateTime = new Date()
-    const currentDateString = currentDateTime.toLocaleDateString()
-    const currentMonth = Number(currentDateString.split("/")[0]) - 1
-    const currentYear = Number(currentDateString.split("/")[2])
-    const [monthSelected, setMonthSelected] = useState(currentMonth)
-    const [yearSelected, setYearSelected] = useState(currentYear)
+export default function VenueSchedule({ media, venue, unavailable }) {
+    const [monthSelected, setMonthSelected] = useState(Number(new Date().toLocaleDateString().split("/")[0]) - 1)
+    const [yearSelected, setYearSelected] = useState(Number(new Date().toLocaleDateString().split("/")[2]))
+    const [message, setMessage] = useState(null)
     const monthSelectorRef = useRef(null)
     const yearSelectorRef = useRef(null)
-    const selectedDate = new Date(yearSelected, monthSelected, 1)
-    const formatDate = selectedDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
-    const totalDays = new Date(yearSelected, monthSelected + 1, 0).getDate()
-    const weekString = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-    const monthString = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-    const [message, setMessage] = useState(null)
-
-    const days = []
-    for (let date = 1; date <= totalDays; date++) {
-        const currentDate = new Date(yearSelected, monthSelected, date)
-
-        days.push({
-            'date': date,
-            'day': currentDate.toLocaleDateString("en-US", {
-                weekday: "short",
-            }),
-            'fullDate': currentDate,
-        })
-    }
-
+    const dateHeader = new Date(yearSelected, monthSelected, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+    const days = makeDays(yearSelected, monthSelected)
     const emptyDays = new Array(weekString.indexOf(`${days[0].day}`)).fill("empty")
-
-    // function isDateInRange(target, start, end) {
-    //     const targetDate = new Date(target)
-    //     const startDate = new Date(start)
-    //     const endDate = new Date(end)
-
-    //     return targetDate >= startDate && targetDate <= endDate
-    // }
 
     function showMessage(message, time) {
         setMessage(message)
         setTimeout(() => {
             setMessage(null);
         }, time);
+    }
+
+    function makeDays(year, month) {
+        const totalDays = new Date(year, month + 1, 0).getDate()
+        const dates = [];
+        for (let date = 1; date <= totalDays; date++) {
+            const currentDate = new Date(year, month, date)
+
+            dates.push({
+                'date': date,
+                'day': currentDate.toLocaleDateString("en-US", {
+                    weekday: "short",
+                }),
+                'fullDate': currentDate,
+            })
+        }
+        return dates
     }
 
     function changeMonth() {
@@ -126,32 +115,37 @@ export default function VenueSchedule({ venue }) {
             </div>
             <div className="schedule-header">
                 <button className="schedule-btn prev" onClick={prevMonth}>{"< prev"}</button>
-                <h4>{`${formatDate}`}</h4>
+                <h4>{`${dateHeader}`}</h4>
                 <button className="schedule-btn next" onClick={nextMonth}>{"next >"}</button>
             </div>
             <div className="schedule-day-header">
-                <div className='schedule-day'><span>Mon</span></div>
-                <div className='schedule-day'><span>Tue</span></div>
-                <div className='schedule-day'><span>Wed</span></div>
-                <div className='schedule-day'><span>Thu</span></div>
-                <div className='schedule-day'><span>Fri</span></div>
-                <div className='schedule-day'><span>Sat</span></div>
-                <div className='schedule-day'><span>Sun</span></div>
+                {weekString.map(day => {
+                    return (
+                        <div key={day} className='schedule-day'><span>{day}</span></div>
+                    )
+                })}
             </div>
             <div className="schedule-date-table">
                 {emptyDays?.map((data, index) => {
                     return <ScheduleDate key={index} date="" status="" empty={true} />
                 })}
                 {days?.map((data, index) => {
+                    const date = new Date(data.fullDate)
+                    date.setDate(date.getDate() + 1)
+                    const thisDate = date.toISOString().split('T')[0];
+                    const status = unavailable.filter(item => item.date === thisDate)[0]?.status
                     return (
                         <ScheduleDate
                             key={index + emptyDays.length}
                             date={data.date}
-                            status={""}
+                            status={status}
+                            fullDate={thisDate}
+                            media={media}
                         />
                     )
                 })}
             </div>
+            {media === 1 && <Legends available="Available" onHold="Awaiting Confimation" taken="Event Confirmed" unavailable="Not Available" />}
             {/* <button onClick={test}>Test</button> */}
         </div>
     )
