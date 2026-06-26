@@ -55,7 +55,9 @@ export default function VenueSchedule({ venue }) {
     }
 
     function changeYear() {
+        const minMonth = Math.min(...(currentScheduleAllowed.filter(schedule => schedule.year === Number(yearSelectorRef.current.value))[0].months))
         setYearSelected(Number(yearSelectorRef.current.value))
+        setMonthSelected(minMonth)
     }
 
     function nextMonth() {
