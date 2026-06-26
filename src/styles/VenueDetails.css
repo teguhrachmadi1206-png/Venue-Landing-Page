@@ -6,7 +6,7 @@ main {
     min-height: calc(100vh - var(--header-height) - var(--footer-height) - 2em);
 }
 
-section {
+.venue-detail-section {
     width: 100%;
     display: flex;
     flex-direction: column;

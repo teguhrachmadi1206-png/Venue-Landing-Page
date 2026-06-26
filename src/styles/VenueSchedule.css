@@ -45,6 +45,14 @@
     flex-direction: column;
 }
 
+.schedule-date.unavailable {
+    background-color: var(--color-3-dark);
+}
+
+.schedule-date.booked {
+    background-color: var(--color-3-mid);
+}
+
 .schedule-date.empty {
     background-color: var(--color-4);
 }
@@ -52,6 +60,51 @@
 .schedule-date-number {
     font-weight: bold;
     padding: 0.3em;
+}
+
+.schedule-filter-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.2em;
+    margin-top: 1em;
+}
+
+.filter-select.month {
+    width: 8em;
+    color: var(--color-1-dark)
+}
+
+.filter-select.year {
+    width: 6em;
+    color: var(--color-1-dark)
+}
+
+.schedule-header {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    vertical-align: center;
+}
+
+.schedule-btn {
+    padding: 0.5em;
+    border: none;
+    aspect-ratio: 1;
+    color: var(--color-1);
+    font-weight: bold;
+    background: none;
+    display: flex;
+    align-items: center;
+}
+
+.schedule-btn:hover {
+    color: var(--color-3);
+}
+
+.schedule-btn:active {
+    color: var(--color-1-lighter);
 }
 
 @media screen and (min-width: 600px) {
@@ -84,6 +137,10 @@
 
     .schedule-date-number {
         padding: 0.5em;
+    }
+
+    .schedule-header {
+        width: 50%;
     }
 }
 

@@ -4,7 +4,7 @@ export default function VenueCard({ id, venue, media }) {
     const navigate = useNavigate()
 
     function goToDetail() {
-        navigate(`/venues/venue/${venue.id}`)
+        navigate(`/venues/venue/${venue.venueId}`)
     }
 
     return (
