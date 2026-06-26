@@ -148,6 +148,19 @@ section {
   font-size: 1.5em;
 }
 
+.short-message {
+  width: 12em;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.85);
+  position: fixed;
+  top: 50%;
+  border-radius: 2em;
+  color: var(--color-3);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 @media screen and (min-width: 600px) {
   .sub-title {
     font-size: 1.5em;

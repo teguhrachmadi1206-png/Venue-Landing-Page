@@ -2,6 +2,7 @@ import "../styles/VenueSchedule.css"
 import ScheduleDate from "./ScheduleDate"
 import { bookings, closures, currentScheduleAllowed } from "../data/schedule"
 import { useEffect, useRef, useState } from "react"
+import ShortMessage from "./ShortMessage"
 
 export default function VenueSchedule({ venue }) {
     const currentDateTime = new Date()
@@ -17,6 +18,7 @@ export default function VenueSchedule({ venue }) {
     const totalDays = new Date(yearSelected, monthSelected + 1, 0).getDate()
     const weekString = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     const monthString = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    const [message, setMessage] = useState(null)
 
     const days = []
     for (let date = 1; date <= totalDays; date++) {
@@ -41,6 +43,13 @@ export default function VenueSchedule({ venue }) {
     //     return targetDate >= startDate && targetDate <= endDate
     // }
 
+    function showMessage(message, time) {
+        setMessage(message)
+        setTimeout(() => {
+            setMessage(null);
+        }, time);
+    }
+
     function changeMonth() {
         setMonthSelected(Number(monthSelectorRef.current.value))
     }
@@ -64,6 +73,9 @@ export default function VenueSchedule({ venue }) {
             if (monthSelected < maxMonth) {
                 setMonthSelected(prev => prev + 1)
             }
+            else {
+                showMessage("You've reached last month available", 1000)
+            }
         }
     }
 
@@ -81,6 +93,8 @@ export default function VenueSchedule({ venue }) {
         } else {
             if (monthSelected > minMonth) {
                 setMonthSelected(prev => prev - 1)
+            } else {
+                showMessage("You've reached last month available", 1000)
             }
         }
     }
@@ -91,6 +105,7 @@ export default function VenueSchedule({ venue }) {
 
     return (
         <div className="schedule-table">
+            {message && <ShortMessage message={message} />}
             <div className="schedule-filter-container">
                 <select className="filter-select year" id="year-selector" onChange={changeYear} ref={yearSelectorRef} value={yearSelected}>
                     {currentScheduleAllowed.map(schedule => {
