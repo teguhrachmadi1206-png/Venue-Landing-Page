@@ -4,11 +4,15 @@ import { bookings, closures, currentScheduleAllowed, weekString, monthString } f
 import { useEffect, useRef, useState } from "react"
 import ShortMessage from "./ShortMessage"
 import Legends from "./Legends"
+import CallToAction from "./CallToAction"
+import CustomModal from "./CustomModal"
 
 export default function VenueSchedule({ media, venue, unavailable }) {
     const [monthSelected, setMonthSelected] = useState(Number(new Date().toLocaleDateString().split("/")[0]) - 1)
     const [yearSelected, setYearSelected] = useState(Number(new Date().toLocaleDateString().split("/")[2]))
     const [message, setMessage] = useState(null)
+    const [userSelection, setUserSelection] = useState([])
+    const [modalContent, setModalContent] = useState({ show: false })
     const monthSelectorRef = useRef(null)
     const yearSelectorRef = useRef(null)
     const dateHeader = new Date(yearSelected, monthSelected, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
@@ -90,12 +94,35 @@ export default function VenueSchedule({ media, venue, unavailable }) {
         }
     }
 
+    function bookDate() {
+        let datesToBook = '';
+        const selection = [...userSelection].sort((a, b) => a.localeCompare(b))
+        console.log(selection, userSelection)
+        for (let i = 0; i < selection.length; i++) {
+            const full = new Date(selection[i]).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' })
+            datesToBook += `[${full}]`
+            if (i !== selection.length - 1) {
+                datesToBook += " - "
+            }
+        }
+        setModalContent(() => {
+            const newContent = {}
+            newContent.show = true
+            newContent.title = "Book Confirmation"
+            newContent.message = `Confirm book for: ${datesToBook}, proceeds?`
+            newContent.noBtn = <button className="modal-btn no-btn" onClick={() => setModalContent({ show: false })}>No</button>
+            newContent.yesBtn = <button className="modal-btn yes-btn" onClick={() => setModalContent({ show: false })}>Yes</button>
+            return newContent
+        })
+    }
+
     function test() {
         console.log(monthSelected)
     }
 
     return (
         <div className="schedule-table">
+            {modalContent.show && <CustomModal content={modalContent} />}
             {message && <ShortMessage message={message} />}
             <div className="schedule-filter-container">
                 <select className="filter-select year" id="year-selector" onChange={changeYear} ref={yearSelectorRef} value={yearSelected}>
@@ -141,11 +168,14 @@ export default function VenueSchedule({ media, venue, unavailable }) {
                             status={status}
                             fullDate={thisDate}
                             media={media}
+                            selected={userSelection.includes(thisDate)}
+                            setUserSelection={setUserSelection}
                         />
                     )
                 })}
             </div>
             {media === 1 && <Legends available="Available" onHold="Awaiting Confimation" taken="Event Confirmed" unavailable="Not Available" />}
+            <CallToAction text="Book Now" isDisabled={!userSelection.length} handler={bookDate} />
             {/* <button onClick={test}>Test</button> */}
         </div>
     )
