@@ -6,6 +6,7 @@ import ShortMessage from "./ShortMessage"
 import Legends from "./Legends"
 import CallToAction from "./CallToAction"
 import CustomModal from "./CustomModal"
+import { venueData } from "../data/venue"
 
 export default function VenueSchedule({ media, venue, unavailable }) {
     const [monthSelected, setMonthSelected] = useState(Number(new Date().toLocaleDateString().split("/")[0]) - 1)
@@ -109,7 +110,7 @@ export default function VenueSchedule({ media, venue, unavailable }) {
             const newContent = {}
             newContent.show = true
             newContent.title = "Book Confirmation"
-            newContent.message = `Confirm book for: ${datesToBook}, proceeds?`
+            newContent.message = `Confirm book for ${venue.title}: ${datesToBook}, proceeds?`
             newContent.noBtn = <button className="modal-btn no-btn" onClick={() => setModalContent({ show: false })}>No</button>
             newContent.yesBtn = <button className="modal-btn yes-btn" onClick={() => setModalContent({ show: false })}>Yes</button>
             return newContent
