@@ -8,6 +8,7 @@ import venueStage from "../assets/venue-stage.webp";
 import venueRehearsalRoom from "../assets/venue-rehearsal-room.webp";
 import venueDressingRoom from "../assets/venue-dressing-room.webp";
 import venueControlRoom from "../assets/venue-control-room.webp";
+import aboutBanner1 from "../assets/about-img.webp";
 
 export const bannerBackground = heroBackground;
 
@@ -65,6 +66,14 @@ export const venueBannerImages = [
   },
 ];
 
+export const aboutBannerImages = [
+  {
+    id: 0,
+    source: aboutBanner1,
+    alt: "Cultural Art Space building frontside",
+  },
+];
+
 export const bannerData = {
   home: {
     title: "Where Art Comes Alive on Stage",
@@ -77,5 +86,9 @@ export const bannerData = {
   venue: {
     title: "Venues",
     desc: "Explore the potentials of our Premium Class Venues.",
+  },
+  about: {
+    title: "Cultural Art Space",
+    desc: "Where Performing Arts Inspire Every Generation",
   },
 };

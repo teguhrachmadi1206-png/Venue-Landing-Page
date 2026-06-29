@@ -53,7 +53,7 @@ export default function Seats({ media, layout, status, sendData }) {
     return (
         <>
             <div className="seat-options">
-                {media !== 1 && <Legends />}
+                {media !== 1 && <Legends available="Available" onHold="On Hold" taken="Taken" unavailable="Not For Sale" />}
                 <div className="seats-btn-container">
                     <button className="seats-options-btn clear" onClick={clearSelection}>Clear Selection</button>
                     <button className="seats-options-btn confirm" onClick={confirmSelection}>Confirm Selection</button>

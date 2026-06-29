@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import '../styles/HeroSection.css'
-import { bannerBackground, homeBannerImages, bannerData, eventsBannerImages, venueBannerImages } from '../data/hero'
+import { bannerBackground, homeBannerImages, bannerData, eventsBannerImages, venueBannerImages, aboutBannerImages } from '../data/hero'
 
 export default function HeroSection({ page, style }) {
     const images = {
         home: homeBannerImages,
         events: eventsBannerImages,
         venue: venueBannerImages,
+        about: aboutBannerImages,
     }
 
     const bannerImages = images[page]
