@@ -36,8 +36,8 @@ export default function ScheduleDate({ media, date, status, empty, fullDate, sel
                     <span className='schedule-date-number'>{date}</span>
                     {media !== 1 && isPastDate && <span className='schedule-date-status'>Date already passed</span>}
                     {media !== 1 && !isPastDate && <span className={`schedule-date-status ${available ? "available" : ""}`}>
-                        {booked ? "Event Confirmed" : ""}
-                        {pending ? "Event awaiting confirmation" : ""}
+                        {booked ? "Booked" : ""}
+                        {pending ? "Booking awaiting confirmation" : ""}
                         {status === "maintenance" ? "Scheduled for maintenance" : ""}
                         {status === "holiday" ? "Closure on Holiday" : ""}
                         {!booked && !pending && !unavailable ? "Available" : ""}

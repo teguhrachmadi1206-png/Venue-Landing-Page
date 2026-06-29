@@ -19,6 +19,10 @@ export default function RentVenues(props) {
         navigate('/venues')
     }
 
+    function goToBookVenue() {
+        navigate(venueData[venueId].bookLink)
+    }
+
     return (
         <section id="venue-section">
             <div className="section-header">
@@ -33,7 +37,7 @@ export default function RentVenues(props) {
                         <p className="venue-detail">{props.media < 3 ? venueData[venueId].shortDesc : venueData[venueId].desc}</p>
                         {props.media === 3 && <p className="venue-detail">{venueData[venueId].shortDesc}</p>}
                     </div>
-                    <button className="venue-btn">Check Availability</button>
+                    <button className="venue-btn" onClick={goToBookVenue}>Check Availability</button>
                 </div>
                 <button className="row-btn next" onClick={changeVenue}></button>
             </div>
