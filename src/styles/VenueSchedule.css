@@ -1,0 +1,204 @@
+.schedule-table {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+}
+
+.schedule-table h4 {
+    margin: 0.5em 0;
+}
+
+.schedule-day-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0.1em;
+    font-size: 0.7em;
+}
+
+.schedule-day {
+    width: 100%;
+    background: linear-gradient(180deg, var(--color-1-lighter), var(--color-1-dark));
+    text-align: center;
+    font-weight: bold;
+    color: var(--color-3);
+    padding: 0.5em 0.2em;
+    border-radius: 1em 1em 0.1em 0.1em;
+}
+
+.schedule-date-table {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.1em;
+    margin-top: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+.schedule-date {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    background-color: var(--color-seat-1);
+    border-radius: 0.2em;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-1-lighter);
+    position: relative;
+    cursor: pointer;
+}
+
+.schedule-date.unavailable {
+    background-color: var(--color-seat-4);
+    cursor: not-allowed;
+}
+
+.schedule-date.booked {
+    background-color: var(--color-seat-3);
+    cursor: not-allowed;
+}
+
+.schedule-date.pending {
+    background-color: var(--color-seat-2);
+    cursor: not-allowed;
+}
+
+.schedule-date.empty {
+    background-color: var(--color-4);
+    border: none;
+}
+
+.schedule-date.past {
+    background-color: var(--color-4-dark);
+    border: 1px solid var(--color-4);
+    cursor: not-allowed;
+}
+
+.schedule-date.selected {
+    background-color: var(--color-seat-5);
+}
+
+.schedule-date-number {
+    font-weight: bold;
+    position: absolute;
+    top: 0.2em;
+    left: 0.2em;
+}
+
+.schedule-filter-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.2em;
+    margin-top: 1em;
+}
+
+.filter-select.month {
+    width: 8em;
+    color: var(--color-1-dark)
+}
+
+.filter-select.year {
+    width: 6em;
+    color: var(--color-1-dark)
+}
+
+.schedule-header {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    vertical-align: center;
+}
+
+.schedule-btn {
+    padding: 0.5em;
+    border: none;
+    aspect-ratio: 1;
+    color: var(--color-1);
+    font-weight: bold;
+    background: none;
+    display: flex;
+    align-items: center;
+}
+
+.schedule-btn:hover {
+    color: var(--color-3);
+}
+
+.schedule-btn:active {
+    color: var(--color-1-lighter);
+}
+
+@media screen and (min-width: 600px) {
+    .schedule-table {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        align-items: center;
+    }
+
+    .schedule-table h4 {
+        margin: 1em 0;
+    }
+
+    .schedule-day-header {
+        gap: 0.2em;
+    }
+
+    .schedule-date-table {
+        gap: 0.2em;
+    }
+
+    .schedule-date {
+        border-radius: 0.3em;
+    }
+
+    .schedule-day-header {
+        font-size: 1em;
+    }
+
+    .schedule-date-number {
+        top: 0.3em;
+        left: 0.3em;
+    }
+
+    .schedule-header {
+        width: 50%;
+    }
+
+    .schedule-date-status {
+        width: 100%;
+        text-align: center;
+        color: var(--color-2);
+        font-size: 0.7em;
+        padding: 0 0.5em;
+    }
+
+    .schedule-date-status.available {
+        color: var(--color-1-lighter);
+    }
+
+    .schedule-date-status.past {
+        color: var(--color-5-lighter);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .schedule-table {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        align-items: center;
+    }
+
+    .schedule-date-number {
+        top: 0.5em;
+        left: 0.5em;
+    }
+
+    .schedule-date-status {
+        font-size: 0.9em;
+    }
+}

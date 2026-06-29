@@ -1,0 +1,287 @@
+.ticket-reservation-main {
+    min-height: calc(100vh - var(--header-height) - var(--footer-height) - var(--footer-margin-top) - 1em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1em;
+    color: var(--color-1);
+}
+
+.selector-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 90%;
+    margin: 1em auto;
+}
+
+.sub-selector {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.selector-title {
+    width: 100%;
+    background-color: var(--color-3-lighter);
+    padding-left: 0.5em;
+    border-radius: 2px;
+}
+
+.selector-btn-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 0.5em;
+    margin: 0.5em auto;
+    padding: 0 1em;
+}
+
+.selector-btn {
+    padding: 0.5em;
+    color: var(--color-2);
+    background: var(--color-1-lighter);
+    border: none;
+    border-radius: 0.5em;
+    font-family: var(--main-font);
+    font-weight: bold;
+}
+
+.selector-btn.selected {
+    background: linear-gradient(90deg, var(--color-3), var(--color-3-mid));
+    color: var(--color-1)
+}
+
+.seat-options {
+    width: 100%;
+    margin: 0.5em auto 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+}
+
+.seats-btn-container {
+    border-radius: 0.5em;
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    gap: 0.5em;
+}
+
+.seats-options-btn {
+    background: linear-gradient(90deg, var(--color-3), var(--color-3-mid));
+    max-width: 7em;
+    border: none;
+    padding: 0.3em 1em;
+    border-radius: 1em;
+    font-family: var(--main-font);
+    font-weight: bold;
+    color: var(--color-1);
+}
+
+.seats-options-btn.clear {
+    background: linear-gradient(90deg, var(--color-5-lighter), var(--color-5));
+    color: var(--color-2-mid)
+}
+
+.seats-options-btn:hover {
+    color: var(--color-3-dark)
+}
+
+.seats-options-btn:active {
+    color: var(--color-2);
+    background: linear-gradient(90deg, var(--color-1-lighter), var(--color-1));
+}
+
+.checkout {
+    width: 90%;
+    margin-top: 1em;
+    font-size: 0.8em;
+}
+
+.checkout-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    justify-content: space-between;
+    margin: 0.5em 0.5em 0 0.5em;
+    background: linear-gradient(90deg, var(--color-4), var(--color-2));
+    padding: 1em 2em;
+    border-radius: 1em;
+}
+
+.checkout-data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    font-weight: bold;
+}
+
+.checkout-data>h4 {
+    width: 100%;
+    font-size: 1.2em;
+    color: var(--color-3-dark);
+    background-color: var(--color-2);
+    padding-left: 0.5em;
+    border-radius: 0.1em;
+}
+
+.checkout-data-row {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1em;
+    align-items: start;
+}
+
+.data-row-time {
+    width: 90%
+}
+
+.data-row-label {
+    width: 40%;
+}
+
+.data-row-content {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2em;
+    color: var(--color-3-dark);
+    justify-content: flex-end;
+}
+
+.checkout-ticket {
+    font-size: 0.8em;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.3em;
+    background-color: var(--color-3-lighter);
+    color: var(--color-1)
+}
+
+.checkout-btn-container {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    justify-content: center;
+}
+
+.pay-btn {
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 0.5em 1em;
+    border-radius: 2em;
+    border: 1px solid var(--color-cta-3);
+    color: var(--color-cta-text);
+    font-family: var(--main-font);
+    background: linear-gradient(135deg, var(--color-cta-1), var(--color-cta-2));
+    position: relative;
+    z-index: 1;
+}
+
+.pay-btn:enabled:hover {
+    color: var(--color-2)
+}
+
+.pay-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 2em;
+    background: linear-gradient(-135deg, var(--color-cta-1), var(--color-cta-2));
+    z-index: -1;
+}
+
+.pay-btn:enabled:hover::before {
+    opacity: 1;
+}
+
+.pay-btn:enabled:active {
+    color: var(--color-4-dark)
+}
+
+.cancel-btn {
+    font-size: 0.7em;
+    padding: 0.5em 1em;
+    border: none;
+    color: var(--color-2-mid);
+    font-family: var(--main-font);
+    background-color: var(--color-5-lighter);
+    font-weight: bold;
+    border-radius: 2em;
+}
+
+.cancel-btn:hover {
+    background-color: var(--color-5);
+}
+
+.cancel-btn:active {
+    background-color: var(--color-5-dark);
+    color: var(--color-3)
+}
+
+button {
+    cursor: pointer;
+}
+
+.event-unavailable {
+    width: 100%;
+    text-align: center;
+    padding: 2em 0;
+    color: var(--color-5);
+    font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
+    .sub-selector {
+        max-width: 50rem;
+    }
+
+    .sub-selector.seat-sub {
+        max-width: none;
+    }
+
+    .selector-title {
+        max-width: 50rem;
+        margin: 0 auto;
+    }
+
+    .selector-btn {
+        font-size: 1em;
+    }
+
+    .checkout {
+        font-size: 1em;
+    }
+
+    .seat-options {
+        display: flex;
+        width: 100%;
+        max-width: 50rem;
+        justify-content: space-between;
+    }
+
+    .seats-btn-container {
+        width: 30%;
+        max-width: 50rem;
+    }
+
+    .checkout-info {
+        max-width: 50rem;
+        margin: 0.5em auto;
+        padding: 1em 7em;
+    }
+
+    .checkout-data-row {
+        width: 95%
+    }
+}
+
+@media screen and (min-width: 992px) {}
