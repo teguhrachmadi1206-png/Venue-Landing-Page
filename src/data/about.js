@@ -1,3 +1,5 @@
+import storyImg from "../assets/venue-1.webp";
+
 export const aboutText = {
   story: {
     headings: "Our Story",
@@ -5,6 +7,8 @@ export const aboutText = {
       "For decades, Cultural Art Space has served as a gathering place for artists, performers, educators, and audiences. Built with a vision to nurture cultural expression, the venue has continually evolved to meet the changing needs of the creative community while honoring the rich artistic traditions of West Java.",
       "Today, Cultural Art Space combines modern facilities with a warm cultural atmosphere, creating an inspiring environment for performances, rehearsals, workshops, and artistic collaboration.",
     ],
+    imgSrc: storyImg,
+    imgAlt: "Auditorium for Art Performance",
   },
   vision: {
     headings: "Our Vision",
@@ -24,7 +28,7 @@ export const aboutText = {
   },
   pros: {
     headings: "Why Choose Cultural Art Space",
-    body: [
+    bodyObj: [
       {
         id: 0,
         subHeading: "Professional Venue",
@@ -65,7 +69,7 @@ export const aboutText = {
   },
   timeline: {
     headings: "Timeline",
-    body: [
+    bodyObj: [
       {
         id: 1985,
         subHeading: "The Beginning",
@@ -100,7 +104,7 @@ export const aboutText = {
   },
   stats: {
     headings: "Statistic",
-    body: [
+    bodyObj: [
       {
         stat: "500+",
         subHeading: "Audience Capacity",
@@ -129,7 +133,9 @@ export const aboutText = {
   },
   partners: {
     headings: "Our Partners",
-    body: "We proudly collaborate with cultural organizations, educational institutions, creative communities, government agencies, and independent artists to enrich the performing arts ecosystem and create meaningful experiences for audiences.",
+    body: [
+      "We proudly collaborate with cultural organizations, educational institutions, creative communities, government agencies, and independent artists to enrich the performing arts ecosystem and create meaningful experiences for audiences.",
+    ],
     list: [
       "Bandung Arts Council",
       "West Java Cultural Network",
@@ -141,13 +147,17 @@ export const aboutText = {
   },
   gallery: {
     headings: "Moments at Cultural Art Space",
-    body: "Explore the vibrant atmosphere of performances, rehearsals, workshops, and cultural gatherings that bring creativity to life every day.",
+    body: [
+      "Explore the vibrant atmosphere of performances, rehearsals, workshops, and cultural gatherings that bring creativity to life every day.",
+    ],
     list: [],
   },
   cta: {
     headings: "Let's Create Something Extraordinary Together",
-    body: "Whether you're planning a performance, organizing a workshop, or looking for the perfect venue, Rumentang Siang is ready to support your creative journey.",
-    list: [
+    body: [
+      "Whether you're planning a performance, organizing a workshop, or looking for the perfect venue, we are ready to support your creative journey.",
+    ],
+    listBtn: [
       {
         btnText: "Explore Events",
         link: "/events",
