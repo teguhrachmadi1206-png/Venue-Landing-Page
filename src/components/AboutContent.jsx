@@ -9,17 +9,18 @@ export default function AboutContent({ data }) {
     return (
         <div className="about-content-row">
             <h3 className="about-content-headings">{data.headings}</h3>
-            <div className="about-item-content">
+            <div className={`about-item-content ${data.bodyObj?.length > 0 ? "object" : ""} ${data.listBtn?.length > 0 ? "button" : ""}`}>
                 {data.imgSrc && <img className="about-item-img" src={data.imgSrc} alt={data.imgAlt} />}
-                {data.body?.length &&
-                    data.body.map((text, id) =>
+                {data.body?.length && <div className="about-item-text-container">
+                    {data.body.map((text, id) =>
                         <p key={id} className="about-item-text">{text}</p>)}
+                </div>}
                 {data.bodyList?.length && <ul className="about-item-list">
                     {data.bodyList.map((list, id) => <li key={id} className="about-item-text">{list}</li>)}
                 </ul>}
-                {data.bodyObj?.length && data.bodyObj.map(item =>
-                    <div key={item.id} className="about-item-obj">
-                        {item.stat && <span className="about-item-obj-span">{item.stat}</span>}
+                {data.bodyObj?.length && data.bodyObj.map((item, id) =>
+                    <div key={id} className="about-item-obj">
+                        {item.icon && <span className="about-item-obj-span">{item.icon}</span>}
                         <div className="about-item-subcontent">
                             <h4 className="about-subcontent-heading">{item.subHeading}</h4>
                             <p className="about-subcontent-text">{item.subBody}</p>

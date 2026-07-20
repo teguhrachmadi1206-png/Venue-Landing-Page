@@ -3,6 +3,7 @@ import storyImg from "../assets/venue-1.webp";
 export const aboutText = {
   story: {
     headings: "Our Story",
+    style: "text and image",
     body: [
       "For decades, Cultural Art Space has served as a gathering place for artists, performers, educators, and audiences. Built with a vision to nurture cultural expression, the venue has continually evolved to meet the changing needs of the creative community while honoring the rich artistic traditions of West Java.",
       "Today, Cultural Art Space combines modern facilities with a warm cultural atmosphere, creating an inspiring environment for performances, rehearsals, workshops, and artistic collaboration.",
@@ -12,12 +13,14 @@ export const aboutText = {
   },
   vision: {
     headings: "Our Vision",
+    style: "text only",
     body: [
       "To become a leading performing arts venue that empowers creativity, preserves cultural heritage, and connects communities through inspiring artistic experiences.",
     ],
   },
   mission: {
     headings: "Our Mission",
+    style: "text only",
     bodyList: [
       "Support artists, performers, and creative communities with accessible professional facilities.",
       "Promote cultural appreciation through diverse performances and educational programs.",
@@ -28,6 +31,7 @@ export const aboutText = {
   },
   pros: {
     headings: "Why Choose Cultural Art Space",
+    style: "object heading and body",
     bodyObj: [
       {
         id: 0,
@@ -69,33 +73,34 @@ export const aboutText = {
   },
   timeline: {
     headings: "Timeline",
+    style: "object with icon",
     bodyObj: [
       {
-        id: 1985,
+        icon: 1985,
         subHeading: "The Beginning",
         subBody:
           "Cultural Art Space opens its doors as a dedicated venue for performing arts and community cultural activities.",
       },
       {
-        id: 2003,
+        icon: 2003,
         subHeading: "Facility Expansion",
         subBody:
           "Additional rehearsal rooms and backstage facilities are introduced to support larger productions.",
       },
       {
-        id: 2014,
+        icon: 2014,
         subHeading: "Technology Upgrade",
         subBody:
           "Modern lighting, audio systems, and stage equipment are installed to enhance performance quality.",
       },
       {
-        id: 2021,
+        icon: 2021,
         subHeading: "Creative Community Hub",
         subBody:
           "The venue expands its educational programs through workshops, artist collaborations, and cultural initiatives.",
       },
       {
-        id: 2026,
+        icon: 2026,
         subHeading: "Digital Transformation",
         subBody:
           "Online event management, ticket booking, and venue rental services are introduced to improve accessibility and visitor experience.",
@@ -104,27 +109,28 @@ export const aboutText = {
   },
   stats: {
     headings: "Statistic",
+    style: "object with icon",
     bodyObj: [
       {
-        stat: "500+",
+        icon: "500+",
         subHeading: "Audience Capacity",
         subBody:
           "Comfortable seating designed for performances of various scales.",
       },
       {
-        stat: "120+",
+        icon: "120+",
         subHeading: "Events Every Year",
         subBody:
           "Hosting theatrical productions, concerts, dance performances, festivals, and cultural showcases.",
       },
       {
-        stat: "40+",
+        icon: "40+",
         subHeading: "Creative Workshops",
         subBody:
           "Educational programs covering music, dance, theater, visual arts, and creative development.",
       },
       {
-        stat: "15,000+",
+        icon: "15,000+",
         subHeading: "Annual Visitors",
         subBody:
           "Welcoming audiences, artists, students, and cultural enthusiasts throughout the year.",
@@ -133,6 +139,7 @@ export const aboutText = {
   },
   partners: {
     headings: "Our Partners",
+    style: "heading and text list",
     body: [
       "We proudly collaborate with cultural organizations, educational institutions, creative communities, government agencies, and independent artists to enrich the performing arts ecosystem and create meaningful experiences for audiences.",
     ],
@@ -147,6 +154,7 @@ export const aboutText = {
   },
   gallery: {
     headings: "Moments at Cultural Art Space",
+    style: "heading and image list",
     body: [
       "Explore the vibrant atmosphere of performances, rehearsals, workshops, and cultural gatherings that bring creativity to life every day.",
     ],
@@ -154,6 +162,7 @@ export const aboutText = {
   },
   cta: {
     headings: "Let's Create Something Extraordinary Together",
+    style: "heading and buttons",
     body: [
       "Whether you're planning a performance, organizing a workshop, or looking for the perfect venue, we are ready to support your creative journey.",
     ],
