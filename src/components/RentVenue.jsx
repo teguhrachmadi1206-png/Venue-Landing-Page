@@ -3,7 +3,7 @@ import { venueData } from '../data/venue'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function RentVenues(props) {
+export default function RentVenues({ media, home }) {
     const [venueId, setVenueId] = useState(0)
     const navigate = useNavigate()
 
@@ -27,17 +27,17 @@ export default function RentVenues(props) {
         <section id="venue-section">
             <div className="section-header">
                 <h2 className="sub-title">Venue Rental Information</h2>
-                <button className="show-all-btn" onClick={showAll}>Show All</button>
+                <a className="show-all-btn" href="https://sites.google.com/view/rumentang-siang-web/venues">Show All</a>
             </div>
             <div className="venue-row">
                 <img src={venueData[venueId].imgSrc} alt={venueData[venueId].imgAlt} className="venue-img" />
                 <div className="venue-content">
                     <div>
                         <h3 className="venue-title">{venueData[venueId].title}</h3>
-                        <p className="venue-detail">{props.media < 3 ? venueData[venueId].shortDesc : venueData[venueId].desc}</p>
-                        {props.media === 3 && <p className="venue-detail">{venueData[venueId].shortDesc}</p>}
+                        <p className="venue-detail">{media < 3 ? venueData[venueId].shortDesc : venueData[venueId].desc}</p>
+                        {media === 3 && <p className="venue-detail">{venueData[venueId].shortDesc}</p>}
                     </div>
-                    <button className="venue-btn" onClick={goToBookVenue}>Check Availability</button>
+                    <button className="venue-btn"><a href={venueData[venueId].bookLink}>Check Availability</a></button>
                 </div>
                 <button className="row-btn next" onClick={changeVenue}></button>
             </div>

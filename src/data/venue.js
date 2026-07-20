@@ -19,7 +19,8 @@ export const venueData = [
       "Backstage and dressing rooms",
       "Basic technical support",
     ],
-    bookLink: "/venues/venue/auditorium",
+    bookLink:
+      "https://sites.google.com/view/rumentang-siang-web/venues/auditorium",
   },
   {
     id: 1,
@@ -37,7 +38,8 @@ export const venueData = [
       "Mirrors and wooden floor (dance-friendly)",
       "Flexible seating arrangement",
     ],
-    bookLink: "/venues/venue/rehearsal-room",
+    bookLink:
+      "https://sites.google.com/view/rumentang-siang-web/venues/rehearsal-room",
   },
 ];
 

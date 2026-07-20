@@ -4,7 +4,7 @@ import { events } from "../data/events"
 import { useNavigate } from 'react-router-dom'
 import EventCardComp from "./EventCard.jsx"
 
-export default function UpcomingEvents({ media }) {
+export default function UpcomingEvents({ media, home }) {
     const [card1Id, setCard1Id] = useState(0)
     const [card2Id, setCard2Id] = useState(1)
     const [card3Id, setCard3Id] = useState(2)
@@ -71,7 +71,7 @@ export default function UpcomingEvents({ media }) {
         <section id="events-section">
             <div className="section-header">
                 <h2 className="sub-title">Upcoming Events</h2>
-                <button className="show-all-btn" onClick={showAll}>Show All</button>
+                <a className="show-all-btn" href="https://sites.google.com/view/rumentang-siang-web/events">Show All</a>
             </div>
             <div className="event-row">
                 <button className="row-btn prev" onClick={prevEvent}></button>

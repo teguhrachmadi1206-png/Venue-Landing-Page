@@ -16,6 +16,7 @@ import VenueDetails from './pages/VenueDetails';
 function App() {
   // Used for setting maximum card displayed in events section, desktop: 3, middle: 2, mobile: 1
   const [mediaCode, setMediaCode] = useState(0)
+  const homeLink = "https://sites.google.com/view/rumentang-siang-web"
 
   function useMediaQuery(query) {
     const [matches, setMatches] = useState(false)
@@ -67,17 +68,16 @@ function App() {
 
   return (
     <>
-      <Header media={mediaCode} />
       <Routes>
-        <Route exact path="/" element={<Homepage media={mediaCode} />} />
-        <Route path="/events" element={<Events media={mediaCode} />} />
-        <Route path="/events/event/:eventId" element={<EventDetail media={mediaCode} />} />
-        <Route path="/events/ticket/:eventId" element={<TicketReservation media={mediaCode} />} />
-        <Route path="/venues" element={<Venue media={mediaCode} />} />
-        <Route path="/venues/venue/:venueId" element={<VenueDetails media={mediaCode} />} />
-        <Route path="/classes" element={<Classes />} />
-        <Route path="/about" element={<AboutUsPage />} />
-        <Route path="*" element={<NotFound />} />
+        <Route exact path="/" element={<Homepage media={mediaCode} home={homeLink} />} />
+        <Route path="/events" element={<Events media={mediaCode} home={homeLink} />} />
+        <Route path="/events/event/:eventId" element={<EventDetail media={mediaCode} home={homeLink} />} />
+        <Route path="/events/ticket/:eventId" element={<TicketReservation media={mediaCode} home={homeLink} />} />
+        <Route path="/venues" element={<Venue media={mediaCode} home={homeLink} />} />
+        <Route path="/venues/venue/:venueId" element={<VenueDetails media={mediaCode} home={homeLink} />} />
+        <Route path="/classes" element={<Classes home={homeLink} />} />
+        <Route path="/about" element={<AboutUsPage home={homeLink} />} />
+        <Route path="*" element={<NotFound home={homeLink} />} />
       </Routes>
       <Footer />
     </>

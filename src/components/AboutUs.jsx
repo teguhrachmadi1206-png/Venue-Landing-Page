@@ -21,7 +21,7 @@ export default function AboutUs() {
                         <h3 className="about-title">A Home for Performance, Culture, and Creative Growth</h3>
                         <p>The venue stands as a modern performing arts center dedicated to nurturing creativity, preserving cultural values, and presenting high-quality artistic performances for the public.</p>
                     </div>
-                    <a className="about-learn-more" onClick={learnMore}>Learn more</a>
+                    <a className="about-learn-more" href="https://sites.google.com/view/rumentang-siang-web/about">Learn more</a>
                 </div>
             </div>
             <div className="stats-row">

@@ -78,6 +78,7 @@ export const bannerData = {
   home: {
     title: "Where Art Comes Alive on Stage",
     button: "Explore !",
+    link: "https://sites.google.com/view/rumentang-siang-web/events",
   },
   events: {
     title: "Performances & Events",

@@ -76,7 +76,7 @@ export default function ArtClass({ media }) {
                         <p className="class-desc">{props.classes.schedule}</p>
                         <p className="class-desc">{props.classes.time}</p>
                     </div>
-                    <a className="learn-more-link">Learn more</a>
+                    <a className="learn-more-link" href="https://sites.google.com/view/rumentang-siang-web/classes">Learn more</a>
                 </div>
             </div>
         )

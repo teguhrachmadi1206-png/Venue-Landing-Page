@@ -52,7 +52,7 @@ export default function HeroSection({ page, style }) {
                         <span className="hero-title">{bannerData[page].title}</span>
                         {bannerData[page].desc && <p className="hero-content-desc">{bannerData[page].desc}</p>}
                     </div>
-                    {bannerData[page].button && <button className="hero-content-btn" onClick={explore}>{bannerData[page].button}</button>}
+                    {bannerData[page].button && <button className="hero-content-btn"><a href={bannerData[page].link}>{bannerData[page].button}</a></button>}
                 </div>
                 {bannerImages.length > 1 && <div className="carousel-control">
                     <button className="carousel-btn prev" onClick={prevBanner}></button>

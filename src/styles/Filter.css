@@ -9,7 +9,7 @@
     padding: 0.5em;
     margin: auto;
     position: sticky;
-    top: 85px;
+    top: 56px;
     background: linear-gradient(90deg, var(--color-2-dark), var(--color-2-mid), var(--color-2));
     z-index: 998;
 }
