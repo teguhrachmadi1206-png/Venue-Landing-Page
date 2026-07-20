@@ -3,7 +3,7 @@ import { venueData } from '../data/venue'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function RentVenues(props) {
+export default function RentVenues({ media }) {
     const [venueId, setVenueId] = useState(0)
     const navigate = useNavigate()
 
@@ -34,8 +34,8 @@ export default function RentVenues(props) {
                 <div className="venue-content">
                     <div>
                         <h3 className="venue-title">{venueData[venueId].title}</h3>
-                        <p className="venue-detail">{props.media < 3 ? venueData[venueId].shortDesc : venueData[venueId].desc}</p>
-                        {props.media === 3 && <p className="venue-detail">{venueData[venueId].shortDesc}</p>}
+                        <p className="venue-detail">{media < 3 ? venueData[venueId].shortDesc : venueData[venueId].desc}</p>
+                        {media === 3 && <p className="venue-detail">{venueData[venueId].shortDesc}</p>}
                     </div>
                     <button className="venue-btn" onClick={goToBookVenue}>Check Availability</button>
                 </div>
