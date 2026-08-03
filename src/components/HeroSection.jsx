@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import '../styles/HeroSection.css'
-import { bannerBackground, homeBannerImages, bannerData, eventsBannerImages, venueBannerImages, aboutBannerImages } from '../data/hero'
+import { bannerBackground, homeBannerImages, bannerData, eventsBannerImages, venueBannerImages, aboutBannerImages, classBannerImages } from '../data/hero'
 
 export default function HeroSection({ page, style }) {
     const images = {
@@ -9,6 +9,7 @@ export default function HeroSection({ page, style }) {
         events: eventsBannerImages,
         venue: venueBannerImages,
         about: aboutBannerImages,
+        class: classBannerImages,
     }
 
     const bannerImages = images[page]

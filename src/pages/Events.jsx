@@ -60,14 +60,14 @@ export default function Events({ media }) {
                 setCurrentPage={(e) => handleSetCurrentPage(e)}
                 setItems={(e) => handleSetEventCards(e)} />
             <MainEventPage />
-            <Pagination
+            {eventCards.length && <Pagination
                 media={media}
                 item="events"
                 totalEvents={eventCards.length}
                 itemShown={itemsShown}
                 setItemsShown={(e) => handleSetItemShown(e)}
                 currentPage={currentPage}
-                setCurrentPage={(e) => handleSetCurrentPage(e)} />
+                setCurrentPage={(e) => handleSetCurrentPage(e)} />}
         </>
     )
 }

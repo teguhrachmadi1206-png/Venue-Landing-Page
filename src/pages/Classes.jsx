@@ -1,7 +1,9 @@
-import UnderConstruction from "../components/UnderConstrucion";
+import HeroSection from "../components/HeroSection";
 
 export default function Classes() {
     return (
-        <UnderConstruction />
+        <>
+            <HeroSection page="class" style="border" />
+        </>
     )
 }

@@ -76,7 +76,7 @@ function App() {
         <Route path="/venues" element={<Venue media={mediaCode} />} />
         <Route path="/venues/venue/:venueId" element={<VenueDetails media={mediaCode} />} />
         <Route path="/classes" element={<Classes />} />
-        <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/about" element={<AboutUsPage media={mediaCode} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

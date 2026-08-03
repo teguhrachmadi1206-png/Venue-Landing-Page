@@ -1,4 +1,5 @@
 import '../styles/ArtClass.css'
+import ClassCard from './ClassCard'
 import { classData } from '../data/class'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -66,22 +67,6 @@ export default function ArtClass({ media }) {
         navigate('/classes')
     }
 
-    function ClassCard(props) {
-        return (
-            <div key={props.id} className="class-card">
-                <img className="class-card-image" src={props.classes.imgSrc} alt={props.classes.imgAlt} />
-                <div className="class-card-content">
-                    <div className="class-card-detail">
-                        <h3 className="class-card-title">{props.classes.title}</h3>
-                        <p className="class-desc">{props.classes.schedule}</p>
-                        <p className="class-desc">{props.classes.time}</p>
-                    </div>
-                    <a className="learn-more-link">Learn more</a>
-                </div>
-            </div>
-        )
-    }
-
     return (
         <section id="class-section">
             <div className="section-header">
@@ -91,9 +76,9 @@ export default function ArtClass({ media }) {
             <div className="class-row">
                 <button className="row-btn prev" onClick={prevClass}></button>
                 <div className="class-cards-container">
-                    <ClassCard classes={classData[class1Id]} />
-                    {media > 1 && <ClassCard classes={classData[class2Id]} />}
-                    {media > 2 && <ClassCard classes={classData[class3Id]} />}
+                    <ClassCard data={classData[class1Id]} />
+                    {media > 1 && <ClassCard data={classData[class2Id]} />}
+                    {media > 2 && <ClassCard data={classData[class3Id]} />}
                 </div>
                 <button className="row-btn next" onClick={nextClass}></button>
             </div>

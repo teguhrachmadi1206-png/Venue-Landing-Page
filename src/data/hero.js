@@ -8,6 +8,7 @@ import venueStage from "../assets/venue-stage.webp";
 import venueRehearsalRoom from "../assets/venue-rehearsal-room.webp";
 import venueDressingRoom from "../assets/venue-dressing-room.webp";
 import venueControlRoom from "../assets/venue-control-room.webp";
+import classBanner1 from "../assets/class-2.webp";
 import aboutBanner1 from "../assets/about-img.webp";
 
 export const bannerBackground = heroBackground;
@@ -66,6 +67,14 @@ export const venueBannerImages = [
   },
 ];
 
+export const classBannerImages = [
+  {
+    id: 0,
+    source: classBanner1,
+    alt: "People training for theatre acting in a class",
+  },
+];
+
 export const aboutBannerImages = [
   {
     id: 0,
@@ -86,6 +95,10 @@ export const bannerData = {
   venue: {
     title: "Venues",
     desc: "Explore the potentials of our Premium Class Venues.",
+  },
+  class: {
+    title: "Art Class & Workshop",
+    desc: "Learn something new at our special art classes & workshops.",
   },
   about: {
     title: "Cultural Art Space",
