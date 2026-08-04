@@ -1,4 +1,5 @@
 import React from 'react'
+import { formatDate } from '../function/FormatDate'
 
 export default function ClassCard({ data, page }) {
     return (
@@ -10,7 +11,7 @@ export default function ClassCard({ data, page }) {
                     <h3 className={`class-card-title ${data.type}`}>{data.title}</h3>
                     {page !== "home" && <h4 className={`class-card-sub-title ${data.type}`}>{data.studio}</h4>}
                     {data.type === "regular" && <p className={`class-desc ${data.type}`}>Every {data.schedule}</p>}
-                    {data.type === "workshop" && <p className={`class-desc ${data.type}`}>{data.date}</p>}
+                    {data.type === "workshop" && <p className={`class-desc ${data.type}`}>{formatDate(data.date)}</p>}
                     <p className={`class-desc ${data.type}`}>{data.time}</p>
                 </div>
                 <a className={`learn-more-link ${data.type}`}>Learn more</a>

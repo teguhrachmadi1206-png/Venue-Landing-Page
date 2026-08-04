@@ -13,7 +13,7 @@ function Homepage({ media }) {
                 <UpcomingEvents media={media} />
             </StrictMode>
             <RentVenues media={media} />
-            <ArtClass media={media} />
+            <ArtClass page="home" media={media} />
             <AboutUs />
         </>
     )
