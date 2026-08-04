@@ -20,12 +20,21 @@
     display: flex;
     background-color: var(--color-2-dark);
     border-radius: 3em;
-    height: 10em;
+    height: 11em;
     width: 80%;
     max-width: 20em;
     min-width: 16em;
     box-shadow: 0.3em 0.3em 0.5em 0px var(--color-box-shadow);
     transition: background-color 0.2s ease-in-out;
+    position: relative;
+}
+
+.class-card.workshop {
+    background-color: var(--color-1-dark);
+}
+
+.class-card.workshop:hover {
+    background-color: var(--color-1-lighter);
 }
 
 .class-card-image {
@@ -34,6 +43,25 @@
     border-radius: 3em 0 0 3em;
     border: 0;
     object-fit: cover;
+}
+
+.class-card-badge {
+    position: absolute;
+    left: -5%;
+    top: 4%;
+    background: linear-gradient(45deg, var(--color-1-lighter), var(--color-1-dark));
+    color: var(--color-3);
+    font-weight: bold;
+    font-size: 0.5em;
+    padding: 0.8em 0.6em;
+    border-radius: 0.5em;
+    transform: rotate(-35deg);
+    box-shadow: 0.2em 0.3em 0.3em 0 var(--color-box-shadow);
+}
+
+.class-card-badge.workshop {
+    background: linear-gradient(45deg, var(--color-3-lighter), var(--color-3-dark));
+    color: var(--color-1)
 }
 
 .class-card-content {
@@ -48,8 +76,17 @@
 .class-card-title {
     width: 100%;
     color: var(--color-1);
-    margin-bottom: 0.2em;
     font-size: 0.9em;
+}
+
+.class-card-sub-title {
+    color: var(--color-1-lighter);
+    font-size: 0.8em;
+    margin-bottom: 0.2em;
+}
+
+.class-card-title.workshop {
+    color: var(--color-3)
 }
 
 .class-card-detail {
@@ -59,7 +96,10 @@
 
 .class-desc {
     font-size: 0.8em;
+}
 
+.class-desc.workshop {
+    color: var(--color-3-lighter)
 }
 
 .learn-more-link {
@@ -67,6 +107,10 @@
     text-decoration: none;
     font-size: 0.7em;
     cursor: default;
+}
+
+.learn-more-link.workshop {
+    color: var(--color-3-lighter)
 }
 
 .learn-more-link:visited {

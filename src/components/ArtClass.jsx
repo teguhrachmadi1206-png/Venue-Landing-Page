@@ -1,6 +1,6 @@
 import '../styles/ArtClass.css'
 import ClassCard from './ClassCard'
-import { classData } from '../data/class'
+import { classData, programs } from '../data/class'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -14,7 +14,7 @@ export default function ArtClass({ media }) {
     function prevClass() {
         setClass1Id(prev => {
             if (prev === 0) {
-                return classData.length - 1
+                return programs.length - 1
             } else {
                 return prev - 1
             }
@@ -22,7 +22,7 @@ export default function ArtClass({ media }) {
 
         setClass2Id(prev => {
             if (prev === 0) {
-                return classData.length - 1
+                return programs.length - 1
             } else {
                 return prev - 1
             }
@@ -30,7 +30,7 @@ export default function ArtClass({ media }) {
 
         setClass3Id(prev => {
             if (prev === 0) {
-                return classData.length - 1
+                return programs.length - 1
             } else {
                 return prev - 1
             }
@@ -39,7 +39,7 @@ export default function ArtClass({ media }) {
 
     function nextClass() {
         setClass1Id(prev => {
-            if (prev === classData.length - 1) {
+            if (prev === programs.length - 1) {
                 return 0
             } else {
                 return prev + 1
@@ -47,7 +47,7 @@ export default function ArtClass({ media }) {
         })
 
         setClass2Id(prev => {
-            if (prev === classData.length - 1) {
+            if (prev === programs.length - 1) {
                 return 0
             } else {
                 return prev + 1
@@ -55,7 +55,7 @@ export default function ArtClass({ media }) {
         })
 
         setClass3Id(prev => {
-            if (prev === classData.length - 1) {
+            if (prev === programs.length - 1) {
                 return 0
             } else {
                 return prev + 1
@@ -76,9 +76,9 @@ export default function ArtClass({ media }) {
             <div className="class-row">
                 <button className="row-btn prev" onClick={prevClass}></button>
                 <div className="class-cards-container">
-                    <ClassCard data={classData[class1Id]} />
-                    {media > 1 && <ClassCard data={classData[class2Id]} />}
-                    {media > 2 && <ClassCard data={classData[class3Id]} />}
+                    <ClassCard data={programs[class1Id]} page="home" />
+                    {media > 1 && <ClassCard data={programs[class2Id]} page="home" />}
+                    {media > 2 && <ClassCard data={programs[class3Id]} page="home" />}
                 </div>
                 <button className="row-btn next" onClick={nextClass}></button>
             </div>
