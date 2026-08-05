@@ -335,3 +335,8 @@ export const programs = [
       "Participants designed environmentally friendly stage properties using recycled materials while learning practical stage production techniques.",
   },
 ];
+
+export const programCategories = [
+  { id: 0, name: "Weekly Class" },
+  { id: 1, name: "Workshop" },
+];

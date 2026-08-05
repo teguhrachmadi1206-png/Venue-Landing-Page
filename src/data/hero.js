@@ -97,8 +97,8 @@ export const bannerData = {
     desc: "Explore the potentials of our Premium Class Venues.",
   },
   class: {
-    title: "Art Class & Workshop",
-    desc: "Learn something new at our special art classes & workshops.",
+    title: "Learn from Creative Communities",
+    desc: "Discover workshops and art classes organized by resident studios and creative organizations.",
   },
   about: {
     title: "Cultural Art Space",

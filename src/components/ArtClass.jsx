@@ -1,6 +1,6 @@
 import '../styles/ArtClass.css'
 import ClassCard from './ClassCard'
-import { classData, programs } from '../data/class'
+import { programs } from '../data/class'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 

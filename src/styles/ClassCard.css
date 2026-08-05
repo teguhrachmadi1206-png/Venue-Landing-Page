@@ -1,0 +1,202 @@
+.class-card {
+    display: flex;
+    background-color: var(--color-2-dark);
+    border-radius: 3em;
+    height: 11em;
+    width: 80%;
+    max-width: 20em;
+    min-width: 16em;
+    box-shadow: 0.3em 0.3em 0.5em 0px var(--color-box-shadow);
+    transition: background-color 0.2s ease-in-out;
+    position: relative;
+}
+
+.class-card.workshop {
+    background-color: var(--color-1-dark);
+}
+
+.class-card.workshop:hover {
+    background-color: var(--color-1-lighter);
+}
+
+.class-card.past {
+    background: linear-gradient(90deg, var(--color-5), var(--color-5-dark));
+}
+
+.class-card.past:active {
+    background: linear-gradient(90deg, var(--color-5-lighter), var(--color-5-dark-lighter));
+}
+
+.class-card-image {
+    height: 100%;
+    width: 45%;
+    border-radius: 3em 0 0 3em;
+    border: 0;
+    object-fit: cover;
+}
+
+.class-card-badge {
+    position: absolute;
+    left: -5%;
+    top: 4%;
+    background: linear-gradient(45deg, var(--color-1-lighter), var(--color-1-dark));
+    color: var(--color-3);
+    font-weight: bold;
+    font-size: 0.5em;
+    padding: 0.8em 0.6em;
+    border-radius: 0.5em;
+    transform: rotate(-35deg);
+    box-shadow: 0.2em 0.3em 0.3em 0 var(--color-box-shadow);
+}
+
+.past-badge {
+    position: absolute;
+    top: calc(50% - 2em);
+    left: calc(22.5% - 4em);
+    background-color: var(--color-5-lighter);
+    color: var(--color-2-dark);
+    font-size: 0.6em;
+    font-weight: bold;
+    height: 4em;
+    width: 8em;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 1em;
+    box-shadow: 0.2em 0.3em 0.3em 0 var(--color-box-shadow);
+    opacity: 0.9;
+}
+
+.class-card-badge.workshop {
+    background: linear-gradient(45deg, var(--color-3-lighter), var(--color-3-dark));
+    color: var(--color-1)
+}
+
+.class-card-content {
+    height: 100%;
+    width: 55%;
+    display: flex;
+    padding: 0.5em 1em 0.5em 0.5em;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.class-card-title {
+    width: 100%;
+    color: var(--color-1);
+    font-size: 0.9em;
+}
+
+.class-card-title.workshop {
+    color: var(--color-3)
+}
+
+.class-card-sub-title {
+    color: var(--color-1-lighter);
+    font-size: 0.8em;
+    margin-bottom: 0.2em;
+}
+
+.class-card-sub-title.workshop {
+    color: var(--color-3-mid)
+}
+
+.class-card-detail {
+    color: var(--color-1-dark);
+    height: 90%;
+}
+
+.class-desc {
+    font-size: 0.8em;
+}
+
+.class-desc.workshop {
+    color: var(--color-3-lighter)
+}
+
+.class-card-title.past {
+    color: var(--color-4-dark)
+}
+
+.class-card-sub-title.past {
+    color: var(--color-5-lighter)
+}
+
+.class-desc.past {
+    color: var(--color-5-lighter)
+}
+
+.class-card-image.past {
+    opacity: 0.6;
+}
+
+.learn-more-link {
+    color: var(--color-1-dark);
+    text-decoration: none;
+    font-size: 0.7em;
+    cursor: default;
+}
+
+.learn-more-link.workshop {
+    color: var(--color-3-lighter)
+}
+
+.learn-more-link:visited {
+    color: var(--color-1)
+}
+
+.learn-more-link:active {
+    color: var(--color-3-mid)
+}
+
+.learn-more-link::after {
+    content: " >";
+}
+
+.learn-more-link.past {
+    color: var(--color-4-dark)
+}
+
+.learn-more-link.past:hover {
+    color: var(--color-5)
+}
+
+.learn-more-link.past:visited {
+    color: var(--color-5-lighter)
+}
+
+.learn-more-link.past:active {
+    color: var(--color-2-dark)
+}
+
+@media screen and (min-width: 600px) {
+    .class-card {
+        min-width: 13em;
+        width: 45%;
+        font-size: 1em;
+    }
+
+    .class-card:hover {
+        background-color: var(--color-3-lighter);
+    }
+
+    .learn-more-link:hover {
+        color: var(--color-3-dark);
+        cursor: pointer
+    }
+
+    .learn-more-link:active {
+        color: var(--color-3)
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .class-card {
+        font-size: 1.1em;
+        min-width: 15em;
+        max-width: 20em;
+        width: 30%;
+    }
+}
