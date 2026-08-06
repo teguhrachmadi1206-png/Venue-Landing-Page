@@ -7,7 +7,7 @@ export default function ClassCard({ data, page, variant }) {
         <div key={data.id} className={`class-card ${data.type} ${page} ${variant}`}>
             <img className={`class-card-image ${variant}`} src={data.imgSrc} alt={data.imgAlt} />
             {page === "home" && <span className={`class-card-badge ${data.type}`}>{data.type === "regular" ? "Weekly Class" : "Special Workshop"}</span>}
-            {variant === "past" && <span className="past-badge">Past Workshop</span>}
+            {/* {variant === "past" && <span className="past-badge">Past Workshop</span>} */}
             <div className="class-card-content">
                 <div className="class-card-detail">
                     <h3 className={`class-card-title ${data.type} ${variant}`}>{data.title}</h3>

@@ -7,23 +7,14 @@ import Pagination from "../components/Pagination"
 import '../styles/Classes.css'
 
 export default function Classes({ media }) {
-    const [currentPage, setCurrentPage] = useState(1)
-    const [itemsShown, setItemsShown] = useState(1)
     const [classCards, setClassCards] = useState(programs)
     const [tabSelected, setTabSelected] = useState("regular")
+    const [currentPage, setCurrentPage] = useState(1)
     const classListStartRef = useRef(null)
     const selectedType = classCards.filter(item => item.type === tabSelected)
-    const displayClassCards = selectedType.slice((currentPage - 1) * itemsShown, itemsShown * currentPage)
-
-    function handleSetItemShown(e) {
-        setItemsShown(e)
-        setCurrentPage(1)
-    }
-
-    function handleSetCurrentPage(e) {
-        setCurrentPage(e)
-        classListStartRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
-    }
+    const classData = tabSelected === "regular"
+        ? selectedType
+        : selectedType.filter(item => new Date(item.date) > new Date)
 
     function selectRegular() {
         if (tabSelected !== "regular") {
@@ -41,13 +32,28 @@ export default function Classes({ media }) {
         }
     }
 
-    function MainClassPage() {
+    function ClassSection({ data, variant }) {
+        const [sectionCurrentPage, setSectionCurrentPage] = useState(currentPage)
+        const [itemsShown, setItemsShown] = useState(1)
+        const sectionListStartRef = useRef(null)
+        const displayClassCards = data.slice((sectionCurrentPage - 1) * itemsShown, itemsShown * sectionCurrentPage)
+
+        function handleSetItemShown(e) {
+            setItemsShown(e)
+            setSectionCurrentPage(1)
+        }
+
+        function handleSetSectionCurrentPage(e) {
+            setSectionCurrentPage(e)
+            sectionListStartRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
+        }
+
         return (
             <>
-                <section className="main-class-page">
-                    <span ref={classListStartRef}></span>
+                <section className="class-section">
+                    <span ref={sectionListStartRef}></span>
                     <div className="class-section-header">
-                        <h2 className="sub-title">Our {tabSelected === "regular" ? "Weekly Class" : "Workshop"}:</h2>
+                        <h2 className="sub-title">{tabSelected === "regular" ? "Our Weekly Class" : `${variant} Workshop`}:</h2>
                     </div>
                     <div className="class-page-card-container">
                         {displayClassCards.length > 0 &&
@@ -58,6 +64,14 @@ export default function Classes({ media }) {
                                 variant={new Date(item.date) < new Date ? "past" : "upcoming"}
                             />)}
                     </div >
+                    {classCards.length && <Pagination
+                        media={media}
+                        item="classes"
+                        totalEvents={data.length}
+                        itemShown={itemsShown}
+                        setItemsShown={(e) => handleSetItemShown(e)}
+                        currentPage={sectionCurrentPage}
+                        setCurrentPage={(e) => handleSetSectionCurrentPage(e)} />}
                 </section>
             </>
         )
@@ -72,15 +86,11 @@ export default function Classes({ media }) {
                     <button className={`tabs-btn ${tabSelected === "workshop" && 'tab-selected'}`} onClick={selectWorkshop}>Special Workshop</button>
                 </div>
             </div>
-            <MainClassPage />
-            {classCards.length && <Pagination
-                media={media}
-                item="classes"
-                totalEvents={selectedType.length}
-                itemShown={itemsShown}
-                setItemsShown={(e) => handleSetItemShown(e)}
-                currentPage={currentPage}
-                setCurrentPage={(e) => handleSetCurrentPage(e)} />}
+            <span ref={classListStartRef}></span>
+            <div className="main-class-page">
+                <ClassSection data={classData} variant="upcoming" />
+                {tabSelected === "workshop" && <ClassSection data={selectedType.filter(item => new Date(item.date) < new Date)} variant="past" />}
+            </div>
         </>
     )
 }
