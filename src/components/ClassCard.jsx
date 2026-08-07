@@ -11,10 +11,31 @@ export default function ClassCard({ data, page, variant }) {
             <div className="class-card-content">
                 <div className="class-card-detail">
                     <h3 className={`class-card-title ${data.type} ${variant}`}>{data.title}</h3>
-                    {page !== "home" && <h4 className={`class-card-sub-title ${data.type} ${variant}`}>{data.studio ? data.studio : data.organizer}</h4>}
-                    {data.type === "regular" && <p className={`class-desc ${data.type} ${variant}`}>Every {data.schedule}</p>}
-                    {data.type === "workshop" && <p className={`class-desc ${data.type} ${variant}`}>{formatDate(data.date)}</p>}
-                    <p className={`class-desc ${data.type} ${variant}`}>{data.time}</p>
+                    {page !== "home" &&
+                        <h4 className={`class-card-sub-title ${data.type} ${variant}`}>{data.studio ? data.studio : data.organizer}</h4>}
+                    {data.type === "regular" &&
+                        <p className={`class-desc ${data.type} ${variant}`}>
+                            {page === "class-page" &&
+                                <span className="class-detail-tag">Schedule: </span>}
+                            Every {data.schedule}</p>}
+                    {data.type === "workshop" &&
+                        <p className={`class-desc ${data.type} ${variant}`}>
+                            {page === "class-page" &&
+                                <span className={`class-detail-tag ${data.type} ${variant}`}>Date: </span>}
+                            {formatDate(data.date)}</p>}
+                    <p className={`class-desc ${data.type} ${variant}`}>
+                        {page === "class-page" &&
+                            <span className={`class-detail-tag ${data.type} ${variant}`}>Time: </span>}
+                        {data.time}</p>
+                    {page !== "home" && data.type === "regular" &&
+                        <p className={`class-desc ${data.type}`}>
+                            {page === "class-page" &&
+                                <span className={`class-detail-tag ${data.type} ${variant}`}>Level: </span>}
+                            {data.level}</p>}
+                    {page !== "home" && data.type === "workshop" &&
+                        <p className={`class-desc ${data.type} ${variant}`}>
+                            <span className={`class-detail-tag ${data.type} ${variant}`}>Status: </span>
+                            {data.status}</p>}
                 </div>
                 <a className={`learn-more-link ${data.type} ${variant}`}>Learn more</a>
             </div>

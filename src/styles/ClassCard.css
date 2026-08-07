@@ -19,6 +19,10 @@
     background-color: var(--color-1-lighter);
 }
 
+.class-card.class-page {
+    height: 13em;
+}
+
 .class-card.past {
     background: linear-gradient(90deg, var(--color-5), var(--color-5-dark));
 }
@@ -130,6 +134,19 @@
 
 .class-card-image.past {
     opacity: 0.6;
+}
+
+.class-detail-tag {
+    color: var(--color-1-lighter);
+    font-weight: bold;
+}
+
+.class-detail-tag.workshop {
+    color: var(--color-3-mid);
+}
+
+.class-detail-tag.workshop.past {
+    color: var(--color-4-lighter);
 }
 
 .learn-more-link {
