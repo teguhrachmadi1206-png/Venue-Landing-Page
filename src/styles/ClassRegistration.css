@@ -68,7 +68,11 @@
     color: var(--color-2);
 }
 
-@media screen and (min-width: 600px) {}
+@media screen and (min-width: 600px) {
+    .registration-item-content {
+        margin-left: 2em;
+    }
+}
 
 @media screen and (min-width: 992px) {
     .class-details-sub {

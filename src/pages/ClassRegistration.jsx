@@ -23,12 +23,33 @@ export default function ClassRegistration({ media }) {
     }
 
     function handleFormSubmit(e) {
+        function confirmRegistration() {
+            setModalContent(() => {
+                const newContent = {}
+                newContent.show = true
+                newContent.title = "Registration Received"
+                newContent.message = `Thank you for your interest in this ${program.type === "regular" ? "class" : "workshop"}. The organizer will contact you shortly to confirm your registration and provide further details.`
+                newContent.noBtn = <button className="modal-btn no-btn" onClick={() => setModalContent({ show: false })}>Close</button>
+                return newContent
+            })
+            setApplicantData({ name: "", email: "", phone: "" })
+        }
+
         e.preventDefault();
-        console.log(applicantData)
+        setModalContent(() => {
+            const newContent = {}
+            newContent.show = true
+            newContent.title = "Registration Confirm"
+            newContent.message = [`Confirm registration for "${program.title}" ${program.type === "regular" ? "class" : "workshop"} by "${program.organizer}"`, `Name: ${applicantData.name}`, `Email: ${applicantData.email}`, `Phone: ${applicantData.phone}`]
+            newContent.noBtn = <button className="modal-btn no-btn" onClick={() => setModalContent({ show: false })}>Cancel</button>
+            newContent.yesBtn = <button className="modal-btn yes-btn" onClick={confirmRegistration}>Yes</button>
+            return newContent
+        })
     }
 
     return (
         <div className="class-registration-main">
+            {modalContent.show && <CustomModal content={modalContent} />}
             <ClassBanner
                 media={media}
                 program={program}

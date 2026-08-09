@@ -10,7 +10,11 @@ export default function CustomModal({ content }) {
                 <div className="modal-overlay">
                     <div className="modal-content">
                         <h2 className="modal-title">{content.title}</h2>
-                        <p className="modal-text">{content.message}</p>
+                        {!Array.isArray(content.message) && <p className="modal-text">{content.message}</p>}
+                        {Array.isArray(content.message) &&
+                            <div className="modal-text-container">
+                                {content.message.map((item, id) => <p className="modal-text-list" key={id}>{item}</p>)}
+                            </div>}
                         <div className="modal-actions">
                             {content.noBtn}
                             {content.yesBtn}
