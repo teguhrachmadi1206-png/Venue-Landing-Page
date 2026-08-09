@@ -1,4 +1,4 @@
-.event-detail-section {
+.class-detail-section {
     min-height: calc(100vh - var(--header-height) - var(--footer-height) - var(--footer-margin-top) - 1em);
     display: flex;
     flex-direction: column;
@@ -7,11 +7,11 @@
     color: var(--color-1);
 }
 
-.event-detail-section.past {
+.class-detail-section.past {
     color: var(--color-5);
 }
 
-.event-details {
+.class-details {
     width: 90%;
     margin: 1em auto 0 auto;
 }
@@ -24,10 +24,10 @@
     border-bottom: 2px solid var(--color-1);
 }
 
-.event-details-tab {
+.class-details-tab {
     width: 40%;
     max-width: 6.5em;
-    height: 2em;
+    height: 3em;
     background-color: var(--color-1);
     color: var(--color-2);
     border: none;
@@ -40,30 +40,30 @@
     transition: ease-in-out;
 }
 
-.event-details-tab:hover {
+.class-details-tab:hover {
     background-color: var(--color-1-lighter);
 }
 
-.event-details-tab.past {
+.class-details-tab.past {
     background-color: var(--color-5);
 }
 
-.event-details-tab.past:hover {
+.class-details-tab.past:hover {
     background-color: var(--color-5-lighter);
 }
 
-.event-details-tab.selected {
+.class-details-tab.selected {
     background: linear-gradient(90deg, var(--color-3), var(--color-3-mid));
     color: var(--color-1);
     max-width: 7em;
     font-size: 1.2em;
 }
 
-.event-details-tab.selected.past {
+.class-details-tab.selected.past {
     color: var(--color-5);
 }
 
-.event-details-sub {
+.class-details-sub {
     width: 90%;
     margin: 0.5em auto;
     display: flex;
@@ -71,13 +71,13 @@
     gap: 0.5em;
 }
 
-.event-info-sub-title {
+.class-info-sub-title {
     background-color: var(--color-3-lighter);
     padding-left: 0.5em;
     border-radius: 2px;
 }
 
-.event-details-item {
+.class-details-item {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
@@ -96,29 +96,14 @@
     background: linear-gradient(90deg, var(--color-2-dark), var(--color-4));
 }
 
-.session-container {
-    display: flex;
-    gap: 0.5em;
-    padding: 0.3em;
-}
-
-.session {
-    border-radius: 0.3em;
-    padding: 0.1em 0.3em;
-    background: linear-gradient(90deg, var(--color-3-lighter), var(--color-3-mid-lighter));
-    font-weight: bold;
-    font-size: 0.9em;
-    color: var(--color-1);
-}
-
-.session.past {
-    color: var(--color-5)
+.class-item-content-detail.list {
+    margin-left: 2em;
 }
 
 @media screen and (min-width: 600px) {}
 
 @media screen and (min-width: 992px) {
-    .event-details {
+    .class-details {
         width: 75%;
     }
 }

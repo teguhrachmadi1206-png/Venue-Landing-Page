@@ -9,6 +9,7 @@
     box-shadow: 0.3em 0.3em 0.5em 0px var(--color-box-shadow);
     transition: background-color 0.2s ease-in-out;
     position: relative;
+    cursor: pointer;
 }
 
 .class-card.workshop {
@@ -27,7 +28,7 @@
     background: linear-gradient(90deg, var(--color-5), var(--color-5-dark));
 }
 
-.class-card.past:active {
+.class-card.past:hover {
     background: linear-gradient(90deg, var(--color-5-lighter), var(--color-5-dark-lighter));
 }
 

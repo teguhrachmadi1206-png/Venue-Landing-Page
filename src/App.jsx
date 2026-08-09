@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage'
 import Events from './pages/Events'
 import EventDetail from './pages/EventDetail';
+import ClassDetail from './pages/ClassDetail';
 import Venue from './pages/Venue'
 import Classes from './pages/Classes'
 import AboutUsPage from './pages/AboutUsPage'
@@ -76,6 +77,7 @@ function App() {
         <Route path="/venues" element={<Venue media={mediaCode} />} />
         <Route path="/venues/venue/:venueId" element={<VenueDetails media={mediaCode} />} />
         <Route path="/classes" element={<Classes media={mediaCode} />} />
+        <Route path="/classes/class/:programId" element={<ClassDetail media={mediaCode} />} />
         <Route path="/about" element={<AboutUsPage media={mediaCode} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

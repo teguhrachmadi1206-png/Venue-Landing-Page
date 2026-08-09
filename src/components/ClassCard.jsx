@@ -1,10 +1,17 @@
 import React from 'react'
 import { formatDate } from '../function/FormatDate'
+import { useNavigate } from 'react-router-dom'
 import '../styles/ClassCard.css'
 
 export default function ClassCard({ data, page, variant }) {
+    const navigate = useNavigate()
+
+    function goToDetail() {
+        navigate(`/classes/class/${data.id}`)
+    }
+
     return (
-        <div key={data.id} className={`class-card ${data.type} ${page} ${variant}`}>
+        <div key={data.id} className={`class-card ${data.type} ${page} ${variant}`} onClick={goToDetail}>
             <img className={`class-card-image ${variant}`} src={data.imgSrc} alt={data.imgAlt} />
             {page === "home" && <span className={`class-card-badge ${data.type}`}>{data.type === "regular" ? "Weekly Class" : "Special Workshop"}</span>}
             {/* {variant === "past" && <span className="past-badge">Past Workshop</span>} */}
@@ -37,7 +44,7 @@ export default function ClassCard({ data, page, variant }) {
                             <span className={`class-detail-tag ${data.type} ${variant}`}>Status: </span>
                             {data.status}</p>}
                 </div>
-                <a className={`learn-more-link ${data.type} ${variant}`}>Learn more</a>
+                {/* <a className={`learn-more-link ${data.type} ${variant}`} onClick={goToDetail}>Learn more</a> */}
             </div>
         </div>
     )
