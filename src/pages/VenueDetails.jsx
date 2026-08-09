@@ -5,11 +5,17 @@ import VenueBanner from "../components/VenueBanner"
 import '../styles/VenueDetails.css'
 import VenueSchedule from "../components/VenueSchedule"
 import { bookings, closures } from "../data/schedule"
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export default function VenueDetails({ media }) {
     const { venueId } = useParams()
     const [venue, setVenue] = useState([])
     const unavailableDates = [...setUnavailableDates(bookings), ...setUnavailableDates(closures)]
+    const pagePaths = [
+        { label: "Home", href: "/" },
+        { label: "Venue", href: "/venues" },
+        { label: (String(venue.title).length > 10 ? `${venue.title.slice(0, 10).trim()}...` : venue.title) }
+    ];
 
     useEffect(() => {
         const shownVenue = venueData.find((item) => item.venueId == venueId)
@@ -37,18 +43,14 @@ export default function VenueDetails({ media }) {
         return dates
     }
 
-    function test() {
-        console.log(unavailableDates)
-    }
-
     return (
-        <main>
+        <>
+            <Breadcrumbs paths={pagePaths} />
             <VenueBanner venue={venue} />
             <section className="venue-detail-section">
                 <h3 className="section-title">{venue.title} Schedule</h3>
                 <VenueSchedule venue={venue} unavailable={unavailableDates} media={media} />
             </section>
-            {/* <button onClick={test}>Test</button> */}
-        </main>
+        </>
     )
 }

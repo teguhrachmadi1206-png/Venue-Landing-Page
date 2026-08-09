@@ -1,0 +1,40 @@
+.breadcrumbs {
+    background: linear-gradient(90deg, var(--color-3-lighter), var(--color-3-mid));
+    color: var(--color-1);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 26px;
+    display: flex;
+    border: none;
+    padding: 0.3em 0.5em;
+    margin: 0;
+    position: sticky;
+    top: 85px;
+    z-index: 999;
+}
+
+.breadcrumb-item {
+    font-size: 0.8em;
+}
+
+.breadcrumb-label {
+    padding: 0 0.5em;
+}
+
+.breadcrumb-label.link:hover {
+    cursor: pointer;
+}
+
+.breadcrumb-label.here {
+    color: var(--color-3-dark);
+    font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
+    .breadcrumbs {
+        padding: 0.3em 2em;
+    }
+}
+
+@media screen and (min-width: 992px) {}

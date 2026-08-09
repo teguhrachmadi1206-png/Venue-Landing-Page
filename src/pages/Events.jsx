@@ -5,6 +5,7 @@ import EventCardComp from "../components/EventCard"
 import HeroSection from "../components/HeroSection"
 import Filter from "../components/Filter"
 import Pagination from "../components/Pagination"
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export default function Events({ media }) {
     const [currentPage, setCurrentPage] = useState(1)
@@ -12,6 +13,10 @@ export default function Events({ media }) {
     const [eventCards, setEventCards] = useState(events)
     const eventListStartRef = useRef(null)
     const displayEventCards = eventCards.slice((currentPage - 1) * itemsShown, itemsShown * currentPage)
+    const pagePaths = [
+        { label: "Home", href: "/" },
+        { label: "Events" }
+    ];
 
     function handleSetEventCards(e) {
         setEventCards(e)
@@ -52,6 +57,7 @@ export default function Events({ media }) {
 
     return (
         <>
+            <Breadcrumbs paths={pagePaths} />
             <HeroSection page="events" style="" />
             <Filter
                 items={events}

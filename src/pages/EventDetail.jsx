@@ -5,11 +5,17 @@ import { formatDate } from "../function/FormatDate"
 import "../styles/EventDetail.css"
 import CallToAction from "../components/CallToAction"
 import EventBanner from "../components/EventBanner"
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export default function EventDetail({ media }) {
     const { eventId } = useParams()
     const [event, setEvent] = useState([])
     const navigate = useNavigate()
+    const pagePaths = [
+        { label: "Home", href: "/" },
+        { label: "Events", href: "/events" },
+        { label: (String(event.title).length > 10 ? `${event.title.slice(0, 10).trim()}...` : event.title) }
+    ];
 
     const isPastEvent = new Date(event.endDateTime) < new Date ? true : false
 
@@ -72,6 +78,7 @@ export default function EventDetail({ media }) {
 
     return (
         <>
+            <Breadcrumbs paths={pagePaths} />
             <div className={`event-detail-section ${isPastEvent && "past"}`}>
                 <EventBanner
                     media={media}

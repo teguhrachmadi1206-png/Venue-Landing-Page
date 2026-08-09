@@ -8,6 +8,7 @@ import Seats from "../components/Seats"
 import Legends from "../components/Legends"
 import CustomModal from "../components/CustomModal"
 import "../styles/TicketReservation.css"
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export default function TicketReservation({ media }) {
     const { eventId } = useParams()
@@ -19,6 +20,12 @@ export default function TicketReservation({ media }) {
     const [seatStatus, setSeatStatus] = useState({})
     const [modalContent, setModalContent] = useState({ show: false })
     const checkoutRef = useRef(null)
+    const pagePaths = [
+        { label: "Home", href: "/" },
+        { label: "Events", href: "/events" },
+        { label: (String(event.title).length > 10 ? `${event.title.slice(0, 10).trim()}...` : event.title), href: `/events/event/${eventId}` },
+        { label: "Reservations" },
+    ];
 
     useEffect(() => {
         const shownEvent = events.find((item) => item.id == eventId)
@@ -179,16 +186,19 @@ export default function TicketReservation({ media }) {
     }
 
     return (
-        <div className="ticket-reservation-main">
-            {modalContent.show && <CustomModal content={modalContent} />}
-            <span ref={checkoutRef}></span>
-            <EventBanner
-                media={media}
-                event={event}
-                page="ticket" />
-            {new Date(event.dateTime) > new Date() && !confirmCheckout && <Selector />}
-            {new Date(event.dateTime) > new Date() && confirmCheckout && <CheckOut />}
-            {new Date(event.dateTime) < new Date() && <NotAvailable />}
-        </div>
+        <>
+            <Breadcrumbs paths={pagePaths} />
+            <div className="ticket-reservation-main">
+                {modalContent.show && <CustomModal content={modalContent} />}
+                <span ref={checkoutRef}></span>
+                <EventBanner
+                    media={media}
+                    event={event}
+                    page="ticket" />
+                {new Date(event.dateTime) > new Date() && !confirmCheckout && <Selector />}
+                {new Date(event.dateTime) > new Date() && confirmCheckout && <CheckOut />}
+                {new Date(event.dateTime) < new Date() && <NotAvailable />}
+            </div>
+        </>
     )
 }

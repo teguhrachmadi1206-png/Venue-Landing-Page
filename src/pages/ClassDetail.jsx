@@ -5,11 +5,17 @@ import { formatDate } from "../function/FormatDate"
 import "../styles/ClassDetail.css"
 import CallToAction from "../components/CallToAction"
 import ClassBanner from "../components/ClassBanner"
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export default function ClassDetail({ media }) {
     const { programId } = useParams()
     const [program, setProgram] = useState([])
     const navigate = useNavigate()
+    const pagePaths = [
+        { label: "Home", href: "/" },
+        { label: "Class", href: "/classes" },
+        { label: (String(program.title).length > 10 ? `${program.title.slice(0, 10).trim()}...` : program.title) }
+    ];
 
     const isPastWorkshop = program.type === "workshop"
         && new Date(program.date) < new Date
@@ -117,17 +123,20 @@ export default function ClassDetail({ media }) {
     }
 
     return (
-        <div className={`class-detail-section ${isPastWorkshop && "past"}`}>
-            <ClassBanner
-                media={media}
-                program={program}
-                page="detail" />
-            <CallToAction
-                text={program.type === "workshop" && (isPastWorkshop || remainingSlots < 1) ? "Registration Closed" : "Register Now"}
-                isDisabled={isPastWorkshop || remainingSlots < 1}
-                handler={register}
-            />
-            <ClassDetails />
-        </div>
+        <>
+            <Breadcrumbs paths={pagePaths} />
+            <div className={`class-detail-section ${isPastWorkshop && "past"}`}>
+                <ClassBanner
+                    media={media}
+                    program={program}
+                    page="detail" />
+                <CallToAction
+                    text={program.type === "workshop" && (isPastWorkshop || remainingSlots < 1) ? "Registration Closed" : "Register Now"}
+                    isDisabled={isPastWorkshop || remainingSlots < 1}
+                    handler={register}
+                />
+                <ClassDetails />
+            </div>
+        </>
     )
 }

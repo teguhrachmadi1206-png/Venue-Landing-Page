@@ -1,15 +1,18 @@
 import HeroSection from "../components/HeroSection"
 import VenueCard from "../components/VenueCard"
+import Breadcrumbs from "../components/Breadcrumbs";
 import { venueData } from "../data/venue"
 import "../styles/VenuePages.css"
 
 export default function Venue({ media }) {
-    function test() {
-        console.log(media)
-    }
+    const pagePaths = [
+        { label: "Home", href: "/" },
+        { label: "Venues" }
+    ];
 
     return (
         <>
+            <Breadcrumbs paths={pagePaths} />
             <HeroSection page="venue" style="border" />
             <section>
                 <div className="venue-card-container">
@@ -19,7 +22,6 @@ export default function Venue({ media }) {
                         )
                     })}
                 </div>
-                {/* <button onClick={test}>TEST</button> */}
             </section >
         </>
     )

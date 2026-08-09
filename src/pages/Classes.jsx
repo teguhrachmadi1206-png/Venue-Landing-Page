@@ -4,9 +4,14 @@ import HeroSection from "../components/HeroSection";
 import ClassCard from '../components/ClassCard'
 import Filter from "../components/Filter"
 import Pagination from "../components/Pagination"
+import Breadcrumbs from "../components/Breadcrumbs";
 import '../styles/Classes.css'
 
 export default function Classes({ media }) {
+    const pagePaths = [
+        { label: "Home", href: "/" },
+        { label: "Class" }
+    ];
     const [classCards, setClassCards] = useState(programs)
     const [tabSelected, setTabSelected] = useState("regular")
     const [currentPage, setCurrentPage] = useState(1)
@@ -79,6 +84,7 @@ export default function Classes({ media }) {
 
     return (
         <>
+            <Breadcrumbs paths={pagePaths} />
             <HeroSection page="class" style="border" />
             <div className="filter-search-container">
                 <div className="tabs-container">
