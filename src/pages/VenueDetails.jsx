@@ -46,11 +46,13 @@ export default function VenueDetails({ media }) {
     return (
         <>
             <Breadcrumbs paths={pagePaths} />
-            <VenueBanner venue={venue} />
-            <section className="venue-detail-section">
-                <h3 className="section-title">{venue.title} Schedule</h3>
-                <VenueSchedule venue={venue} unavailable={unavailableDates} media={media} />
-            </section>
+            <main>
+                <VenueBanner venue={venue} />
+                <section className="venue-detail-section">
+                    <h3 className="section-title">{venue.title} Schedule</h3>
+                    <VenueSchedule venue={venue} unavailable={unavailableDates} media={media} />
+                </section>
+            </main>
         </>
     )
 }

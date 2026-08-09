@@ -43,9 +43,9 @@
   --text-shadow-gold: 0px 0px 3px var(--color-3);
   --margin-section: 0 0 0 0;
   --header-height: 85px;
-  --hero-banner-mobile-height: 12em;
-  --hero-banner-tablet-height: 18em;
-  --hero-banner-desktop-height: 25em;
+  --hero-banner-mobile-height: 15em;
+  --hero-banner-tablet-height: 23em;
+  --hero-banner-desktop-height: calc(100vh - 110px);
   --footer-height: 12em;
   --footer-margin-top: 2em;
   --min-search-height: 7em;
