@@ -20,7 +20,7 @@ export default function EventBanner({ media, event, page }) {
                     </div>
                 </div>
             </FocusTrap>}
-            <img className={`event-poster ${page}`} src={event.posterSrc} alt={event.posterAlt} onClick={page === "detail" && showPoster} />
+            <img className={`event-poster ${page}`} src={event.posterSrc} alt={event.posterAlt} onClick={showPoster} />
             <div className={`event-info ${page}`}>
                 <div className={`event-info-title ${isPastEvent && "past"} ${page}`}>
                     <h2 className="event-title">{event.title}</h2>

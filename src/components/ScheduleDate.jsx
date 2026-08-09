@@ -15,7 +15,7 @@ export default function ScheduleDate({ media, date, status, empty, fullDate, sel
     }
 
     function selectDate(date) {
-        if (!selected) {
+        if (!selected && available) {
             setUserSelection(prev => [...prev, date])
         } else {
             setUserSelection(prev => prev.filter(item => item !== date))

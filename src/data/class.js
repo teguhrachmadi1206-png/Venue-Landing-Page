@@ -315,7 +315,7 @@ export const programs = [
     time: "06:30 PM - 09:00 PM",
     duration: "12 Sessions",
     price: "$60 / month",
-    location: "Auditorium",
+    location: "Rehearsal Room",
     status: "Open",
     description:
       "Build confidence on stage through acting exercises, improvisation, character development, voice projection, and ensemble performance.",
@@ -368,6 +368,7 @@ export const programs = [
     duration: "1 Day",
     location: "Auditorium",
     capacity: 80,
+    filledCapacity: 75,
     price: "$20",
     status: "Registration Open",
     description:
@@ -425,11 +426,12 @@ export const programs = [
       { name: "Rizal Firmansyah", role: "Moderator" },
     ],
     level: "Beginner",
-    date: "2026-10-03T10:00:00",
+    date: "2026-10-22T10:00:00",
     time: "10:00 AM - 03:00 PM",
     duration: "1 Day",
     location: "Auditorium",
     capacity: 40,
+    filledCapacity: 30,
     price: "$25",
     status: "Registration Open",
     description:
@@ -494,8 +496,9 @@ export const programs = [
     duration: "Half Day",
     location: "Rehearsal Room",
     capacity: 30,
+    filledCapacity: 30,
     price: "$18",
-    status: "Registration Open",
+    status: "Registration Closed",
     description:
       "Explore traditional costume styling and stage makeup techniques inspired by Sundanese performing arts.",
     learningTopics: [
@@ -558,6 +561,7 @@ export const programs = [
     duration: "1 Day",
     location: "Rehearsal Room",
     capacity: 35,
+    filledCapacity: 17,
     price: "$22",
     status: "Registration Open",
     description:
@@ -621,6 +625,7 @@ export const programs = [
     duration: "1 Day",
     location: "Rehearsal Room",
     capacity: 25,
+    filledCapacity: 21,
     price: "$30",
     status: "Registration Open",
     description:
@@ -685,6 +690,7 @@ export const programs = [
     duration: "1 Day",
     location: "Rehearsal Room",
     capacity: 45,
+    filledCapacity: 35,
     price: "$18",
     status: "Completed",
     description:
@@ -747,6 +753,7 @@ export const programs = [
     duration: "1 Day",
     location: "Auditorium",
     capacity: 30,
+    filledCapacity: 17,
     price: "$22",
     status: "Completed",
     description:
@@ -811,6 +818,7 @@ export const programs = [
     duration: "1 Day",
     location: "Rehearsal Room",
     capacity: 35,
+    filledCapacity: 32,
     price: "$15",
     status: "Completed",
     description:

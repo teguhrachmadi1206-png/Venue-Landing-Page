@@ -7,6 +7,12 @@
     position: relative;
 }
 
+.class-banner.registration {
+    flex-direction: row;
+    gap: 0.3em;
+    margin-bottom: 0.5em;
+}
+
 .class-poster {
     max-height: 40vh;
     object-position: center top;
@@ -18,11 +24,26 @@
     position: relative;
 }
 
+.class-poster.registration {
+    width: 20%;
+    height: stretch;
+    border: 1px solid var(--color-3-dark);
+    border-radius: 0.5em;
+    box-shadow: none;
+    cursor: default;
+}
+
 .class-info {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.class-info.registration {
+    width: 80%;
+    font-size: 0.7em;
+    height: stretch;
 }
 
 .class-info-title {
@@ -33,6 +54,12 @@
     background-color: var(--color-1);
     border-radius: 1em 1em 0 0;
     padding: 0.3em 0;
+}
+
+.class-info-title.registration {
+    border-radius: 0.5em 2em 0 0;
+    text-align: left;
+    padding: 0.5em 2em 0.5em 2em;
 }
 
 .class-info-title.past {
@@ -59,12 +86,23 @@
     background: linear-gradient(-90deg, var(--color-2), var(--color-4));
 }
 
+.class-info-content.registration {
+    padding: 0.5em 2em;
+    border-radius: 0 0 2em 0.5em;
+    height: stretch;
+    justify-content: center;
+}
+
 .class-info-row {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+}
+
+.class-info-row.registration {
+    width: 75%
 }
 
 .class-info-row-title {
@@ -112,10 +150,25 @@
         margin: 0 auto;
     }
 
+    .class-banner.registration {
+        flex-direction: row;
+        gap: 0.3em;
+        margin: 0 auto;
+        max-width: 50em;
+    }
+
     .class-poster {
         height: stretch;
         max-height: 50vh;
         width: 30%;
+        box-shadow: none;
+    }
+
+    .class-poster.registration {
+        width: auto;
+        max-height: 9em;
+        border: 1px solid var(--color-3-dark);
+        border-radius: 0.5em;
         box-shadow: none;
     }
 
@@ -139,6 +192,28 @@
 
     .class-row-content {
         text-align: left;
+    }
+
+    .class-info.registration {
+        width: stretch;
+        font-size: 1em;
+        height: stretch;
+    }
+
+    .class-info-title.registration {
+        border-radius: 0.5em 2em 0 0;
+        text-align: left;
+        padding: 0.5em 2em 0 2em;
+    }
+
+    .class-info-content.registration {
+        padding: 0.5em 2em;
+        border-radius: 0 0 2em 0.5em;
+        height: stretch;
+    }
+
+    .class-info-row.registration {
+        width: 75%
     }
 }
 

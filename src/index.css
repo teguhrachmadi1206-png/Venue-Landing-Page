@@ -160,6 +160,7 @@ section {
   display: flex;
   justify-content: center;
   text-align: center;
+  z-index: 999;
 }
 
 @media screen and (min-width: 600px) {

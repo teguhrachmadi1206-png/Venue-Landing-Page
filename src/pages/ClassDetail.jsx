@@ -16,6 +16,8 @@ export default function ClassDetail({ media }) {
         ? true
         : false
 
+    const remainingSlots = program.type === "workshop" ? program.capacity - program.filledCapacity : 1
+
     function register() {
         navigate(`/classes/registration/${program.id}`)
     }
@@ -121,8 +123,8 @@ export default function ClassDetail({ media }) {
                 program={program}
                 page="detail" />
             <CallToAction
-                text={program.type === "workshop" && isPastWorkshop ? "Registration Closed" : "Register Now"}
-                isDisabled={isPastWorkshop}
+                text={program.type === "workshop" && (isPastWorkshop || remainingSlots < 1) ? "Registration Closed" : "Register Now"}
+                isDisabled={isPastWorkshop || remainingSlots < 1}
                 handler={register}
             />
             <ClassDetails />

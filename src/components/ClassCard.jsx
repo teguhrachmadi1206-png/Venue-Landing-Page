@@ -5,6 +5,7 @@ import '../styles/ClassCard.css'
 
 export default function ClassCard({ data, page, variant }) {
     const navigate = useNavigate()
+    const remainingSlots = data.type === "workshop" && data.capacity - data.filledCapacity
 
     function goToDetail() {
         navigate(`/classes/class/${data.id}`)
@@ -42,7 +43,7 @@ export default function ClassCard({ data, page, variant }) {
                     {page !== "home" && data.type === "workshop" &&
                         <p className={`class-desc ${data.type} ${variant}`}>
                             <span className={`class-detail-tag ${data.type} ${variant}`}>Status: </span>
-                            {data.status}</p>}
+                            {remainingSlots > 0 ? "Registration Open" : "Registration Closed"}</p>}
                 </div>
                 {/* <a className={`learn-more-link ${data.type} ${variant}`} onClick={goToDetail}>Learn more</a> */}
             </div>
