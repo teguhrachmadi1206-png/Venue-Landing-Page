@@ -180,6 +180,7 @@ The project currently uses local/static data rather than a backend database.
 
 ## Project Structure
 
+```text
 src/ 
 ├── assets/ 
 │ ├── images 
@@ -215,7 +216,7 @@ src/
 │ 
 ├── App.jsx 
 └── main.jsx
-
+```
 
 ---
 
