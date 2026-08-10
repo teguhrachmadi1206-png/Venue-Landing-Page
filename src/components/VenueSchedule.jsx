@@ -8,7 +8,7 @@ import CallToAction from "./CallToAction"
 import CustomModal from "./CustomModal"
 import { venueData } from "../data/venue"
 
-export default function VenueSchedule({ media, venue, unavailable }) {
+export default function VenueSchedule({ media, venue, unavailable, setUnavailableDates }) {
     const [monthSelected, setMonthSelected] = useState(Number(new Date().toLocaleDateString().split("/")[0]) - 1)
     const [yearSelected, setYearSelected] = useState(Number(new Date().toLocaleDateString().split("/")[2]))
     const [message, setMessage] = useState(null)
@@ -98,7 +98,24 @@ export default function VenueSchedule({ media, venue, unavailable }) {
     function bookDate() {
         let datesToBook = '';
         const selection = [...userSelection].sort((a, b) => a.localeCompare(b))
-        console.log(selection, userSelection)
+
+        function confirmSelection() {
+            setUnavailableDates(prev => {
+                const newArray = []
+                userSelection.map(item => newArray.push({ date: item, status: "pending" }))
+                return [...prev, ...newArray]
+            })
+            setUserSelection([])
+            setModalContent(() => {
+                const newContent = {}
+                newContent.show = true
+                newContent.title = "Booking Request Submitted"
+                newContent.message = ["Thank you for submitting your venue booking request.", "Your request has been received and is currently pending review by our venue team. We will review the requested date and booking details before confirming availability.", "The booking will only be considered confirmed after you receive confirmation from our team."]
+                newContent.noBtn = <button className="modal-btn no-btn" onClick={() => setModalContent({ show: false })}>Close</button>
+                return newContent
+            })
+        }
+
         for (let i = 0; i < selection.length; i++) {
             const full = new Date(selection[i]).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' })
             datesToBook += `[${full}]`
@@ -110,15 +127,11 @@ export default function VenueSchedule({ media, venue, unavailable }) {
             const newContent = {}
             newContent.show = true
             newContent.title = "Book Confirmation"
-            newContent.message = `Confirm book for ${venue.title}: ${datesToBook}, proceeds?`
+            newContent.message = [`Confirm book for ${venue.title}:`, `${datesToBook}, proceeds?`]
             newContent.noBtn = <button className="modal-btn no-btn" onClick={() => setModalContent({ show: false })}>No</button>
-            newContent.yesBtn = <button className="modal-btn yes-btn" onClick={() => setModalContent({ show: false })}>Yes</button>
+            newContent.yesBtn = <button className="modal-btn yes-btn" onClick={confirmSelection}>Yes</button>
             return newContent
         })
-    }
-
-    function test() {
-        console.log(monthSelected)
     }
 
     return (
@@ -176,8 +189,7 @@ export default function VenueSchedule({ media, venue, unavailable }) {
                 })}
             </div>
             {media === 1 && <Legends available="Available" onHold="Awaiting Confimation" taken="Event Confirmed" unavailable="Not Available" />}
-            <CallToAction text="Book Now" isDisabled={!userSelection.length} handler={bookDate} />
-            {/* <button onClick={test}>Test</button> */}
+            <CallToAction text="Book This Date" isDisabled={!userSelection.length} handler={bookDate} />
         </div>
     )
 }

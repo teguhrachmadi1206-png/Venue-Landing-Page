@@ -153,8 +153,7 @@
     .class-banner.registration {
         flex-direction: row;
         gap: 0.3em;
-        margin: 0 auto;
-        max-width: 50em;
+        margin: 1em auto;
     }
 
     .class-poster {
@@ -220,6 +219,10 @@
 @media screen and (min-width: 992px) {
     .class-banner {
         width: 75%;
+    }
+
+    .class-banner.registration {
+        width: 60%;
     }
 
     .class-poster {

@@ -36,7 +36,7 @@ export default function ClassRegistration({ media }) {
                 const newContent = {}
                 newContent.show = true
                 newContent.title = "Registration Received"
-                newContent.message = `Thank you for your interest in this ${program.type === "regular" ? "class" : "workshop"}. The organizer will contact you shortly to confirm your registration and provide further details.`
+                newContent.message = [`Thank you for your interest in this ${program.type === "regular" ? "class" : "workshop"}.`, "The organizer will contact you shortly to confirm your registration and provide further details."]
                 newContent.noBtn = <button className="modal-btn no-btn" onClick={() => setModalContent({ show: false })}>Close</button>
                 return newContent
             })

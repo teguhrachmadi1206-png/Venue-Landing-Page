@@ -38,6 +38,13 @@
     font-size: 1.1em;
 }
 
+.modal-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    text-align: justify;
+}
+
 .modal-btn {
     width: 50%;
     max-width: 7em;

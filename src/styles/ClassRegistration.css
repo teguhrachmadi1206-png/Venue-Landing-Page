@@ -47,35 +47,36 @@
 }
 
 .form-button {
-    width: 50%;
-    max-width: 8em;
+    width: 40%;
+    min-height: 3em;
     padding: 0.5em 1em;
-    border-radius: 1em;
+    border-radius: 0.5em;
     border: none;
     font-weight: bold;
-    background-color: var(--color-3-dark);
-    color: var(--color-2);
+    background: linear-gradient(135deg, var(--color-cta-1), var(--color-cta-2));
+    color: var(--color-1);
     margin: 1em 0;
+    text-align: center;
 }
 
 .form-button:hover {
-    background-color: var(--color-3-lighter);
-    color: var(--color-1-lighter);
+    background: linear-gradient(135deg, var(--color-1-lighter), var(--color-1));
+    color: var(--color-2);
 }
 
 .form-button:active {
-    background-color: var(--color-3-mid);
-    color: var(--color-2);
+    background: linear-gradient(135deg, var(--color-4), var(--color-4-dark));
+    color: var(--color-1);
 }
 
 @media screen and (min-width: 600px) {
     .registration-item-content {
         margin-left: 2em;
     }
-}
 
-@media screen and (min-width: 992px) {
-    .class-details-sub {
-        width: 60%;
+    .form-field {
+        padding: 0.2em 0.5em;
     }
 }
+
+@media screen and (min-width: 992px) {}

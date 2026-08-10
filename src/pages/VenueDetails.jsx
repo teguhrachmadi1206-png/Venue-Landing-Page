@@ -10,7 +10,10 @@ import Breadcrumbs from "../components/Breadcrumbs";
 export default function VenueDetails({ media }) {
     const { venueId } = useParams()
     const [venue, setVenue] = useState([])
-    const unavailableDates = [...setUnavailableDates(bookings), ...setUnavailableDates(closures)]
+    const [bookingStatus, setBookingStatus] = useState("none")
+    const confirmedDate = filterUnavailableDates(bookings)
+    const closureDates = filterUnavailableDates(closures)
+    const [unavailableDates, setUnavailableDates] = useState([...confirmedDate, ...closureDates])
     const pagePaths = [
         { label: "Home", href: "/" },
         { label: "Venue", href: "/venues" },
@@ -22,7 +25,7 @@ export default function VenueDetails({ media }) {
         setVenue(shownVenue)
     }, [venueId])
 
-    function setUnavailableDates(schedule) {
+    function filterUnavailableDates(schedule) {
         const schedules = schedule.filter(item => item.venueId === venueId)
         const dates = []
         for (let i = 0; i < schedules.length; i++) {
@@ -50,7 +53,7 @@ export default function VenueDetails({ media }) {
                 <VenueBanner venue={venue} />
                 <section className="venue-detail-section">
                     <h3 className="section-title">{venue.title} Schedule</h3>
-                    <VenueSchedule venue={venue} unavailable={unavailableDates} media={media} />
+                    <VenueSchedule venue={venue} unavailable={unavailableDates} setUnavailableDates={setUnavailableDates} media={media} />
                 </section>
             </main>
         </>

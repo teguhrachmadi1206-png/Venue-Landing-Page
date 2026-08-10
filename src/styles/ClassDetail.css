@@ -100,10 +100,18 @@
     margin-left: 2em;
 }
 
-@media screen and (min-width: 600px) {}
+@media screen and (min-width: 600px) {
+    .class-details-sub {
+        width: 90%;
+    }
+}
 
 @media screen and (min-width: 992px) {
     .class-details {
         width: 75%;
+    }
+
+    .class-details-sub {
+        width: 60%;
     }
 }
