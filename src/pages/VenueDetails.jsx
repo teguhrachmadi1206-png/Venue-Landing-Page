@@ -101,32 +101,32 @@ export default function VenueDetails({ media }) {
                 </div>
                 <div className="booking-form">
                     <div className="booking-form-row">
-                        <label className="form-label" htmlFor="name">Name:</label>
-                        <input type="text" id="name" name="name" value={applicantData.name} onChange={handleFormChange} placeholder="e.g. John" className="form-field" required></input>
+                        <label className="booking-form-label" htmlFor="name">Name:</label>
+                        <input type="text" id="name" name="name" value={applicantData.name} onChange={handleFormChange} placeholder="e.g. John" className="booking-form-field" required></input>
                     </div>
                     <div className="booking-form-row">
-                        <label className="form-label" htmlFor="email">Email:</label>
-                        <input type="email" id="email" name="email" value={applicantData.email} onChange={handleFormChange} placeholder="e.g. john@gmail.com" className="form-field" required></input>
+                        <label className="booking-form-label" htmlFor="email">Email:</label>
+                        <input type="email" id="email" name="email" value={applicantData.email} onChange={handleFormChange} placeholder="e.g. john@gmail.com" className="booking-form-field" required></input>
                     </div>
                     <div className="booking-form-row">
-                        <label className="form-label" htmlFor="phone">Phone:</label>
-                        <input type="tel" id="phone" name="phone" value={applicantData.phone} onChange={handleFormChange} placeholder="e.g. 1232918123" className="form-field" required></input>
+                        <label className="booking-form-label" htmlFor="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" value={applicantData.phone} onChange={handleFormChange} placeholder="e.g. 1232918123" className="booking-form-field" required></input>
                     </div>
                     <div className="booking-form-row">
-                        <label className="form-label" htmlFor="community">Community / Studio Name:</label>
-                        <input type="text" id="community" name="community" value={applicantData.community} onChange={handleFormChange} placeholder="e.g. Easterns Studio" className="form-field" required></input>
+                        <label className="booking-form-label" htmlFor="community">Community / Studio Name:</label>
+                        <input type="text" id="community" name="community" value={applicantData.community} onChange={handleFormChange} placeholder="e.g. Easterns Studio" className="booking-form-field" required></input>
                     </div>
                     <div className="booking-form-row">
-                        <label className="form-label" htmlFor="event">{venue.venueId === "auditorium" ? "Event Type" : "Agenda"}</label>
-                        <input type="text" id="event" name="event" value={applicantData.event} onChange={handleFormChange} placeholder={`e.g. ${venue.venueId === "auditorium" ? "Theatre Event" : "Music Rehearsal"}`} className="form-field" required></input>
+                        <label className="booking-form-label" htmlFor="event">{venue.venueId === "auditorium" ? "Event Type" : "Agenda"}</label>
+                        <input type="text" id="event" name="event" value={applicantData.event} onChange={handleFormChange} placeholder={`e.g. ${venue.venueId === "auditorium" ? "Theatre Event" : "Music Rehearsal"}`} className="booking-form-field" required></input>
                     </div>
                     <div className="booking-form-row">
-                        <label className="form-label" htmlFor="attendance">Expected Attendance:</label>
-                        <input type="number" id="attendance" name="attendance" value={applicantData.attendance} onChange={handleFormChange} placeholder="e.g. 300" className="form-field" required></input>
+                        <label className="booking-form-label" htmlFor="attendance">Expected Attendance:</label>
+                        <input type="number" id="attendance" name="attendance" value={applicantData.attendance} onChange={handleFormChange} placeholder="e.g. 300" className="booking-form-field" required></input>
                     </div>
                     <div className="booking-button-container">
-                        <button className="form-button cancel" onClick={handleCancelBooking}>Cancel</button>
-                        <button className="form-button" onClick={handleFormSubmit}>Submit Data</button>
+                        <button className="booking-form-button cancel" onClick={handleCancelBooking}>Cancel</button>
+                        <button className="booking-form-button" onClick={handleFormSubmit}>Submit Data</button>
                     </div>
                 </div>
             </section >

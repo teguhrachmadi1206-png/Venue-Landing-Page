@@ -27,19 +27,20 @@
 }
 
 .form-label {
-    max-width: 5em;
+    width: 25%;
 }
 
 .separator {
     width: 5%;
+    max-width: 1em;
 }
 
 .form-field {
-    width: auto;
+    width: stretch;
     height: 90%;
     border-radius: 0.3em;
     border: 1px solid var(--color-1-lighter);
-    padding: 0.2em;
+    padding: 0.2em 0.5em;
     background: linear-gradient(-90deg, var(--color-4), var(--color-2-dark));
     color: var(--color-1-dark)
 }
@@ -72,17 +73,9 @@
         margin-left: 2em;
     }
 
-    /* .registration-form-row {
-        width: 100%;
-    }
-
     .form-label {
-        width: 10em;
+        width: 15%;
     }
-
-    .separator {
-        width: 5%;
-    } */
 
     .form-field {
         padding: 0.2em 0.5em;
