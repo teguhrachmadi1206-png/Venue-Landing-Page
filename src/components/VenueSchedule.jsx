@@ -8,7 +8,7 @@ import CallToAction from "./CallToAction"
 import CustomModal from "./CustomModal"
 import { venueData } from "../data/venue"
 
-export default function VenueSchedule({ media, venue, unavailable, setUnavailableDates }) {
+export default function VenueSchedule({ media, venue, unavailable, setUnavailableDates, setBookedDate, setBookingStatus, pageStartRef }) {
     const [monthSelected, setMonthSelected] = useState(Number(new Date().toLocaleDateString().split("/")[0]) - 1)
     const [yearSelected, setYearSelected] = useState(Number(new Date().toLocaleDateString().split("/")[2]))
     const [message, setMessage] = useState(null)
@@ -100,11 +100,11 @@ export default function VenueSchedule({ media, venue, unavailable, setUnavailabl
         const selection = [...userSelection].sort((a, b) => a.localeCompare(b))
 
         function confirmSelection() {
-            setUnavailableDates(prev => {
-                const newArray = []
-                userSelection.map(item => newArray.push({ date: item, status: "pending" }))
-                return [...prev, ...newArray]
-            })
+            const newArray = []
+            pageStartRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
+            userSelection.map(item => newArray.push({ date: item, status: "pending" }))
+            setBookedDate(newArray)
+            setBookingStatus("form")
             setUserSelection([])
             setModalContent(() => {
                 const newContent = {}

@@ -64,11 +64,15 @@
 }
 
 .class-details-sub {
-    width: 90%;
+    width: 100%;
     margin: 0.5em auto;
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+}
+
+.class-details-sub.registration {
+    width: 90%;
 }
 
 .class-info-sub-title {
@@ -102,7 +106,7 @@
 
 @media screen and (min-width: 600px) {
     .class-details-sub {
-        width: 90%;
+        width: 100%;
     }
 }
 
@@ -111,7 +115,7 @@
         width: 75%;
     }
 
-    .class-details-sub {
-        width: 60%;
+    .class-details-sub.registration {
+        width: 80%;
     }
 }

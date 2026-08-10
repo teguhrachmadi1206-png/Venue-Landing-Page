@@ -20,16 +20,14 @@
 }
 
 .registration-form-row {
-    display: flex;
     width: 100%;
+    display: flex;
     height: 2em;
-    gap: 0.5em;
-    justify-content: space-between;
     align-items: center;
 }
 
 .form-label {
-    width: 20%;
+    max-width: 5em;
 }
 
 .separator {
@@ -37,7 +35,7 @@
 }
 
 .form-field {
-    width: 75%;
+    width: auto;
     height: 90%;
     border-radius: 0.3em;
     border: 1px solid var(--color-1-lighter);
@@ -73,6 +71,18 @@
     .registration-item-content {
         margin-left: 2em;
     }
+
+    /* .registration-form-row {
+        width: 100%;
+    }
+
+    .form-label {
+        width: 10em;
+    }
+
+    .separator {
+        width: 5%;
+    } */
 
     .form-field {
         padding: 0.2em 0.5em;

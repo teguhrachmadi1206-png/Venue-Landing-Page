@@ -8,6 +8,7 @@ import CustomModal from "../components/CustomModal"
 import Breadcrumbs from "../components/Breadcrumbs";
 
 export default function ClassRegistration({ media }) {
+    const navigate = useNavigate()
     const { programId } = useParams()
     const [program, setProgram] = useState([])
     const [applicantData, setApplicantData] = useState({ name: "", email: "", phone: "" })
@@ -32,12 +33,17 @@ export default function ClassRegistration({ media }) {
 
     function handleFormSubmit(e) {
         function confirmRegistration() {
+            function closePage() {
+                setModalContent({ show: false })
+                navigate(`/classes/class/${programId}`)
+            }
+
             setModalContent(() => {
                 const newContent = {}
                 newContent.show = true
                 newContent.title = "Registration Received"
                 newContent.message = [`Thank you for your interest in this ${program.type === "regular" ? "class" : "workshop"}.`, "The organizer will contact you shortly to confirm your registration and provide further details."]
-                newContent.noBtn = <button className="modal-btn no-btn" onClick={() => setModalContent({ show: false })}>Close</button>
+                newContent.noBtn = <button className="modal-btn no-btn" onClick={closePage}>Close</button>
                 return newContent
             })
             setApplicantData({ name: "", email: "", phone: "" })
@@ -64,7 +70,7 @@ export default function ClassRegistration({ media }) {
                     media={media}
                     program={program}
                     page="registration" />
-                <div className="class-details-sub">
+                <div className="class-details-sub registration">
                     <div className="class-details-item">
                         <h3 className="class-info-sub-title">Summary</h3>
                         <div className="registration-item-content">
